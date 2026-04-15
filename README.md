@@ -22,7 +22,7 @@ It is intended to hold:
 Add the repository as a tap:
 
 ```bash
-hermes skills tap add arm2arm/AstroAgentAssistant-
+hermes skills tap add arm2arm/AstroAgentAssistant
 ```
 
 Then search and install skills from it.
