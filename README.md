@@ -2,7 +2,7 @@
 
 Custom Hermes Agent skills developed by the AIP team for astronomy, data science, reproducible workflows, AI/ML, devops, and productivity.
 
-Total: **128** custom skills across **34** categories.
+Total: **129** custom skills across **35** categories.
 
 ## Repository layout
 
@@ -37,7 +37,7 @@ Total: **128** custom skills across **34** categories.
 | `science/` | Skills in science | 5 |
 | `software-development/` | Skills in software-development | 5 |
 | `python/` | Skills in python | 8 |
-| `research/` | Skills in research | 8 |
+| `research/` | Skills in research | 9 |
 | `astronomy/` | Skills in astronomy | 9 |
 | `mlops/` | --- | 9 |
 | `devops/` | Skills in devops | 16 |
@@ -103,7 +103,7 @@ Total: **128** custom skills across **34** categories.
 
 **Python (8)** — Scientific plotting conventions, Dask, Pandas, Parquet/S3 caching
 
-**Research (8)** — arXiv, blog monitoring, LaTeX, literature review, DRP white papers
+**Research (9)** — arXiv, blog monitoring, LaTeX, literature review, DRP white papers, cold streams monitoring
 
 **Astronomy (9)** — Survey archives, ADQL queries, dataset access (RAVE, Gaia, SHBoost, StarHorse)
 
@@ -127,7 +127,8 @@ Total: **128** custom skills across **34** categories.
 | `gaia-dr3-tap-query/` | Retrieve the nearest 100 stars from Gaia DR3 using the TAP service hosted at AIP (https://gaia.aip.de/tap/). Includes Parquet storage, preview CSV, and RA/Dec & Galactic XY plots. |
 | `gaiadr3-aip-query-api/` | Query the Gaia DR3 PostgreSQL database at gaia.aip.de via its Daiquiri REST API. Includes CSRF handling, queue names, and result fetching. |
 | `iterative-paper-improvement/` | Structured multi-round improvement workflow for LaTeX academic papers — each round targets specific improvements (structure, prose, figures, compilation). Also covers merging multiple papers and multi-phase iterations (X figure rounds + Y text rounds). |
-| `latex-paper-iteration/` | Iteratively improve LaTeX research papers — structural fixes, prose polishing, figure integration, compilation cycles. Also covers merging multiple papers into a unified manuscript. |
+|| `latex-paper-iteration/` | Iteratively improve LaTeX research papers — structural fixes, prose polishing, figure integration, compilation cycles. Also covers merging multiple papers into a unified manuscript. |
+|| `research/cold-streams-monitoring/` | Automated arXiv monitoring for cold gas filament accretion in galaxy formation — cold streams, flows, modes, filaments. Includes cron job setup and Python scan script. |
 | `leisure/find-nearby/` | Find nearby places (restaurants, cafes, bars, pharmacies, etc.) using OpenStreetMap. Works with coordinates, addresses, cities, zip codes, or Telegram location pins. No API keys needed. |
 | `manim-020-gotchas/` | >- |
 | `mcp/mcporter/` | Use the mcporter CLI to list, configure, auth, and call MCP servers/tools directly (HTTP or stdio), including ad-hoc servers, config edits, and CLI/type generation. |
