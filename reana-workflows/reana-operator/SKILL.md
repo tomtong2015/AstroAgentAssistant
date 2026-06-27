@@ -42,10 +42,12 @@ Use this skill when the user asks any of the following:
 - “Run this Python code on REANA.”
 - “Create a REANA job for this project.”
 - “Generate an appropriate `reana.yaml`.”
+- “I have a task; make sure it runs on REANA.”
+- “Choose the REANA environment based on available libraries.”
 - “Show logs for the failed job.”
 - “Download outputs from workflow X.”
 
-Do not use this skill for generic local-only scripts that do not need REANA.
+When the user gives an executable analysis/science task, prefer the REANA path by default: create a small task project, generate task-specific `reana.yaml`, validate it, and submit or give the exact `run` command. Use local execution only for quick inspection, formatting, or repository maintenance that is not intended as the user’s scientific/computational result.
 
 ## Helper CLI
 
@@ -73,6 +75,7 @@ The helper never prints `REANA_ACCESS_TOKEN`.
 ```bash
 python reana-workflows/reana-operator/scripts/reana_operator.py client
 python reana-workflows/reana-operator/scripts/reana_operator.py backends
+python reana-workflows/reana-operator/scripts/reana_operator.py envs
 python reana-workflows/reana-operator/scripts/reana_operator.py ping
 ```
 
@@ -112,6 +115,50 @@ python reana-workflows/reana-operator/scripts/reana_operator.py download <workfl
 ```
 
 ## Creating a REANA Job from Code
+
+### Task-first REANA mode
+
+For user tasks that produce a computational result, use `task` as the friendly front door. It creates a clean project, detects Python imports, chooses a modeled REANA environment profile, writes `reana-env-report.md`, generates `reana.yaml`, validates the project, and can submit immediately.
+
+```bash
+python reana-workflows/reana-operator/scripts/reana_operator.py task \
+  --project /tmp/my-reana-task \
+  --task "short description of the user task" \
+  --code 'from pathlib import Path; Path("output.txt").write_text("hello\n")' \
+  --output output.txt \
+  --environment-profile astro-ml \
+  --run --timestamp
+```
+
+If code is not ready yet, omit `--code` and the helper writes a safe `analysis.py` placeholder plus a task-specific `reana.yaml`; replace `analysis.py` before submission.
+
+### Environment-aware YAML generation
+
+The helper has modeled AIP REANA environment profiles:
+
+| Profile | Image | Use for |
+|---|---|---|
+| `astro-ml` | `gitlab-p4n.aip.de:5005/p4nreana/reana-env:py311-astro-ml.2891a60c` | default scientific Python, astronomy, data analysis, ML-adjacent tasks |
+| `astro` | `gitlab-p4n.aip.de:5005/p4nreana/reana-env:py311-astro` | astronomy tasks without heavy ML dependencies |
+| `python` | `python:3.11-slim` | minimal public Python image; install explicit packages |
+
+Run:
+
+```bash
+python reana-workflows/reana-operator/scripts/reana_operator.py envs
+```
+
+Generation logic:
+
+1. Parse Python imports from the selected script.
+2. Read `requirements.txt` if present.
+3. Add repeated `--package <name>` values from the user/task.
+4. Compare requested packages against the modeled libraries available in the selected profile.
+5. Generate commands that install only missing packages at runtime, e.g. `pip install --quiet healpy && python3 analysis.py`.
+6. Write `reana-env-report.md` explaining imports, standard-library modules, profile-provided packages, and runtime-installed packages.
+
+This keeps `reana.yaml` specific to the task while still using known AIP `reana-env` images when libraries are already available. Treat the profile library list as a curated availability model, not a formal package-lock file; run a smoke test when exact versions matter.
+
 
 For a quick Python job:
 
@@ -172,10 +219,12 @@ Supported now:
 
 | Input | Behavior |
 |---|---|
-| `--script analysis.py` | run `python3 analysis.py`; install `requirements.txt` if present |
+| `task --task ...` | create task-specific REANA project and YAML; optionally submit with `--run` |
+| `--script analysis.py` | parse imports, model package availability, run `python3 analysis.py` |
 | `--script run.sh` | run `bash run.sh` |
-| `--command '...'` | run the explicit shell command |
+| `--command '...'` | run the explicit shell command, with needed install prefix when detected |
 | `--code '...'` | write code into the script, scaffold, validate, then run |
+| `--package healpy` | declare extra dependency; install only if not modeled as available in the selected env profile |
 
 Planned/advanced cases to handle manually for now:
 
@@ -247,10 +296,11 @@ python reana-workflows/reana-operator/scripts/reana_operator.py logs <workflow> 
 
 1. Create a clean project directory.
 2. Write the code to `analysis.py`.
-3. Scaffold `reana.yaml` with declared outputs.
-4. Validate.
-5. Submit with `run --timestamp`.
-6. Return status/log/download commands.
+3. Parse imports and choose `--environment-profile astro-ml` unless the task clearly needs another approved profile.
+4. Generate `reana-env-report.md` and task-specific `reana.yaml` with declared outputs.
+5. Validate.
+6. Submit with `task --run --timestamp` or `run --timestamp`.
+7. Return status/log/download commands.
 
 ### “Create a REANA project for this repository”
 
