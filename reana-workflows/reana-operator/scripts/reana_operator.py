@@ -675,7 +675,8 @@ def cmd_task(ns: argparse.Namespace) -> int:
     """Create a task-specific REANA project; optionally submit it immediately."""
     project = Path(ns.project).resolve()
     script = ns.script or "analysis.py"
-    if ns.task and not ns.code and not ns.command:
+    script_path = project / script
+    if ns.task and not ns.code and not ns.command and not script_path.exists():
         code = "\n".join([
             '"""REANA task scaffold.',
             '',

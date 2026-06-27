@@ -1,0 +1,23 @@
+{
+  "title": "RAVE DR6 nearest 100 stars summary plot",
+  "created_utc": "2026-06-27T17:57:42Z",
+  "tap_endpoint": "https://www.rave-survey.org/tap/",
+  "query_file": "query.adql",
+  "source_xml": "rave_nearest_candidates.xml",
+  "rows_plotted": 100,
+  "distance_pc": {
+    "min": 8.21635650380474,
+    "median": 17.317112215372823,
+    "max": 20.68487361038046
+  },
+  "outputs": [
+    "rave_dr6_nearest100_summary.png",
+    "rave_dr6_nearest100.csv",
+    "rave_dr6_nearest100.parquet"
+  ],
+  "caveats": [
+    "RAVE is a southern-hemisphere spectroscopic survey; footprint is not all-sky complete.",
+    "Distances use simple inverse parallax for visualization.",
+    "Absolute G magnitude is approximate and based on Gaia EDR3 phot_g_mean_mag and parallax."
+  ]
+}

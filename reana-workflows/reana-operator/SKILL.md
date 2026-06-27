@@ -130,7 +130,7 @@ python reana-workflows/reana-operator/scripts/reana_operator.py task \
   --run --timestamp
 ```
 
-If code is not ready yet, omit `--code` and the helper writes a safe `analysis.py` placeholder plus a task-specific `reana.yaml`; replace `analysis.py` before submission.
+If `--script` already exists and neither `--code` nor `--command` is supplied, `task` preserves that script and only generates `reana.yaml` plus the environment report. If the script does not exist, the helper writes a safe `analysis.py` placeholder; replace it before submission.
 
 ### Environment-aware YAML generation
 

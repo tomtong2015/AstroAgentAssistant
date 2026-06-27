@@ -1,0 +1,10 @@
+SELECT TOP 150 source_id, ra, dec, l, b, parallax, phot_g_mean_mag, bp_rp
+FROM ravedr6.dr6_x_gaiaedr3
+WHERE parallax > 0
+  AND ra IS NOT NULL
+  AND dec IS NOT NULL
+  AND l IS NOT NULL
+  AND b IS NOT NULL
+  AND phot_g_mean_mag IS NOT NULL
+  AND bp_rp IS NOT NULL
+ORDER BY parallax DESC
