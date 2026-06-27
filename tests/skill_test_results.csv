@@ -1,0 +1,116 @@
+path,category,name,status,issues,quality_notes,author,license,related_count,size_bytes,sha256_12
+agents/astroagent-concept/SKILL.md,agents,astroagent-concept,PASS,[],['canonical_routing'],AstroAgent / AIP,MIT,2,989,04f7ee3493bb
+astronomy/astro-catalog-plotting-cache/SKILL.md,astronomy,astro-catalog-plotting-cache,WARN,['required_sections'],['canonical_routing'],AstroAgent / AIP,MIT,4,5787,29f1ff5e19e3
+astronomy/astro-data-access-umbrella/SKILL.md,astronomy,astro-data-access-umbrella,WARN,['required_sections'],['canonical_routing'],AstroAgent / AIP,MIT,7,5812,cb6c121f00d6
+astronomy/data-aip-de-s3/SKILL.md,astronomy,data-aip-de-s3,PASS,[],[],AstroAgent / AIP,MIT,4,3042,0e1251ef83d3
+astronomy/gaia-aip-data-access/SKILL.md,astronomy,gaia-aip-data-access,WARN,['required_sections'],['canonical_routing'],AstroAgent / AIP,MIT,3,5180,1a49538c581d
+astronomy/gaia-aip-de-adql/SKILL.md,astronomy,gaia-aip-de-adql,PASS,[],[],AstroAgent / AIP,MIT,2,1344,21518e5a6f98
+astronomy/gaia-dr3-plot-with-dust/SKILL.md,astronomy,gaia-dr3-plot-with-dust,WARN,['required_sections'],"['license_present', 'canonical_routing']",Hermi (sorgenfresser),,0,5561,2a87789f8071
+astronomy/gaia-dr3-tap-query/SKILL.md,astronomy,gaia-dr3-tap-query,WARN,['required_sections'],['license_present'],Hermi (sorgenfresser),,0,5334,c9b80553ad1a
+astronomy/gaiadr3-aip-de-adql/SKILL.md,astronomy,gaiadr3-aip-de-adql,PASS,[],[],AstroAgent / AIP,MIT,4,5087,047f7b7fd135
+astronomy/gaiadr3-aip-query-api/SKILL.md,astronomy,gaiadr3-aip-query-api,WARN,['required_sections'],"['author_present', 'license_present']",,,0,5421,77f8b7737fce
+astronomy/rave-dr6/SKILL.md,astronomy,rave-dr6,PASS,[],[],AstroAgent / AIP,MIT,5,5763,d66262ef706b
+astronomy/rave-dr6-3d-animation/SKILL.md,astronomy,rave-dr6-3d-animation,WARN,['required_sections'],['license_present'],Hermes Assistant,,0,8193,849d2e9b0582
+astronomy/rave-dr6-3d-public-animation/SKILL.md,astronomy,rave-dr6-3d-public-animation,WARN,['required_sections'],"['author_present', 'license_present']",,,0,7379,fcbad3b4287a
+astronomy/rave-dr6-data-access/SKILL.md,astronomy,rave-dr6-data-access,WARN,['required_sections'],['canonical_routing'],AstroAgent / AIP,MIT,3,4531,3fd21bb94e75
+astronomy/rave-dr6-nearest-100-plot/SKILL.md,astronomy,rave-dr6-nearest-100-plot,PASS,[],[],AstroAgent / AIP,MIT,3,3607,c07f3cbbcf64
+astronomy/rave-dr6-public-talk-visualizations/SKILL.md,astronomy,rave-dr6-public-talk-visualizations,PASS,[],[],AstroAgent / AIP,MIT,2,3019,471bb9b7b40b
+astronomy/rave-dr6-recent-observations-plot/SKILL.md,astronomy,rave-dr6-recent-observations-plot,WARN,['required_sections'],['license_present'],Hermes Assistant,,0,5117,871dbac5f710
+astronomy/rave-dr6-tap-query/SKILL.md,astronomy,rave-dr6-tap-query,WARN,['required_sections'],['license_present'],Hermes Assistant,,0,10143,481b08f64b72
+astronomy/s3-parquet-astro-access/SKILL.md,astronomy,s3-parquet-astro-access,WARN,['required_sections'],['canonical_routing'],AstroAgent / AIP,MIT,4,5215,bdabb1090b81
+astronomy/shboost-cmd-plot/SKILL.md,astronomy,shboost-cmd-plot,WARN,['required_sections'],"['author_present', 'license_present']",,,0,5677,2829566429c4
+astronomy/shboost-cmd-visualization/SKILL.md,astronomy,shboost-cmd-visualization,WARN,['required_sections'],['license_present'],Hermes,,0,7548,a3d83545b4a1
+astronomy/shboost-plot-s3/SKILL.md,astronomy,shboost-plot-s3,WARN,['required_sections'],['license_present'],Hermes,,0,5055,c4475fae4b8e
+astronomy/shboost-public-s3-cmd-plot/SKILL.md,astronomy,shboost-public-s3-cmd-plot,WARN,['required_sections'],['license_present'],Hermi (sorgenfresser),,0,5477,5991633cb0be
+astronomy/shboost24-cmd/SKILL.md,astronomy,shboost24-cmd,PASS,[],['canonical_routing'],AstroAgent / AIP,MIT,6,1658,ed1ed8dfa3e5
+astronomy/shboost_cmd_plot_and_animation/SKILL.md,astronomy,shboost_cmd_plot_and_animation,WARN,['required_sections'],['license_present'],hermes,,0,10163,a776e5c75579
+astronomy/shboost_full_cmd_datashader/SKILL.md,astronomy,shboost_full_cmd_datashader,WARN,['required_sections'],['license_present'],Hermes,,0,6582,9b43f90d2c65
+astronomy/starhorse-access/SKILL.md,astronomy,starhorse-access,PASS,[],['canonical_routing'],AstroAgent / AIP,MIT,2,1032,0c4a28920832
+astronomy/tap-pyvo-adql-access/SKILL.md,astronomy,tap-pyvo-adql-access,WARN,['required_sections'],['canonical_routing'],AstroAgent / AIP,MIT,4,4887,7fdc287fc87a
+creative/4most-spectrograph-animation/SKILL.md,creative,4most-spectrograph-animation,WARN,['required_sections'],"['author_present', 'license_present', 'canonical_routing']",,,0,3445,98a45f097bc6
+creative/animate-sine-cosine-matplotlib/SKILL.md,creative,animate-sine-cosine-matplotlib,PASS,[],"['license_present', 'canonical_routing']",Hermi (sorgenfresser),,0,4383,12dbb9959255
+creative/fourmost-educational-animation/SKILL.md,creative,fourmost-educational-animation,WARN,['required_sections'],"['author_present', 'license_present', 'canonical_routing']",,,0,4715,bbbc35b3a29f
+creative/fourmost-spectrograph-animation/SKILL.md,creative,fourmost-spectrograph-animation,WARN,['required_sections'],"['author_present', 'license_present', 'canonical_routing']",,,0,4985,f1f62c97790b
+creative/fourmost-spectrograph-schematic/SKILL.md,creative,fourmost-spectrograph-schematic,WARN,['required_sections'],"['license_present', 'canonical_routing']",Hermi (based on user prompt),,0,6263,a4b1a4da61d5
+creative/fractal-edm-showcase/SKILL.md,creative,fractal-edm-showcase,WARN,['required_sections'],"['license_present', 'canonical_routing']",Hermes Agent,,0,5237,fef028f1abc8
+creative/fractal-showcase-animation/SKILL.md,creative,fractal-showcase-animation,WARN,['required_sections'],"['author_present', 'license_present', 'canonical_routing']",,,0,10201,5884f100396d
+creative/fractals-edm-showcase/SKILL.md,creative,fractals-edm-showcase,WARN,['required_sections'],"['license_present', 'canonical_routing']",Hermes Agent,,0,6256,d30284af8916
+creative/galaxy-formation-animation/SKILL.md,creative,galaxy-formation-animation,WARN,['required_sections'],"['author_present', 'license_present', 'canonical_routing']",,,0,10016,da98f1877209
+creative/manim-020-gotchas/SKILL.md,creative,manim-020-gotchas,WARN,['required_sections'],"['license_present', 'canonical_routing']",Hermi,,0,13248,448172402f5b
+creative/manim-educational-animation/SKILL.md,creative,manim-educational-animation,WARN,['required_sections'],"['author_present', 'license_present', 'canonical_routing']",,,0,5351,a944d4adc289
+creative/manim-tts-narration/SKILL.md,creative,manim-tts-narration,WARN,['required_sections'],"['author_present', 'license_present', 'canonical_routing']",,,0,4455,a6e231bf7e72
+creative/plot-sine-cosine-matplotlib/SKILL.md,creative,plot-sine-cosine-matplotlib,PASS,[],"['license_present', 'canonical_routing']",Hermi (sorgenfresser),,0,3157,ac6067dc0ab9
+creative/sin-unit-circle-animation/SKILL.md,creative,sin-unit-circle-animation,WARN,['required_sections'],"['author_present', 'license_present', 'canonical_routing']",,,0,4559,1c3c2db31ec6
+data-science/datashader-019-pipeline/SKILL.md,data-science,datashader-019-pipeline,WARN,['required_sections'],['license_present'],Hermi,,0,5743,60307ca36219
+devops/api-server-local-image-support/SKILL.md,devops,api-server-local-image-support,WARN,['required_sections'],['canonical_routing'],Hermes Agent (Arman Khalatyan),MIT,2,5194,63082d1437fd
+devops/docker-access/SKILL.md,devops,docker-access,WARN,['required_sections'],"['author_present', 'license_present', 'canonical_routing']",,,0,1336,1c2a8218db63
+devops/docker-access-group-reload/SKILL.md,devops,docker-access-group-reload,WARN,['required_sections'],"['author_present', 'license_present', 'canonical_routing']",,,0,1821,7f1ec42ec04a
+devops/manim-headless-rendering/SKILL.md,devops,manim-headless-rendering,WARN,['required_sections'],"['author_present', 'license_present', 'canonical_routing']",,,0,3816,d0882f54d2c1
+devops/manim-telegram-animation/SKILL.md,devops,manim-telegram-animation,WARN,['required_sections'],"['author_present', 'license_present', 'canonical_routing']",,,0,5215,2d4a38748bda
+devops/manim-telegram-delivery/SKILL.md,devops,manim-telegram-delivery,WARN,['required_sections'],"['author_present', 'license_present', 'canonical_routing']",,,0,5808,51b778ee73bb
+devops/manim-video-audio/SKILL.md,devops,manim-video-audio,WARN,['required_sections'],"['author_present', 'license_present', 'canonical_routing']",,,0,4046,af1db40d4072
+devops/paperclip-oss120b-external/SKILL.md,devops,paperclip-oss120b-external,WARN,['required_sections'],"['author_present', 'license_present', 'canonical_routing']",,,0,7376,52d90457164c
+devops/telegram-auth-troubleshooting/SKILL.md,devops,telegram-auth-troubleshooting,WARN,['required_sections'],"['author_present', 'license_present', 'canonical_routing']",,,0,3246,233d5261ce09
+infrastructure/api-server-media-display/SKILL.md,infrastructure,api-server-media-display,WARN,['required_sections'],['canonical_routing'],Hermes Agent,MIT,0,4969,56817a77a177
+infrastructure/docs-mcp-at-aip/SKILL.md,infrastructure,docs-mcp-at-aip,PASS,[],['canonical_routing'],AstroAgent / AIP,MIT,8,8592,593822991efe
+infrastructure/hermes-api-server/SKILL.md,infrastructure,hermes-api-server,PASS,[],['canonical_routing'],AstroAgent / AIP,MIT,1,910,5e32bd971c79
+infrastructure/hermes-native-mcp/SKILL.md,infrastructure,hermes-native-mcp,PASS,[],['canonical_routing'],AstroAgent / AIP,MIT,3,3624,01ffccf32a54
+infrastructure/mcporter-cli/SKILL.md,infrastructure,mcporter-cli,PASS,[],['canonical_routing'],AstroAgent / AIP,MIT,2,2778,c789f1b74cf5
+infrastructure/openwebui-hermes/SKILL.md,infrastructure,openwebui-hermes,PASS,[],['canonical_routing'],AstroAgent / AIP,MIT,1,924,0f870c91dc96
+infrastructure/openwebui-media-via-s3/SKILL.md,infrastructure,openwebui-media-via-s3,WARN,['required_sections'],"['author_present', 'license_present', 'canonical_routing']",,,0,4999,2cdf6f12a41a
+leisure/find-nearby/SKILL.md,leisure,find-nearby,WARN,['required_sections'],"['author_present', 'license_present', 'canonical_routing']",,,0,3862,64edf35b4043
+media/ffmpeg-ambient-audio/SKILL.md,media,ffmpeg-ambient-audio,WARN,['required_sections'],"['license_present', 'canonical_routing']",Hermi,,0,3562,636e01bc5f17
+media/fractal-preference-mandelbrot-elephant/SKILL.md,media,fractal-preference-mandelbrot-elephant,WARN,['required_sections'],"['author_present', 'license_present', 'canonical_routing']",,,0,1741,0a5006f2312c
+productivity/aip-member-contact-retrieval/SKILL.md,productivity,aip-member-contact-retrieval,WARN,['required_sections'],"['author_present', 'license_present', 'canonical_routing']",,,0,2714,4385c716e8d2
+productivity/image-description-workflow/SKILL.md,productivity,image-description-workflow,WARN,['required_sections'],"['author_present', 'license_present', 'canonical_routing']",,,0,2336,84bb869e13fc
+productivity/nextcloud-caldav/SKILL.md,productivity,nextcloud-caldav-agent,PASS,[],['canonical_routing'],AstroAgent / AIP,MIT,2,4193,af3a1a337c2b
+productivity/nextcloud-caldav-calendar-management/SKILL.md,productivity,nextcloud-caldav-calendar-management,WARN,['required_sections'],['canonical_routing'],Hermes Agent,MIT,0,6311,14e6f24a1f5b
+python/cmd-plotting/SKILL.md,python,cmd-plotting,PASS,[],['canonical_routing'],AstroAgent / AIP,MIT,2,892,7a457deac076
+python/dask-hvplot-datashader-scientific-plots/SKILL.md,python,dask-hvplot-datashader-scientific-plots,PASS,[],[],AstroAgent / AIP,MIT,4,2928,3d0e799da600
+python/hdf5-on-s3-cached/SKILL.md,python,hdf5-on-s3-cached,PASS,[],[],AstroAgent / AIP,MIT,3,2852,d471329799aa
+python/s3-parquet-sampling/SKILL.md,python,s3-parquet-sampling,PASS,[],[],AstroAgent / AIP,MIT,4,3394,3cb8d5e957f3
+python/s3-parquet-sampling-plot-cached/SKILL.md,python,s3-parquet-sampling-plot-cached,WARN,['required_sections'],['license_present'],Hermes Assistant,,0,7731,b1f2498a9a6a
+python/seaborn-paper-plots/SKILL.md,python,seaborn-paper-plots,PASS,[],['canonical_routing'],AstroAgent / AIP,MIT,1,804,91e82001967d
+reana-workflows/reana-aip/SKILL.md,reana-workflows,reana-aip,PASS,[],['canonical_routing'],AstroAgent / AIP,MIT,4,1151,2314fa3e8ff7
+reana-workflows/reana-client-config/SKILL.md,reana-workflows,reana-client-config,PASS,[],['canonical_routing'],AstroAgent / AIP,MIT,4,3004,8b6588c093dc
+reana-workflows/reana-client-docker/SKILL.md,reana-workflows,reana-client-docker,WARN,['required_sections'],"['license_present', 'canonical_routing']",hermes,,0,4745,4fc2397bb36f
+reana-workflows/reana-client-failover/SKILL.md,reana-workflows,reana-client-failover,WARN,['required_sections'],['canonical_routing'],AstroAgent / AIP,MIT,4,8716,91e7b7c61367
+reana-workflows/reana-client-multi-backend/SKILL.md,reana-workflows,reana-client-multi-backend,WARN,['required_sections'],"['author_present', 'license_present', 'canonical_routing']",,,0,3460,a7bf69e915e3
+reana-workflows/reana-cmd-plot-workflow/SKILL.md,reana-workflows,reana-cmd-plot-workflow,WARN,['required_sections'],['license_present'],Hermi (sorgenfresser),,0,7866,45262ff6703a
+reana-workflows/reana-cmd-plot-workflow-external-script/SKILL.md,reana-workflows,reana-cmd-plot-workflow-external-script,WARN,['required_sections'],"['author_present', 'license_present']",,,0,3773,5680136f3519
+reana-workflows/reana-dev-workflow-setup/SKILL.md,reana-workflows,reana-dev-workflow-setup,WARN,['required_sections'],"['license_present', 'canonical_routing']",Hermi (sorgenfresser),,0,6847,184740a99c8e
+reana-workflows/reana-operator/SKILL.md,reana-workflows,reana-operator,WARN,['required_sections'],['canonical_routing'],AstroAgent / AIP,MIT,5,13071,74fd6dc9085d
+reana-workflows/reana-run-script-with-workspace/SKILL.md,reana-workflows,reana-run-script-with-workspace,WARN,['required_sections'],"['license_present', 'canonical_routing']",Hermi (sorgenfresser),,0,3329,40e728e30aad
+reana-workflows/reana-selflearn-workflows/SKILL.md,reana-workflows,reana-selflearn-workflows,WARN,['required_sections'],"['license_present', 'canonical_routing']",Hermi (sorgenfresser),,0,6575,b4846bd835a8
+reana-workflows/reana-serial-python/SKILL.md,reana-workflows,reana-serial-python,PASS,[],[],AstroAgent / AIP,MIT,7,4545,c38d0450e0e5
+reana-workflows/reana-serial-python-analysis-template/SKILL.md,reana-workflows,reana-serial-python-analysis-template,WARN,['required_sections'],['license_present'],Hermi (sorgenfresser),,0,7256,51b757ea967f
+reana-workflows/reana-shboost24/SKILL.md,reana-workflows,reana-shboost24,PASS,[],[],AstroAgent / AIP,MIT,4,1487,26af4f566c26
+reana-workflows/reana-sin-plot-workflow/SKILL.md,reana-workflows,reana-sin-plot-workflow,WARN,['required_sections'],"['author_present', 'license_present', 'canonical_routing']",,,0,2262,ad36daa41adb
+reana-workflows/reana-version-info/SKILL.md,reana-workflows,reana-version-info,WARN,['required_sections'],"['author_present', 'license_present', 'canonical_routing']",,,0,1563,05b86a6618dd
+reana-workflows/reana-workflow-best-practices/SKILL.md,reana-workflows,reana-workflow-best-practices,WARN,['required_sections'],"['license_present', 'canonical_routing']",Hermi (sorgenfresser),,0,4511,47a72e4a7153
+reana-workflows/reana-workflow-sin-plot/SKILL.md,reana-workflows,reana-workflow-sin-plot,WARN,['required_sections'],"['license_present', 'canonical_routing']",Hermes,,0,3023,f45b69583add
+reana-workflows/reana-workflow-with-env/SKILL.md,reana-workflows,reana-workflow-with-env,WARN,['required_sections'],"['license_present', 'canonical_routing']",Hermi (sorgenfresser),,0,3374,8f73416e0caa
+research/2026-agentic-astronomy-literature/SKILL.md,research,2026-agentic-astronomy-literature,PASS,[],['canonical_routing'],AstroAgent / AIP,MIT,2,947,716c49bd0bdc
+research/arxiv/SKILL.md,research,arxiv-research,PASS,[],['canonical_routing'],AstroAgent / AIP,MIT,3,5916,533be7d54706
+research/astroagent-github-skills-repo-bootstrap/SKILL.md,research,astroagent-github-skills-repo-bootstrap,PASS,[],['canonical_routing'],Hermes Agent,MIT,3,4377,c9f157a1d3f6
+research/cold-streams-monitoring/SKILL.md,research,cold-streams-monitoring,WARN,['required_sections'],"['license_present', 'canonical_routing']",Hermes Agent (AstroAgentAssistant),,2,11478,ceda065bc9b5
+research/drp-paper/SKILL.md,research,drp-paper,WARN,['required_sections'],"['author_present', 'canonical_routing']",,MIT,0,7848,fb9cef0c668e
+research/iterative-paper-improvement/SKILL.md,research,iterative-paper-improvement,WARN,['required_sections'],['canonical_routing'],Hermes Agent,MIT,2,7331,45be38d48ebe
+research/latex-journal-submission-package/SKILL.md,research,latex-journal-submission-package,WARN,['required_sections'],['canonical_routing'],Hermes Agent,MIT,0,5603,a31191d0ea2f
+research/latex-paper-iteration/SKILL.md,research,latex-paper-iteration,WARN,['required_sections'],"['license_present', 'canonical_routing']",Hermes Agent,,0,7817,6da0d2b0cff1
+research/latex-research-paper/SKILL.md,research,latex-research-paper,WARN,['required_sections'],"['author_present', 'license_present', 'canonical_routing']",,,0,6418,cba2906289b7
+research/mnras-latex-compile-portability-fixes/SKILL.md,research,mnras-latex-compile-portability-fixes,WARN,['required_sections'],['canonical_routing'],Hermes Agent,MIT,0,5198,aea2f9d5a81b
+research/mnras-latex-portable/SKILL.md,research,mnras-latex-portable,PASS,[],['canonical_routing'],AstroAgent / AIP,MIT,3,3032,3b51b18f161c
+research/mnras-latex-portable-build-and-package/SKILL.md,research,mnras-latex-portable-build-and-package,WARN,['required_sections'],['canonical_routing'],Hermes Agent,MIT,0,5188,e719a8371719
+research/multi-section-latex-whitepaper/SKILL.md,research,multi-section-latex-whitepaper,WARN,['required_sections'],['canonical_routing'],Hermes Agent,MIT,2,6503,6b37bf6ac702
+science/dt4acc-container-troubleshooting/SKILL.md,science,dt4acc-container-troubleshooting,WARN,['required_sections'],"['author_present', 'license_present', 'canonical_routing']",,,0,9222,443e41a7ebeb
+science/dtwin-burnin-tests/SKILL.md,science,dtwin-burnin-tests,WARN,['required_sections'],"['author_present', 'license_present', 'canonical_routing']",,,0,4119,4b7e907d5f79
+science/dtwin-epics-runbook/SKILL.md,science,dtwin-epics-runbook,WARN,['required_sections'],"['author_present', 'license_present', 'canonical_routing']",,,0,5019,86d38f7c82e5
+science/dtwin-host-smoke-test/SKILL.md,science,dtwin-host-smoke-test,WARN,['required_sections'],"['author_present', 'license_present', 'canonical_routing']",,,0,7184,473d70f6a220
+science/dtwin-setup/SKILL.md,science,dtwin-setup,WARN,['required_sections'],"['author_present', 'license_present', 'canonical_routing']",,,0,12166,3cca1f6ac309
+science/dtwin-tango-runbook/SKILL.md,science,dtwin-tango-runbook,WARN,['required_sections'],"['author_present', 'license_present', 'canonical_routing']",,,0,6009,99318e985b94
+software-development/dask-mcp-docs-first/SKILL.md,software-development,dask-mcp-docs-first,PASS,[],['canonical_routing'],Hermes Agent,MIT,5,4054,17d49fe29458
+software-development/pandas-datashader-mcp-docs-first/SKILL.md,software-development,pandas-datashader-mcp-docs-first,PASS,[],['canonical_routing'],Hermes Agent,MIT,7,3922,26abbde2fa51
+software-development/paperclip-enable-llm-api/SKILL.md,software-development,paperclip-enable-llm-api,WARN,['required_sections'],"['license_present', 'canonical_routing']",Hermi (hermes-agent),,0,3491,fbf80cc06a15
+software-development/paperclip-ensure-oss-120b-assistant/SKILL.md,software-development,paperclip-ensure-oss-120b-assistant,WARN,['required_sections'],"['license_present', 'canonical_routing']",Hermes Agent,,0,4698,4bb9d4ec0786
+software-development/python-mcp-docs-first/SKILL.md,software-development,python-mcp-docs-first,WARN,['required_sections'],['canonical_routing'],Hermes Agent,MIT,6,6515,70bf91a69199

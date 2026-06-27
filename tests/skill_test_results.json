@@ -1,0 +1,4387 @@
+{
+  "summary": {
+    "generated_utc": "2026-06-27T17:38:03Z",
+    "git_commit": "fc01b35bffa30f7c05ed2cd10065292a4fc6f568",
+    "skills_total": 115,
+    "skills_pass": 32,
+    "skills_warn": 83,
+    "skills_fail": 0,
+    "support_total": 14,
+    "support_pass": 14,
+    "support_fail": 0,
+    "secret_serious_hits": 0,
+    "root_audit_status": "PASS",
+    "categories": {
+      "agents": 1,
+      "astronomy": 27,
+      "creative": 14,
+      "data-science": 1,
+      "devops": 9,
+      "infrastructure": 7,
+      "leisure": 1,
+      "media": 2,
+      "productivity": 4,
+      "python": 6,
+      "reana-workflows": 19,
+      "research": 13,
+      "science": 6,
+      "software-development": 5
+    }
+  },
+  "skills": [
+    {
+      "path": "agents/astroagent-concept/SKILL.md",
+      "category": "agents",
+      "name": "astroagent-concept",
+      "description": "Use the AstroAgent concept framing for architecture, positioning, and design discussions.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 2,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": true,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": true,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "PASS",
+      "issues": [],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 989,
+      "sha256_12": "04f7ee3493bb"
+    },
+    {
+      "path": "astronomy/astro-catalog-plotting-cache/SKILL.md",
+      "category": "astronomy",
+      "name": "astro-catalog-plotting-cache",
+      "description": "Use when turning astronomy catalog data into reproducible cached products and publication-ready plots, especially CMDs, RA/Dec maps, Galactic projections, hexbin density plots, Datashader outputs, and provenance-backed figure deliverables.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 4,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": false,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 5787,
+      "sha256_12": "29f1ff5e19e3"
+    },
+    {
+      "path": "astronomy/astro-data-access-umbrella/SKILL.md",
+      "category": "astronomy",
+      "name": "astro-data-access-umbrella",
+      "description": "Use when an astronomy task needs data access and the agent must choose between TAP/ADQL/pyvo catalogs, Gaia@AIP REST/Daiquiri, S3/Parquet object storage, local StarHorse-style datasets, plotting/cache workflows, or REANA execution.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 7,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": false,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 5812,
+      "sha256_12": "cb6c121f00d6"
+    },
+    {
+      "path": "astronomy/data-aip-de-s3/SKILL.md",
+      "category": "astronomy",
+      "name": "data-aip-de-s3",
+      "description": "Work with data.aip.de and S3-backed datasets using reproducible local caching, Dask-first reads for huge data, and plotting workflows that scale to large astronomy catalogs.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 4,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": true,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": true,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": true,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "PASS",
+      "issues": [],
+      "quality_notes": [],
+      "size_bytes": 3042,
+      "sha256_12": "0e1251ef83d3"
+    },
+    {
+      "path": "astronomy/gaia-aip-data-access/SKILL.md",
+      "category": "astronomy",
+      "name": "gaia-aip-data-access",
+      "description": "Use when accessing Gaia data through AIP services, choosing between Gaia@AIP TAP/ADQL/pyvo and Daiquiri REST/PostgreSQL APIs, handling CSRF/queue details, checking endpoint health, caching results, and falling back when services are unavailable.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 3,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": false,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 5180,
+      "sha256_12": "1a49538c581d"
+    },
+    {
+      "path": "astronomy/gaia-aip-de-adql/SKILL.md",
+      "category": "astronomy",
+      "name": "gaia-aip-de-adql",
+      "description": "Query gaia.aip.de using ADQL/TAP with reproducible query capture and astronomy-aware caveats.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 2,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": true,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": true,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": true,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "PASS",
+      "issues": [],
+      "quality_notes": [],
+      "size_bytes": 1344,
+      "sha256_12": "21518e5a6f98"
+    },
+    {
+      "path": "astronomy/gaia-dr3-plot-with-dust/SKILL.md",
+      "category": "astronomy",
+      "name": "gaia-dr3-plot-with-dust",
+      "description": "Retrieve the 100 nearest Gaia DR3 stars (by parallax) and produce a two\u2011panel research\u2011paper\u2011style figure. The left panel shows RA vs Dec, the right panel shows a Galactic XY projection overlaid with an all\u2011sky dust\u2011extinction map (SFD) using the dustmaps package.",
+      "author": "Hermi (sorgenfresser)",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 5561,
+      "sha256_12": "2a87789f8071"
+    },
+    {
+      "path": "astronomy/gaia-dr3-tap-query/SKILL.md",
+      "category": "astronomy",
+      "name": "gaia-dr3-tap-query",
+      "description": "Retrieve the nearest 100 stars from Gaia DR3 using the TAP service hosted at AIP (https://gaia.aip.de/tap/). Includes Parquet storage, preview CSV, and RA/Dec & Galactic XY plots.",
+      "author": "Hermi (sorgenfresser)",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": false,
+        "canonical_routing": true,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "license_present"
+      ],
+      "size_bytes": 5334,
+      "sha256_12": "c9b80553ad1a"
+    },
+    {
+      "path": "astronomy/gaiadr3-aip-de-adql/SKILL.md",
+      "category": "astronomy",
+      "name": "gaiadr3-aip-de-adql",
+      "description": "Query the Gaia DR3 PostgreSQL database at gaia.aip.de via its Daiquiri REST API. Includes CSRF handling, async job submission, queue names, and result fetching. Access 1.8 billion sources with ~153 columns.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 4,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": true,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": true,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": true,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "PASS",
+      "issues": [],
+      "quality_notes": [],
+      "size_bytes": 5087,
+      "sha256_12": "047f7b7fd135"
+    },
+    {
+      "path": "astronomy/gaiadr3-aip-query-api/SKILL.md",
+      "category": "astronomy",
+      "name": "gaiadr3-aip-query-api",
+      "description": "Query the Gaia DR3 PostgreSQL database at gaia.aip.de via its Daiquiri REST API. Includes CSRF handling, queue names, and result fetching.",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": true,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present"
+      ],
+      "size_bytes": 5421,
+      "sha256_12": "77f8b7737fce"
+    },
+    {
+      "path": "astronomy/rave-dr6/SKILL.md",
+      "category": "astronomy",
+      "name": "rave-dr6",
+      "description": "Query the RAVE DR6 catalog at https://www.rave-survey.org/tap/ using pyvo (TAPService.run_sync). Access stellar parameters, Gaia cross-matches, distances, and Galactic coordinates (l, b). Includes galactic and equirectangular projection plotting recipes.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 5,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": true,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": true,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": true,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "PASS",
+      "issues": [],
+      "quality_notes": [],
+      "size_bytes": 5763,
+      "sha256_12": "d66262ef706b"
+    },
+    {
+      "path": "astronomy/rave-dr6-3d-animation/SKILL.md",
+      "category": "astronomy",
+      "name": "rave-dr6-3d-animation",
+      "description": "Step\u2011by\u2011step workflow to query the RAVE DR6 catalog for the 100 nearest stars (by parallax), process the data, generate 2\u2011D visualisations and a public\u2011talk\u2011ready 3\u2011D rotating animation using Matplotlib.",
+      "author": "Hermes Assistant",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": false,
+        "canonical_routing": true,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "license_present"
+      ],
+      "size_bytes": 8193,
+      "sha256_12": "849d2e9b0582"
+    },
+    {
+      "path": "astronomy/rave-dr6-3d-public-animation/SKILL.md",
+      "category": "astronomy",
+      "name": "rave-dr6-3d-public-animation",
+      "description": "Generate a public\u2011talk\u2011ready 3\u2011D animation of the 100 nearest RAVE DR6 stars using matplotlib.",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": true,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present"
+      ],
+      "size_bytes": 7379,
+      "sha256_12": "fcbad3b4287a"
+    },
+    {
+      "path": "astronomy/rave-dr6-data-access/SKILL.md",
+      "category": "astronomy",
+      "name": "rave-dr6-data-access",
+      "description": "Use when querying, caching, or plotting RAVE DR6 data via its TAP/ADQL service, including Gaia cross-match tables, recent observations, stellar parameters, southern-sky coverage caveats, VOTable parsing, and publication-ready visualizations.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 3,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": false,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 4531,
+      "sha256_12": "3fd21bb94e75"
+    },
+    {
+      "path": "astronomy/rave-dr6-nearest-100-plot/SKILL.md",
+      "category": "astronomy",
+      "name": "rave-dr6-nearest-100-plot",
+      "description": "Query the 100 nearest RAVE DR6 stars and generate two clear PNG plots: Galactic projection and RA/Dec scatter, with reproducible local parquet output.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 3,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": true,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": true,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": true,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "PASS",
+      "issues": [],
+      "quality_notes": [],
+      "size_bytes": 3607,
+      "sha256_12": "c07f3cbbcf64"
+    },
+    {
+      "path": "astronomy/rave-dr6-public-talk-visualizations/SKILL.md",
+      "category": "astronomy",
+      "name": "rave-dr6-public-talk-visualizations",
+      "description": "Turn a nearest-100 RAVE DR6 query into dark-theme, public-talk-ready PNG visualizations with clear titles, readable scaling, and presentation-friendly styling.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 2,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": true,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": true,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": true,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "PASS",
+      "issues": [],
+      "quality_notes": [],
+      "size_bytes": 3019,
+      "sha256_12": "471bb9b7b40b"
+    },
+    {
+      "path": "astronomy/rave-dr6-recent-observations-plot/SKILL.md",
+      "category": "astronomy",
+      "name": "rave-dr6-recent-observations-plot",
+      "description": "Retrieve the most recent 100 entries from the RAVE DR6 `dr6_obsdata` table and generate a simple RA\u2011Dec scatter plot. Handles missing Python dependencies, installs them if necessary, and falls back to astropy for galactic coordinates if needed.",
+      "author": "Hermes Assistant",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": false,
+        "canonical_routing": true,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "license_present"
+      ],
+      "size_bytes": 5117,
+      "sha256_12": "871dbac5f710"
+    },
+    {
+      "path": "astronomy/rave-dr6-tap-query/SKILL.md",
+      "category": "astronomy",
+      "name": "rave-dr6-tap-query",
+      "description": "Query the RAVE DR6 catalog hosted at https://www.rave-survey.org/tap/ using pyvo (TAPService.run_sync). Useful for accessing stellar parameters, Gaia cross-matches, distances, and Galactic coordinates (l, b). Includes galactic projection (xgal/ygal) and equirectangular (RA/Dec) plotting recipes.",
+      "author": "Hermes Assistant",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": false,
+        "canonical_routing": true,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "license_present"
+      ],
+      "size_bytes": 10143,
+      "sha256_12": "481b08f64b72"
+    },
+    {
+      "path": "astronomy/s3-parquet-astro-access/SKILL.md",
+      "category": "astronomy",
+      "name": "s3-parquet-astro-access",
+      "description": "Use when astronomy data lives in public or S3-compatible object storage as Parquet/HDF5/FITS-like products and the task needs endpoint probing, anonymous/credentialed access, Dask-first reads, local caching, column projection, sampling, or REANA-safe workflows.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 4,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": true,
+        "Pitfalls": false,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 5215,
+      "sha256_12": "bdabb1090b81"
+    },
+    {
+      "path": "astronomy/shboost-cmd-plot/SKILL.md",
+      "category": "astronomy",
+      "name": "shboost-cmd-plot",
+      "description": "Generates a colour\u2011magnitude diagram (CMD) for ~100 k stars from the public shboost2024 S3 bucket. The script caches the sampled data locally as a Parquet file for fast repeat runs and outputs a high\u2011resolution PNG (300 dpi).",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": true,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present"
+      ],
+      "size_bytes": 5677,
+      "sha256_12": "2829566429c4"
+    },
+    {
+      "path": "astronomy/shboost-cmd-visualization/SKILL.md",
+      "category": "astronomy",
+      "name": "shboost-cmd-visualization",
+      "description": "Generate a high\u2011resolution density CMD (hexbin) from the ShBoost star dataset, cache locally as Parquet, add colour\u2011matched population annotations, a detailed legend, log\u2011scaled colour bar, and create a GIF animation cycling through population labels.",
+      "author": "Hermes",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": false,
+        "canonical_routing": true,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "license_present"
+      ],
+      "size_bytes": 7548,
+      "sha256_12": "a3d83545b4a1"
+    },
+    {
+      "path": "astronomy/shboost-plot-s3/SKILL.md",
+      "category": "astronomy",
+      "name": "shboost-plot-s3",
+      "description": "Plot a sampled subset of the ShBoost 2024 star dataset stored on a public S3 bucket.",
+      "author": "Hermes",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": false,
+        "canonical_routing": true,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "license_present"
+      ],
+      "size_bytes": 5055,
+      "sha256_12": "c4475fae4b8e"
+    },
+    {
+      "path": "astronomy/shboost-public-s3-cmd-plot/SKILL.md",
+      "category": "astronomy",
+      "name": "shboost-public-s3-cmd-plot",
+      "description": "Plot a colour-magnitude diagram from the public SHBoost 2024 S3 parquet dataset using the notebook-backed access pattern and a REANA-friendly serial workflow.",
+      "author": "Hermi (sorgenfresser)",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": false,
+        "canonical_routing": true,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": false,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "license_present"
+      ],
+      "size_bytes": 5477,
+      "sha256_12": "5991633cb0be"
+    },
+    {
+      "path": "astronomy/shboost24-cmd/SKILL.md",
+      "category": "astronomy",
+      "name": "shboost24-cmd",
+      "description": "Generate colour-magnitude diagrams from SHboost24 data using local Parquet caching and agreed plotting conventions.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 6,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": true,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": true,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "PASS",
+      "issues": [],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 1658,
+      "sha256_12": "ed1ed8dfa3e5"
+    },
+    {
+      "path": "astronomy/shboost_cmd_plot_and_animation/SKILL.md",
+      "category": "astronomy",
+      "name": "shboost_cmd_plot_and_animation",
+      "description": "Cache selected columns from the ShBoost 2024 S3 dataset, create a hexbin CMD with log-scaled density, add optimized non\u2011overlapping stellar\u2011population annotations, and generate both a high\u2011resolution PNG and an MP4 animation.",
+      "author": "hermes",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": false,
+        "canonical_routing": true,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "license_present"
+      ],
+      "size_bytes": 10163,
+      "sha256_12": "a776e5c75579"
+    },
+    {
+      "path": "astronomy/shboost_full_cmd_datashader/SKILL.md",
+      "category": "astronomy",
+      "name": "shboost_full_cmd_datashader",
+      "description": "Generate a full\u2011dataset colour\u2011magnitude diagram (CMD) for the ShBoost 2024 star catalog using Dask and Datashader, optimized for minimal memory usage.",
+      "author": "Hermes",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": false,
+        "canonical_routing": true,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "license_present"
+      ],
+      "size_bytes": 6582,
+      "sha256_12": "9b43f90d2c65"
+    },
+    {
+      "path": "astronomy/starhorse-access/SKILL.md",
+      "category": "astronomy",
+      "name": "starhorse-access",
+      "description": "Access and document StarHorse-related local datasets and usage conventions.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 2,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": true,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": true,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "PASS",
+      "issues": [],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 1032,
+      "sha256_12": "0c4a28920832"
+    },
+    {
+      "path": "astronomy/tap-pyvo-adql-access/SKILL.md",
+      "category": "astronomy",
+      "name": "tap-pyvo-adql-access",
+      "description": "Use when querying astronomy TAP services with ADQL through pyvo or curl, including service probes, metadata discovery, TOP-based queries, VOTable/FITS conversion, pandas/Parquet caching, and robust network fallbacks.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 4,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": true,
+        "Pitfalls": false,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 4887,
+      "sha256_12": "7fdc287fc87a"
+    },
+    {
+      "path": "creative/4most-spectrograph-animation/SKILL.md",
+      "category": "creative",
+      "name": "4most-spectrograph-animation",
+      "description": "Manim CE animation explaining the 4MOST spectrograph for 11th-grade physics class. Full optical path from starlight through telescope, collimator, slit, dispersion element, fibre positioner, spectrographs, to CCD detectors.",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": false,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 3445,
+      "sha256_12": "98a45f097bc6"
+    },
+    {
+      "path": "creative/animate-sine-cosine-matplotlib/SKILL.md",
+      "category": "creative",
+      "name": "animate-sine-cosine-matplotlib",
+      "description": "Generate an MP4 animation of sine (green) and cosine (red) curves using matplotlib for frame rendering and ffmpeg for encoding. The skill avoids privileged operations and destructive commands.",
+      "author": "Hermi (sorgenfresser)",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": true,
+        "author_present": true,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": true,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "PASS",
+      "issues": [],
+      "quality_notes": [
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 4383,
+      "sha256_12": "12dbb9959255"
+    },
+    {
+      "path": "creative/fourmost-educational-animation/SKILL.md",
+      "category": "creative",
+      "name": "fourmost-educational-animation",
+      "description": "Create a short Manim animation that explains the 4MOST spectrograph for 11th\u2011grade physics classes. Includes installation, script writing, rendering, common pitfalls, and fallback to external video.",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 4715,
+      "sha256_12": "bbbc35b3a29f"
+    },
+    {
+      "path": "creative/fourmost-spectrograph-animation/SKILL.md",
+      "category": "creative",
+      "name": "fourmost-spectrograph-animation",
+      "description": "Generates a 60-90s educational animation of the 4MOST spectrograph on the VISTA 4-m telescope using Manim Community Edition. Follows a schematic-first workflow: static matplotlib plot for review, then Manim animation. Includes tilting-spine fibres, three spectrographs (HRS/LRS), optical train, and science output.",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 4985,
+      "sha256_12": "f1f62c97790b"
+    },
+    {
+      "path": "creative/fourmost-spectrograph-schematic/SKILL.md",
+      "category": "creative",
+      "name": "fourmost-spectrograph-schematic",
+      "description": "Generate a static schematic illustration of the 4MOST spectrograph system as a precursor to a full Manim animation.",
+      "author": "Hermi (based on user prompt)",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 6263,
+      "sha256_12": "a4b1a4da61d5"
+    },
+    {
+      "path": "creative/fractal-edm-showcase/SKILL.md",
+      "category": "creative",
+      "name": "fractal-edm-showcase",
+      "description": "Automated workflow to generate a short fractal showcase video with a synthetic fast\u2011paced EDM soundtrack, including Seahorse and Elephant valley visual elements.",
+      "author": "Hermes Agent",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 5237,
+      "sha256_12": "fef028f1abc8"
+    },
+    {
+      "path": "creative/fractal-showcase-animation/SKILL.md",
+      "category": "creative",
+      "name": "fractal-showcase-animation",
+      "description": "Generate a short Manim video showcasing famous fractals (Mandelbrot set, Sierpinski triangle, Barnsley fern, Barnsley elephant) and add a simple background music track. The process includes on\u2011the\u2011fly generation of fractal PNGs using matplotlib, assembling them in a Manim scene, rendering, creating a clean audio track, and merging with ffmpeg.",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 10201,
+      "sha256_12": "5884f100396d"
+    },
+    {
+      "path": "creative/fractals-edm-showcase/SKILL.md",
+      "category": "creative",
+      "name": "fractals-edm-showcase",
+      "description": "Create a high\u2011energy fractal showcase video with a synthetic EDM soundtrack, including custom Seahorse and Elephant\u2011jet visuals, a slow zoom, and final audio\u2011video merge.",
+      "author": "Hermes Agent",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 6256,
+      "sha256_12": "d30284af8916"
+    },
+    {
+      "path": "creative/galaxy-formation-animation/SKILL.md",
+      "category": "creative",
+      "name": "galaxy-formation-animation",
+      "description": "Create a concise Manim animation explaining galaxy formation for 11th\u2011grade students. Includes best\u2011practice steps, common pitfalls, and reusable code snippets.",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": false,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 10016,
+      "sha256_12": "da98f1877209"
+    },
+    {
+      "path": "creative/manim-020-gotchas/SKILL.md",
+      "category": "creative",
+      "name": "manim-020-gotchas",
+      "description": "Gotchas and API changes specific to Manim Community Edition 0.20.1. Includes ImageMobject, animation names, and font handling.",
+      "author": "Hermi",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 13248,
+      "sha256_12": "448172402f5b"
+    },
+    {
+      "path": "creative/manim-educational-animation/SKILL.md",
+      "category": "creative",
+      "name": "manim-educational-animation",
+      "description": "Creating clean, non-overlapping Manim animations for educational explainers (Gymnasium/school level). Avoids text overlap bugs, guides pacing, and structures single-scene vs multi-scene approaches.",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 5351,
+      "sha256_12": "a944d4adc289"
+    },
+    {
+      "path": "creative/manim-tts-narration/SKILL.md",
+      "category": "creative",
+      "name": "manim-tts-narration",
+      "description": "Add German TTS narration to Manim educational videos using espeak-ng. Handles scene-by-scene audio generation, duration management, and merging with video.",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 4455,
+      "sha256_12": "a6e231bf7e72"
+    },
+    {
+      "path": "creative/plot-sine-cosine-matplotlib/SKILL.md",
+      "category": "creative",
+      "name": "plot-sine-cosine-matplotlib",
+      "description": "Generate a PNG plot of sin(x) in red and cos(x) in green using matplotlib, handling missing dependencies in a managed Python environment.",
+      "author": "Hermi (sorgenfresser)",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": true,
+        "author_present": true,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": true,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "PASS",
+      "issues": [],
+      "quality_notes": [
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 3157,
+      "sha256_12": "ac6067dc0ab9"
+    },
+    {
+      "path": "creative/sin-unit-circle-animation/SKILL.md",
+      "category": "creative",
+      "name": "sin-unit-circle-animation",
+      "description": "Create animations showing the Unit Circle \u2192 Sine Wave connection. Uses ValueTracker + always_redraw for smooth rotating point that traces out the sine wave. Perfect for educational content (11th grade math, trigonometry).",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": false,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 4559,
+      "sha256_12": "1c3c2db31ec6"
+    },
+    {
+      "path": "data-science/datashader-019-pipeline/SKILL.md",
+      "category": "data-science",
+      "name": "datashader-019-pipeline",
+      "description": "Generate density plots (CMD, hexbin, 2D histograms) using datashader 0.19.0 with Dask for lazy data loading and matplotlib for final rendering. Handles the 0.19.0 API: no Canvas.hexbin(), no tf.to_rgba(), tf.shade() returns Image.to_pil().",
+      "author": "Hermi",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": false,
+        "canonical_routing": true,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "license_present"
+      ],
+      "size_bytes": 5743,
+      "sha256_12": "60307ca36219"
+    },
+    {
+      "path": "devops/api-server-local-image-support/SKILL.md",
+      "category": "devops",
+      "name": "api-server-local-image-support",
+      "description": "Fix Open WebUI image display by extending api_server.py to convert standard markdown ![alt](/local/path) images into HTTP URLs via /media/<path> route. Handles the gap between agent-generated image paths and the API server's media serving pipeline.",
+      "author": "Hermes Agent (Arman Khalatyan)",
+      "license": "MIT",
+      "related_count": 2,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 5194,
+      "sha256_12": "63082d1437fd"
+    },
+    {
+      "path": "devops/docker-access/SKILL.md",
+      "category": "devops",
+      "name": "docker-access",
+      "description": "Verify Docker availability and run containers on this host.",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 1336,
+      "sha256_12": "1c2a8218db63"
+    },
+    {
+      "path": "devops/docker-access-group-reload/SKILL.md",
+      "category": "devops",
+      "name": "docker-access-group-reload",
+      "description": "Resolve Docker permission errors by ensuring the user is in the docker group and reloading group membership.",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 1821,
+      "sha256_12": "7f1ec42ec04a"
+    },
+    {
+      "path": "devops/manim-headless-rendering/SKILL.md",
+      "category": "devops",
+      "name": "manim-headless-rendering",
+      "description": "Guidelines for rendering Manim animations in a headless Linux environment (no GUI). Includes troubleshooting common errors, choosing correct renderer, managing long renders, and concatenating partial video files produced by Manim.",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 3816,
+      "sha256_12": "d0882f54d2c1"
+    },
+    {
+      "path": "devops/manim-telegram-animation/SKILL.md",
+      "category": "devops",
+      "name": "manim-telegram-animation",
+      "description": "Guide to creating concise educational animations with Manim, handling common errors, rendering in low\u2011resolution, and delivering the final MP4 via Telegram (including ffmpeg concat handling).",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 5215,
+      "sha256_12": "2d4a38748bda"
+    },
+    {
+      "path": "devops/manim-telegram-delivery/SKILL.md",
+      "category": "devops",
+      "name": "manim-telegram-delivery",
+      "description": "Generate a Manim animation, extract a short preview, concatenate full\u2011resolution fragments, and deliver the MP4 directly via Telegram. Handles common rendering pitfalls (partial movie files, missing renderer options) and provides a workflow for producing both low\u2011res preview and high\u2011res final video.",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 5808,
+      "sha256_12": "51b778ee73bb"
+    },
+    {
+      "path": "devops/manim-video-audio/SKILL.md",
+      "category": "devops",
+      "name": "manim-video-audio",
+      "description": "Add audio to Manim-rendered videos \u2014 background music, TTS narration, or SRT subtitles. Handles common pitfalls with MP3 decoding, volume mixing, and timing.",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 4046,
+      "sha256_12": "af1db40d4072"
+    },
+    {
+      "path": "devops/paperclip-oss120b-external/SKILL.md",
+      "category": "devops",
+      "name": "paperclip-oss120b-external",
+      "description": "Step\u2011by\u2011step guide for turning a fresh Paperclip installation into a publicly reachable service that forwards LLM calls to a custom OSS\u2011120B model served via an OpenAI\u2011compatible endpoint. Handles deployment mode, bind settings, authentication exposure, board claim, and environment variables.",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 7376,
+      "sha256_12": "52d90457164c"
+    },
+    {
+      "path": "devops/telegram-auth-troubleshooting/SKILL.md",
+      "category": "devops",
+      "name": "telegram-auth-troubleshooting",
+      "description": "Diagnose and fix cases where the Hermes Telegram bot silently ignores messages from group members (auth allowlist issues).",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 3246,
+      "sha256_12": "233d5261ce09"
+    },
+    {
+      "path": "infrastructure/api-server-media-display/SKILL.md",
+      "category": "infrastructure",
+      "name": "api-server-media-display",
+      "description": "Diagnose and fix images not displaying in Open WebUI / API server frontends.",
+      "author": "Hermes Agent",
+      "license": "MIT",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 4969,
+      "sha256_12": "56817a77a177"
+    },
+    {
+      "path": "infrastructure/docs-mcp-at-aip/SKILL.md",
+      "category": "infrastructure",
+      "name": "docs-mcp-at-aip",
+      "description": "Access the AIP documentation MCP server at https://docs-mcp-server.kube.aip.de. Search, scrape, and fetch documentation for 15+ indexed libraries including reana, pandas, snakemake, dask, unsloth, and more. HTTP POST + SSE, internal network only.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 8,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": true,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": true,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "PASS",
+      "issues": [],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 8592,
+      "sha256_12": "593822991efe"
+    },
+    {
+      "path": "infrastructure/hermes-api-server/SKILL.md",
+      "category": "infrastructure",
+      "name": "hermes-api-server",
+      "description": "Enable and expose the Hermes OpenAI-compatible API server safely for frontends and integrations.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 1,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": true,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": true,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "PASS",
+      "issues": [],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 910,
+      "sha256_12": "5e32bd971c79"
+    },
+    {
+      "path": "infrastructure/hermes-native-mcp/SKILL.md",
+      "category": "infrastructure",
+      "name": "hermes-native-mcp",
+      "description": "Configure and use Hermes Agent's built-in MCP client for stdio and HTTP MCP servers, including testing, troubleshooting, and TLS trust fixes for internal HTTPS endpoints.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 3,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": true,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": true,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "PASS",
+      "issues": [],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 3624,
+      "sha256_12": "01ffccf32a54"
+    },
+    {
+      "path": "infrastructure/mcporter-cli/SKILL.md",
+      "category": "infrastructure",
+      "name": "mcporter-cli",
+      "description": "Use the mcporter CLI for ad-hoc MCP server discovery, testing, schema inspection, and tool calls without changing Hermes configuration.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 2,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": true,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": true,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "PASS",
+      "issues": [],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 2778,
+      "sha256_12": "c789f1b74cf5"
+    },
+    {
+      "path": "infrastructure/openwebui-hermes/SKILL.md",
+      "category": "infrastructure",
+      "name": "openwebui-hermes",
+      "description": "Connect Hermes Agent to Open WebUI using the OpenAI-compatible API server and document image/file-delivery caveats.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 1,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": true,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": true,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "PASS",
+      "issues": [],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 924,
+      "sha256_12": "0f870c91dc96"
+    },
+    {
+      "path": "infrastructure/openwebui-media-via-s3/SKILL.md",
+      "category": "infrastructure",
+      "name": "openwebui-media-via-s3",
+      "description": "Serve images, videos, and audio to Open WebUI by uploading media to the public S3 bucket (scr4agent), then embedding pure markdown URLs.",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 4999,
+      "sha256_12": "2cdf6f12a41a"
+    },
+    {
+      "path": "leisure/find-nearby/SKILL.md",
+      "category": "leisure",
+      "name": "find-nearby",
+      "description": "Find nearby places (restaurants, cafes, bars, pharmacies, etc.) using OpenStreetMap. Works with coordinates, addresses, cities, zip codes, or Telegram location pins. No API keys needed.",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 3862,
+      "sha256_12": "64edf35b4043"
+    },
+    {
+      "path": "media/ffmpeg-ambient-audio/SKILL.md",
+      "category": "media",
+      "name": "ffmpeg-ambient-audio",
+      "description": "Create layered ambient pad music using FFmpeg's aevalsrc filter. Generates loopable 15-second clips with slow vibrato, shimmer, and exponential decay, then loops to target duration. Mixes into video at low volume for BGM.",
+      "author": "Hermi",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 3562,
+      "sha256_12": "636e01bc5f17"
+    },
+    {
+      "path": "media/fractal-preference-mandelbrot-elephant/SKILL.md",
+      "category": "media",
+      "name": "fractal-preference-mandelbrot-elephant",
+      "description": "When the user asks for a fractal showcase, they want a video that shows ONLY a Mandelbrot zoom transitioning to the Elephant's Valley image. The transition should use a very small scaling factor (~1e-7). No other fractals, titles, or captions should be included. Future requests for fractal videos should honor this minimal\u2011content, single\u2011focus style.",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 1741,
+      "sha256_12": "0a5006f2312c"
+    },
+    {
+      "path": "productivity/aip-member-contact-retrieval/SKILL.md",
+      "category": "productivity",
+      "name": "aip-member-contact-retrieval",
+      "description": "Retrieve phone number (and email) for a staff member of the Leibniz Institute for Astrophysics Potsdam (AIP) from the public website.",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 2714,
+      "sha256_12": "4385c716e8d2"
+    },
+    {
+      "path": "productivity/image-description-workflow/SKILL.md",
+      "category": "productivity",
+      "name": "image-description-workflow",
+      "description": "Workflow for handling user\u2011submitted images, generating a description via vision_analyze, and responding.",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 2336,
+      "sha256_12": "84bb869e13fc"
+    },
+    {
+      "path": "productivity/nextcloud-caldav/SKILL.md",
+      "category": "productivity",
+      "name": "nextcloud-caldav-agent",
+      "description": "Access and manage calendars on cloud.aip.de Nextcloud via CalDAV. List, create, edit, and delete events in personal and shared calendars. Credentials are passed via environment variables \u2014 never hardcode them.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 2,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": true,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": true,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "PASS",
+      "issues": [],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 4193,
+      "sha256_12": "af3a1a337c2b"
+    },
+    {
+      "path": "productivity/nextcloud-caldav-calendar-management/SKILL.md",
+      "category": "productivity",
+      "name": "nextcloud-caldav-calendar-management",
+      "description": "Create, read, update, and delete calendar events via Nextcloud CalDAV API. Includes auth patterns, calendar paths, and quirks for Nextcloud v29+.",
+      "author": "Hermes Agent",
+      "license": "MIT",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 6311,
+      "sha256_12": "14e6f24a1f5b"
+    },
+    {
+      "path": "python/cmd-plotting/SKILL.md",
+      "category": "python",
+      "name": "cmd-plotting",
+      "description": "Generate astronomy colour-magnitude diagrams in Python with reproducible plotting choices.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 2,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": true,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": true,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "PASS",
+      "issues": [],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 892,
+      "sha256_12": "7a457deac076"
+    },
+    {
+      "path": "python/dask-hvplot-datashader-scientific-plots/SKILL.md",
+      "category": "python",
+      "name": "dask-hvplot-datashader-scientific-plots",
+      "description": "Build scalable scientific plots from large tabular datasets using Dask for processing, hvPlot for plotting, and Datashader for dense large-data rendering.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 4,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": true,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": true,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": true,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "PASS",
+      "issues": [],
+      "quality_notes": [],
+      "size_bytes": 2928,
+      "sha256_12": "3d0e799da600"
+    },
+    {
+      "path": "python/hdf5-on-s3-cached/SKILL.md",
+      "category": "python",
+      "name": "hdf5-on-s3-cached",
+      "description": "Access HDF5 files stored on S3 by creating a reliable local cache first, extracting reusable subsets, and converting repeated tabular work products to local Parquet.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 3,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": true,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": true,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": true,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "PASS",
+      "issues": [],
+      "quality_notes": [],
+      "size_bytes": 2852,
+      "sha256_12": "d471329799aa"
+    },
+    {
+      "path": "python/s3-parquet-sampling/SKILL.md",
+      "category": "python",
+      "name": "s3-parquet-sampling",
+      "description": "Sample or reduce massive Parquet datasets on S3 using local Parquet caching, Dask-first processing for large inputs, and hvPlot/Datashader for scalable scientific visualization.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 4,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": true,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": true,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": true,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "PASS",
+      "issues": [],
+      "quality_notes": [],
+      "size_bytes": 3394,
+      "sha256_12": "3cb8d5e957f3"
+    },
+    {
+      "path": "python/s3-parquet-sampling-plot-cached/SKILL.md",
+      "category": "python",
+      "name": "s3-parquet-sampling-plot-cached",
+      "description": "Efficiently sample a subset of a massive Parquet dataset stored on an S3\u2011compatible bucket, cache the sampled rows locally as a Parquet file for fast reuse, and produce high\u2011resolution PNG plots suitable for analysis and publication.",
+      "author": "Hermes Assistant",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": false,
+        "canonical_routing": true,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "license_present"
+      ],
+      "size_bytes": 7731,
+      "sha256_12": "b1f2498a9a6a"
+    },
+    {
+      "path": "python/seaborn-paper-plots/SKILL.md",
+      "category": "python",
+      "name": "seaborn-paper-plots",
+      "description": "Create clean seaborn/matplotlib plots suitable for papers, notes, and reproducible reports.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 1,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": true,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": true,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "PASS",
+      "issues": [],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 804,
+      "sha256_12": "91e82001967d"
+    },
+    {
+      "path": "reana-workflows/reana-aip/SKILL.md",
+      "category": "reana-workflows",
+      "name": "reana-aip",
+      "description": "Create REANA workflows using AIP conventions, approved environments, and reproducible workflow structure.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 4,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": true,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": true,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "PASS",
+      "issues": [],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 1151,
+      "sha256_12": "2314fa3e8ff7"
+    },
+    {
+      "path": "reana-workflows/reana-client-config/SKILL.md",
+      "category": "reana-workflows",
+      "name": "reana-client-config",
+      "description": "Configure REANA client authentication with multi-profile `.reana/config.yaml` or `~/.reana/config.yaml`, store tokens safely, and select dev/prod back-ends reproducibly.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 4,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": true,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": true,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "PASS",
+      "issues": [],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 3004,
+      "sha256_12": "8b6588c093dc"
+    },
+    {
+      "path": "reana-workflows/reana-client-docker/SKILL.md",
+      "category": "reana-workflows",
+      "name": "reana-client-docker",
+      "description": "Use the Dockerized REANA client to ping a REANA server, list workflows, and format output with jq.",
+      "author": "hermes",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 4745,
+      "sha256_12": "4fc2397bb36f"
+    },
+    {
+      "path": "reana-workflows/reana-client-failover/SKILL.md",
+      "category": "reana-workflows",
+      "name": "reana-client-failover",
+      "description": "Use when a REANA workflow operation needs a robust client launcher: prefer native reana-client when installed, automatically fall back to Dockerized reanahub/reana-client when native client is missing, verify Docker availability, preserve environment-based credentials, and run local workflow projects with correct native-vs-Docker paths.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 4,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": false,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 8716,
+      "sha256_12": "91e7b7c61367"
+    },
+    {
+      "path": "reana-workflows/reana-client-multi-backend/SKILL.md",
+      "category": "reana-workflows",
+      "name": "reana-client-multi-backend",
+      "description": "Reusable instructions to set up a .reana/config.yaml with dev and prod profiles and run reana\u2011client via Docker using REANA_PROFILE.",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 3460,
+      "sha256_12": "a7bf69e915e3"
+    },
+    {
+      "path": "reana-workflows/reana-cmd-plot-workflow/SKILL.md",
+      "category": "reana-workflows",
+      "name": "reana-cmd-plot-workflow",
+      "description": "REANA workflow that caches a large S3 Parquet dataset and plots bprp0 vs mg0 as a hex\u2011bin PNG.",
+      "author": "Hermi (sorgenfresser)",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": false,
+        "canonical_routing": true,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "license_present"
+      ],
+      "size_bytes": 7866,
+      "sha256_12": "45262ff6703a"
+    },
+    {
+      "path": "reana-workflows/reana-cmd-plot-workflow-external-script/SKILL.md",
+      "category": "reana-workflows",
+      "name": "reana-cmd-plot-workflow-external-script",
+      "description": "Create a REANA workflow that runs a large S3 Parquet data plot using an external Python script. The script is stored as a separate file and referenced in the workflow inputs. This avoids inline script blocks that cause YAML parsing errors.",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": true,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present"
+      ],
+      "size_bytes": 3773,
+      "sha256_12": "5680136f3519"
+    },
+    {
+      "path": "reana-workflows/reana-dev-workflow-setup/SKILL.md",
+      "category": "reana-workflows",
+      "name": "reana-dev-workflow-setup",
+      "description": "Set up a REANA development workflow in its own directory, place a minimal reana.yaml, and run it using the Dockerized REANA client.",
+      "author": "Hermi (sorgenfresser)",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 6847,
+      "sha256_12": "184740a99c8e"
+    },
+    {
+      "path": "reana-workflows/reana-operator/SKILL.md",
+      "category": "reana-workflows",
+      "name": "reana-operator",
+      "description": "Use when operating REANA from natural language: check job status, list available backends, show recent jobs by status, scaffold reana.yaml projects, run code as REANA workflows, inspect logs, validate YAML, and download outputs using REANA_SERVER_URL and REANA_ACCESS_TOKEN from the environment.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 5,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": false,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 13071,
+      "sha256_12": "74fd6dc9085d"
+    },
+    {
+      "path": "reana-workflows/reana-run-script-with-workspace/SKILL.md",
+      "category": "reana-workflows",
+      "name": "reana-run-script-with-workspace",
+      "description": "Run a Python (or other) script in a REANA workflow ensuring the script is found via $REANA_WORKSPACE.",
+      "author": "Hermi (sorgenfresser)",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 3329,
+      "sha256_12": "40e728e30aad"
+    },
+    {
+      "path": "reana-workflows/reana-selflearn-workflows/SKILL.md",
+      "category": "reana-workflows",
+      "name": "reana-selflearn-workflows",
+      "description": "Self\u2011learn REANA by listing finished workflows on the development backend, downloading their `reana.yaml` files, and providing guidelines for writing correct REANA workflows.",
+      "author": "Hermi (sorgenfresser)",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 6575,
+      "sha256_12": "b4846bd835a8"
+    },
+    {
+      "path": "reana-workflows/reana-serial-python/SKILL.md",
+      "category": "reana-workflows",
+      "name": "reana-serial-python",
+      "description": "Reusable template for REANA serial workflows that run a Python analysis script on remote data, cache processed results locally as Parquet, and produce PNG outputs. Designed for SHBoost-like analyses where only the script, selected columns, and output names change.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 7,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": true,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": true,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": true,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "PASS",
+      "issues": [],
+      "quality_notes": [],
+      "size_bytes": 4545,
+      "sha256_12": "c38d0450e0e5"
+    },
+    {
+      "path": "reana-workflows/reana-serial-python-analysis-template/SKILL.md",
+      "category": "reana-workflows",
+      "name": "reana-serial-python-analysis-template",
+      "description": "Reusable template for REANA serial workflows that run a Python analysis script on remote data, cache processed results locally as Parquet, and produce PNG outputs. Designed for SHBoost-like analyses where only the script, selected columns, and output names change.",
+      "author": "Hermi (sorgenfresser)",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": false,
+        "canonical_routing": true,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "license_present"
+      ],
+      "size_bytes": 7256,
+      "sha256_12": "51b757ea967f"
+    },
+    {
+      "path": "reana-workflows/reana-shboost24/SKILL.md",
+      "category": "reana-workflows",
+      "name": "reana-shboost24",
+      "description": "Run SHboost24 plotting and sampling workflows on REANA with cached parquet inputs and explicit script packaging.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 4,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": true,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": true,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": true,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "PASS",
+      "issues": [],
+      "quality_notes": [],
+      "size_bytes": 1487,
+      "sha256_12": "26af4f566c26"
+    },
+    {
+      "path": "reana-workflows/reana-sin-plot-workflow/SKILL.md",
+      "category": "reana-workflows",
+      "name": "reana-sin-plot-workflow",
+      "description": "Minimal REANA workflow that plots a sine curve in green using pandas and matplotlib. Includes `reana.yaml`, `plot_sin.py` (and optional `requirements.txt`).",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 2262,
+      "sha256_12": "ad36daa41adb"
+    },
+    {
+      "path": "reana-workflows/reana-version-info/SKILL.md",
+      "category": "reana-workflows",
+      "name": "reana-version-info",
+      "description": "Quick reference for REANA client and server versions for dev and production backends used by the user.",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 1563,
+      "sha256_12": "05b86a6618dd"
+    },
+    {
+      "path": "reana-workflows/reana-workflow-best-practices/SKILL.md",
+      "category": "reana-workflows",
+      "name": "reana-workflow-best-practices",
+      "description": "How to write a correct REANA workflow YAML that complies with the organization\u2019s policies.",
+      "author": "Hermi (sorgenfresser)",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": false,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 4511,
+      "sha256_12": "47a72e4a7153"
+    },
+    {
+      "path": "reana-workflows/reana-workflow-sin-plot/SKILL.md",
+      "category": "reana-workflows",
+      "name": "reana-workflow-sin-plot",
+      "description": "Automates creation, submission, monitoring, and retrieval of a REANA workflow that plots a green sine curve using pandas and matplotlib.",
+      "author": "Hermes",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 3023,
+      "sha256_12": "f45b69583add"
+    },
+    {
+      "path": "reana-workflows/reana-workflow-with-env/SKILL.md",
+      "category": "reana-workflows",
+      "name": "reana-workflow-with-env",
+      "description": "Create a REANA workflow respecting the organization\u2019s environment repository and default memory limit.",
+      "author": "Hermi (sorgenfresser)",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 3374,
+      "sha256_12": "8f73416e0caa"
+    },
+    {
+      "path": "research/2026-agentic-astronomy-literature/SKILL.md",
+      "category": "research",
+      "name": "2026-agentic-astronomy-literature",
+      "description": "Summarize and apply the key 2026 literature on agentic systems in astronomy and scientific analysis.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 2,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": true,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": true,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "PASS",
+      "issues": [],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 947,
+      "sha256_12": "716c49bd0bdc"
+    },
+    {
+      "path": "research/arxiv/SKILL.md",
+      "category": "research",
+      "name": "arxiv-research",
+      "description": "Search and retrieve academic papers from arXiv using the free REST API. Query by keyword, author, category, or paper ID. Fetch abstracts, full PDFs, generate BibTeX, and explore citations via Semantic Scholar.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 3,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": true,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": true,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "PASS",
+      "issues": [],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 5916,
+      "sha256_12": "533be7d54706"
+    },
+    {
+      "path": "research/astroagent-github-skills-repo-bootstrap/SKILL.md",
+      "category": "research",
+      "name": "astroagent-github-skills-repo-bootstrap",
+      "description": "Scaffold a shareable GitHub repository for Hermes skills focused on AstroAgent, astronomy workflows, REANA, Open WebUI integration, and local dataset operations.",
+      "author": "Hermes Agent",
+      "license": "MIT",
+      "related_count": 3,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": true,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": true,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "PASS",
+      "issues": [],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 4377,
+      "sha256_12": "c9f157a1d3f6"
+    },
+    {
+      "path": "research/cold-streams-monitoring/SKILL.md",
+      "category": "research",
+      "name": "cold-streams-monitoring",
+      "description": "Automated arXiv monitoring for cold gas filament accretion in galaxy formation. Discovers new papers on cold mode accretion, cold flows, cosmological filaments, and related topics. Runs as a scheduled cron job.",
+      "author": "Hermes Agent (AstroAgentAssistant)",
+      "license": "",
+      "related_count": 2,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 11478,
+      "sha256_12": "ceda065bc9b5"
+    },
+    {
+      "path": "research/drp-paper/SKILL.md",
+      "category": "research",
+      "name": "drp-paper",
+      "description": "Create and maintain the DRP white paper project with REANA integration",
+      "author": "",
+      "license": "MIT",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": false,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 7848,
+      "sha256_12": "fb9cef0c668e"
+    },
+    {
+      "path": "research/iterative-paper-improvement/SKILL.md",
+      "category": "research",
+      "name": "iterative-paper-improvement",
+      "description": "Structured multi-round improvement workflow for LaTeX academic papers \u2014 each round targets specific improvements (structure, prose, figures, compilation). Also covers merging multiple papers and multi-phase iterations (X figure rounds + Y text rounds).",
+      "author": "Hermes Agent",
+      "license": "MIT",
+      "related_count": 2,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 7331,
+      "sha256_12": "45be38d48ebe"
+    },
+    {
+      "path": "research/latex-journal-submission-package/SKILL.md",
+      "category": "research",
+      "name": "latex-journal-submission-package",
+      "description": "Convert a working LaTeX manuscript into a journal-style submission package with separate BibTeX, build helper, manifest, and zip archive; useful when TeX is unavailable locally.",
+      "author": "Hermes Agent",
+      "license": "MIT",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 5603,
+      "sha256_12": "a31191d0ea2f"
+    },
+    {
+      "path": "research/latex-paper-iteration/SKILL.md",
+      "category": "research",
+      "name": "latex-paper-iteration",
+      "description": "Iteratively improve LaTeX research papers \u2014 structural fixes, prose polishing, figure integration, compilation cycles. Also covers merging multiple papers into a unified manuscript.",
+      "author": "Hermes Agent",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": false,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 7817,
+      "sha256_12": "6da0d2b0cff1"
+    },
+    {
+      "path": "research/latex-research-paper/SKILL.md",
+      "category": "research",
+      "name": "latex-research-paper",
+      "description": "Generate complete, compilable LaTeX research papers in formal academic style with full section structure, BibTeX references, and figure support.",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 6418,
+      "sha256_12": "cba2906289b7"
+    },
+    {
+      "path": "research/mnras-latex-compile-portability-fixes/SKILL.md",
+      "category": "research",
+      "name": "mnras-latex-compile-portability-fixes",
+      "description": "Fix common MNRAS LaTeX portability issues on Ubuntu/Debian TeX Live installs, compile successfully, and package submission artifacts.",
+      "author": "Hermes Agent",
+      "license": "MIT",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 5198,
+      "sha256_12": "aea2f9d5a81b"
+    },
+    {
+      "path": "research/mnras-latex-portable/SKILL.md",
+      "category": "research",
+      "name": "mnras-latex-portable",
+      "description": "Build and package an MNRAS LaTeX manuscript portably on Ubuntu, avoiding missing-font-package failures and fixing common two-column table issues.",
+      "author": "AstroAgent / AIP",
+      "license": "MIT",
+      "related_count": 3,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": true,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": true,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "PASS",
+      "issues": [],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 3032,
+      "sha256_12": "3b51b18f161c"
+    },
+    {
+      "path": "research/mnras-latex-portable-build-and-package/SKILL.md",
+      "category": "research",
+      "name": "mnras-latex-portable-build-and-package",
+      "description": "Build and package an MNRAS LaTeX manuscript portably on Ubuntu, avoiding missing-font-package failures and fixing common two-column table issues.",
+      "author": "Hermes Agent",
+      "license": "MIT",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 5188,
+      "sha256_12": "e719a8371719"
+    },
+    {
+      "path": "research/multi-section-latex-whitepaper/SKILL.md",
+      "category": "research",
+      "name": "multi-section-latex-whitepaper",
+      "description": "Generate comprehensive LaTeX white papers from multiple sources \u2014 Markdown sections, existing papers, or user ideas. Converts and assembles into a single compiled PDF.",
+      "author": "Hermes Agent",
+      "license": "MIT",
+      "related_count": 2,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": false,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 6503,
+      "sha256_12": "6b37bf6ac702"
+    },
+    {
+      "path": "science/dt4acc-container-troubleshooting/SKILL.md",
+      "category": "science",
+      "name": "dt4acc-container-troubleshooting",
+      "description": "Debugging dt4acc digital twin containers \u2014 the twin requires accelerator lattice data in MongoDB to initialize, or use HIFIS pre-built images with BESSY II data pre-loaded.",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 9222,
+      "sha256_12": "443e41a7ebeb"
+    },
+    {
+      "path": "science/dtwin-burnin-tests/SKILL.md",
+      "category": "science",
+      "name": "dtwin-burnin-tests",
+      "description": "Run comprehensive burn-in tests on the dt4acc Digital Twin IOC to verify EPICS PV stability, throughput, and read/write resilience",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 4119,
+      "sha256_12": "4b7e907d5f79"
+    },
+    {
+      "path": "science/dtwin-epics-runbook/SKILL.md",
+      "category": "science",
+      "name": "dtwin-epics-runbook",
+      "description": "EPICS-first runbook for dt4acc using the current local-repo workflow, with host-side smoke test first and direct EPICS startup for the faster path.",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 5019,
+      "sha256_12": "86d38f7c82e5"
+    },
+    {
+      "path": "science/dtwin-host-smoke-test/SKILL.md",
+      "category": "science",
+      "name": "dtwin-host-smoke-test",
+      "description": "Reproducible host-side smoke test for the dt4acc digital twin stack using local dt4acc, dt4acc-lib, and lat2db repos without MongoDB, TANGO, or Apptainer.",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 7184,
+      "sha256_12": "473d70f6a220"
+    },
+    {
+      "path": "science/dtwin-setup/SKILL.md",
+      "category": "science",
+      "name": "dtwin-setup",
+      "description": "Build and run the dt4acc Digital Twin for particle accelerators using Apptainer",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 12166,
+      "sha256_12": "3cca1f6ac309"
+    },
+    {
+      "path": "science/dtwin-tango-runbook/SKILL.md",
+      "category": "science",
+      "name": "dtwin-tango-runbook",
+      "description": "SOLEIL-oriented TANGO runbook for dt4acc, including Tango DB container startup, private data prerequisites, and the recommended debug order after the public host smoke test.",
+      "author": "",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": false,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "author_present",
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 6009,
+      "sha256_12": "99318e985b94"
+    },
+    {
+      "path": "software-development/dask-mcp-docs-first/SKILL.md",
+      "category": "software-development",
+      "name": "dask-mcp-docs-first",
+      "description": "Generate or review Dask Python code only after consulting indexed MCP documentation, using strict version lookup and focused query templates for current APIs and best practices.",
+      "author": "Hermes Agent",
+      "license": "MIT",
+      "related_count": 5,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": true,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": true,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "PASS",
+      "issues": [],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 4054,
+      "sha256_12": "17d49fe29458"
+    },
+    {
+      "path": "software-development/pandas-datashader-mcp-docs-first/SKILL.md",
+      "category": "software-development",
+      "name": "pandas-datashader-mcp-docs-first",
+      "description": "Write or review pandas and Datashader plotting code only after consulting indexed MCP documentation, using focused query templates for current IO, dtype, aggregation, and rendering APIs.",
+      "author": "Hermes Agent",
+      "license": "MIT",
+      "related_count": 7,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": true,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": true,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "PASS",
+      "issues": [],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 3922,
+      "sha256_12": "26abbde2fa51"
+    },
+    {
+      "path": "software-development/paperclip-enable-llm-api/SKILL.md",
+      "category": "software-development",
+      "name": "paperclip-enable-llm-api",
+      "description": "Configure the top-level LLM provider block in Paperclip so the instance recognizes the OpenAI backend in current Paperclip versions.",
+      "author": "Hermi (hermes-agent)",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 3491,
+      "sha256_12": "fbf80cc06a15"
+    },
+    {
+      "path": "software-development/paperclip-ensure-oss-120b-assistant/SKILL.md",
+      "category": "software-development",
+      "name": "paperclip-ensure-oss-120b-assistant",
+      "description": "Verify and, if needed, create the oss-120b-assistant agent in Paperclip after server startup, ensuring it is visible in the agents dashboard.",
+      "author": "Hermes Agent",
+      "license": "",
+      "related_count": 0,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": false,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "license_present",
+        "canonical_routing"
+      ],
+      "size_bytes": 4698,
+      "sha256_12": "4bb9d4ec0786"
+    },
+    {
+      "path": "software-development/python-mcp-docs-first/SKILL.md",
+      "category": "software-development",
+      "name": "python-mcp-docs-first",
+      "description": "When writing or revising Python code, consult the docs MCP server first for indexed libraries and base API usage on the latest available indexed documentation.",
+      "author": "Hermes Agent",
+      "license": "MIT",
+      "related_count": 6,
+      "checks": {
+        "frontmatter": true,
+        "name_present": true,
+        "description_present": true,
+        "description_length": true,
+        "body_present": true,
+        "required_sections": false,
+        "author_present": true,
+        "license_present": true,
+        "canonical_routing": false,
+        "duplicate_name": true
+      },
+      "section_hits": {
+        "When to Use": true,
+        "Procedure": false,
+        "Pitfalls": true,
+        "Verification": true
+      },
+      "status": "WARN",
+      "issues": [
+        "required_sections"
+      ],
+      "quality_notes": [
+        "canonical_routing"
+      ],
+      "size_bytes": 6515,
+      "sha256_12": "70bf91a69199"
+    }
+  ],
+  "support_files": [
+    {
+      "path": "astronomy/astro-catalog-plotting-cache/templates/cmd_hexbin.py",
+      "kind": "python",
+      "status": "PASS",
+      "error": ""
+    },
+    {
+      "path": "astronomy/s3-parquet-astro-access/scripts/s3_parquet_probe.py",
+      "kind": "python",
+      "status": "PASS",
+      "error": ""
+    },
+    {
+      "path": "astronomy/tap-pyvo-adql-access/scripts/tap_smoke_query.py",
+      "kind": "python",
+      "status": "PASS",
+      "error": ""
+    },
+    {
+      "path": "leisure/find-nearby/scripts/find_nearby.py",
+      "kind": "python",
+      "status": "PASS",
+      "error": ""
+    },
+    {
+      "path": "python/cmd-plotting/templates/plot_cmd.py",
+      "kind": "python",
+      "status": "PASS",
+      "error": ""
+    },
+    {
+      "path": "reana-workflows/reana-client-failover/scripts/reana_client_auto.py",
+      "kind": "python",
+      "status": "PASS",
+      "error": ""
+    },
+    {
+      "path": "reana-workflows/reana-operator/scripts/reana_operator.py",
+      "kind": "python",
+      "status": "PASS",
+      "error": ""
+    },
+    {
+      "path": "research/cold-streams-monitoring/scripts/cold_streams_monitor.py",
+      "kind": "python",
+      "status": "PASS",
+      "error": ""
+    },
+    {
+      "path": "science/dtwin-host-smoke-test/scripts/dtwin_host_smoke_test.py",
+      "kind": "python",
+      "status": "PASS",
+      "error": ""
+    },
+    {
+      "path": "reana-workflows/reana-aip/templates/reana.yaml",
+      "kind": "yaml",
+      "status": "PASS",
+      "error": ""
+    },
+    {
+      "path": "reana-workflows/reana-operator/templates/reana-bash.yaml",
+      "kind": "yaml",
+      "status": "PASS",
+      "error": ""
+    },
+    {
+      "path": "reana-workflows/reana-operator/templates/reana-python.yaml",
+      "kind": "yaml",
+      "status": "PASS",
+      "error": ""
+    },
+    {
+      "path": "reana-workflows/reana-shboost24/templates/reana.yaml",
+      "kind": "yaml",
+      "status": "PASS",
+      "error": ""
+    },
+    {
+      "path": ".github/workflows/secret-scan.yml",
+      "kind": "yml",
+      "status": "PASS",
+      "error": ""
+    }
+  ],
+  "root_audit": {
+    "status": "PASS",
+    "data": {
+      "repo": "/home/hermes/projects/AstroAgentAssistant",
+      "git_status": "## main...origin/main\n?? tests/",
+      "tracked_files": 170,
+      "skill_files": 115,
+      "unique_skill_names": 115,
+      "categories_actual": 14,
+      "readme_claimed": {
+        "skills": 115,
+        "categories": 14
+      },
+      "readme_rows": {
+        "agents": 1,
+        "astronomy": 27,
+        "creative": 14,
+        "data-science": 1,
+        "devops": 9,
+        "infrastructure": 7,
+        "leisure": 1,
+        "media": 2,
+        "productivity": 4,
+        "python": 6,
+        "reana-workflows": 19,
+        "research": 13,
+        "science": 6,
+        "software-development": 5
+      },
+      "category_counts_actual": {
+        "agents": 1,
+        "astronomy": 27,
+        "creative": 14,
+        "data-science": 1,
+        "devops": 9,
+        "infrastructure": 7,
+        "leisure": 1,
+        "media": 2,
+        "productivity": 4,
+        "python": 6,
+        "reana-workflows": 19,
+        "research": 13,
+        "science": 6,
+        "software-development": 5
+      },
+      "readme_count_mismatches": {},
+      "duplicate_skill_names": {},
+      "duplicate_skill_content_groups": [],
+      "frontmatter_or_required_field_errors": [],
+      "missing_sections_counts": {},
+      "missing_sections_examples": {},
+      "bundled_manifest_present_count": 0,
+      "bundled_manifest_present_names": [],
+      "secret_like_hits_count": 4,
+      "secret_like_hits": [
+        {
+          "pattern": "password_assignment",
+          "path": "reana-workflows/reana-client-failover/scripts/reana_client_auto.py",
+          "line": 95,
+          "snippet": "        token = args[i]"
+        },
+        {
+          "pattern": "password_assignment",
+          "path": "devops/paperclip-oss120b-external/SKILL.md",
+          "line": 41,
+          "snippet": "   TOKEN=$(basename \"$INVITE\")"
+        },
+        {
+          "pattern": "password_assignment",
+          "path": "tests/skill_test_results.json",
+          "line": 4120,
+          "snippet": "          \"snippet\": \"        token = args[i]\""
+        },
+        {
+          "pattern": "password_assignment",
+          "path": "tests/run_skill_tests.py",
+          "line": 152,
+          "snippet": "                token = m.group(0)"
+        }
+      ]
+    }
+  },
+  "secret_scan": {
+    "total_hits": 5,
+    "serious_hits": 0,
+    "placeholder_like_hits": 5,
+    "patterns": {
+      "reana_token_assignment": 5
+    },
+    "serious_patterns": {},
+    "sanitized_hits": [
+      {
+        "path": "reana-workflows/reana-client-failover/SKILL.md",
+        "line": 46,
+        "pattern": "reana_token_assignment",
+        "placeholder_like": true,
+        "fingerprint": "6d17d9d3f066"
+      },
+      {
+        "path": "reana-workflows/reana-cmd-plot-workflow/SKILL.md",
+        "line": 166,
+        "pattern": "reana_token_assignment",
+        "placeholder_like": true,
+        "fingerprint": "858a2791b828"
+      },
+      {
+        "path": "reana-workflows/reana-dev-workflow-setup/SKILL.md",
+        "line": 140,
+        "pattern": "reana_token_assignment",
+        "placeholder_like": true,
+        "fingerprint": "ae4d6899d8ec"
+      },
+      {
+        "path": "reana-workflows/reana-operator/SKILL.md",
+        "line": 28,
+        "pattern": "reana_token_assignment",
+        "placeholder_like": true,
+        "fingerprint": "6d17d9d3f066"
+      },
+      {
+        "path": "reana-workflows/reana-workflow-sin-plot/SKILL.md",
+        "line": 88,
+        "pattern": "reana_token_assignment",
+        "placeholder_like": true,
+        "fingerprint": "fbf8526d3ab6"
+      }
+    ]
+  }
+}
