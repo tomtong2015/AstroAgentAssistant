@@ -1,66 +1,57 @@
 # AstroAgent Skills Repository
 
-Custom Hermes Agent skills developed by the AIP team for astronomy, data science, reproducible workflows, AI/ML, devops, and productivity.
+Custom Hermes Agent skills developed by the AIP AstroAgent team. This repository intentionally keeps only project-specific/AIP-developed skills; stock Hermes skills and third-party vendor skills are excluded.
 
-Total: **126** custom skills across **17** categories.
+Total: **115** custom skills across **14** categories.
 
 ## Repository layout
 
 | Directory | Description | Skills |
 |---|---|---|
-| `agents/` | Agent concepts and configuration | 1 |
-| `astronomy/` | Survey archives, ADQL/TAP queries, stellar catalogs, and astronomy-specific plots/animations | 27 |
-| `creative/` | Educational animations, Manim, visual explainers, and generative media workflows | 14 |
-| `data-science/` | Generic scientific visualization and dense-data plotting workflows | 1 |
-| `devops/` | Operations, containers, deployment, service exposure, and runtime troubleshooting | 9 |
-| `infrastructure/` | Hermes/OpenWebUI/API-server/MCP infrastructure and integration workflows | 7 |
-| `leisure/` | Nearby places and leisure search workflows | 1 |
-| `mcp/` | MCP client/server workflows | 1 |
-| `media/` | Audio/video/GIF generation and media post-processing workflows | 2 |
-| `mlops/` | LLM fine-tuning, serving, inference, evaluation, and HuggingFace workflows | 9 |
-| `productivity/` | Calendars, contacts, documents, OCR, PDFs, and image-description workflows | 4 |
-| `python/` | Python data engineering, caching, plotting, and reusable scientific-programming workflows | 6 |
-| `reana-workflows/` | REANA operations, client configuration, templates, execution recipes, monitoring, and workflow best practices | 19 |
-| `research/` | Academic research, literature, LaTeX manuscripts, DRP, and paper improvement workflows | 13 |
-| `science/` | dt4acc digital twin, accelerator-science runbooks, EPICS/Tango, and host smoke tests | 6 |
-| `social-media/` | Social media CLI clients and workflows | 1 |
-| `software-development/` | Coding workflows, docs-first development, and application-specific implementation guides | 5 |
+| `agents/` | AstroAgent concepts and configuration | 1 |
+| `astronomy/` | AIP-developed survey archives, ADQL/TAP queries, stellar catalogs, and astronomy-specific plots/animations | 27 |
+| `creative/` | AIP-developed educational animations, Manim, visual explainers, and media workflows | 14 |
+| `data-science/` | AIP-developed scientific visualization and dense-data plotting workflows | 1 |
+| `devops/` | AIP-developed operations, containers, deployment, service exposure, and runtime troubleshooting | 9 |
+| `infrastructure/` | AIP-developed Hermes/OpenWebUI/API-server/MCP infrastructure and integration workflows | 7 |
+| `leisure/` | AIP-developed nearby places and leisure search workflows | 1 |
+| `media/` | AIP-developed audio/video generation and media post-processing workflows | 2 |
+| `productivity/` | AIP-developed calendars, contacts, image-description, and document workflows | 4 |
+| `python/` | AIP-developed Python data engineering, caching, plotting, and reusable scientific-programming workflows | 6 |
+| `reana-workflows/` | AIP-developed REANA operations, client configuration, templates, execution recipes, monitoring, and workflow best practices | 19 |
+| `research/` | AIP-developed academic research, literature, LaTeX manuscripts, DRP, and paper improvement workflows | 13 |
+| `science/` | AIP-developed dt4acc digital twin, accelerator-science runbooks, EPICS/Tango, and host smoke tests | 6 |
+| `software-development/` | AIP-developed coding workflows, docs-first development, and application-specific implementation guides | 5 |
 
 ## Categories overview
 
-**Agents (1)** — Agent concepts and configuration
+**Agents (1)** — AstroAgent concepts and configuration
 
-**Astronomy (27)** — Survey archives, ADQL/TAP queries, stellar catalogs, and astronomy-specific plots/animations
+**Astronomy (27)** — AIP-developed survey archives, ADQL/TAP queries, stellar catalogs, and astronomy-specific plots/animations
 
-**Creative (14)** — Educational animations, Manim, visual explainers, and generative media workflows
+**Creative (14)** — AIP-developed educational animations, Manim, visual explainers, and media workflows
 
-**Data Science (1)** — Generic scientific visualization and dense-data plotting workflows
+**Data Science (1)** — AIP-developed scientific visualization and dense-data plotting workflows
 
-**Devops (9)** — Operations, containers, deployment, service exposure, and runtime troubleshooting
+**Devops (9)** — AIP-developed operations, containers, deployment, service exposure, and runtime troubleshooting
 
-**Infrastructure (7)** — Hermes/OpenWebUI/API-server/MCP infrastructure and integration workflows
+**Infrastructure (7)** — AIP-developed Hermes/OpenWebUI/API-server/MCP infrastructure and integration workflows
 
-**Leisure (1)** — Nearby places and leisure search workflows
+**Leisure (1)** — AIP-developed nearby places and leisure search workflows
 
-**Mcp (1)** — MCP client/server workflows
+**Media (2)** — AIP-developed audio/video generation and media post-processing workflows
 
-**Media (2)** — Audio/video/GIF generation and media post-processing workflows
+**Productivity (4)** — AIP-developed calendars, contacts, image-description, and document workflows
 
-**Mlops (9)** — LLM fine-tuning, serving, inference, evaluation, and HuggingFace workflows
+**Python (6)** — AIP-developed Python data engineering, caching, plotting, and reusable scientific-programming workflows
 
-**Productivity (4)** — Calendars, contacts, documents, OCR, PDFs, and image-description workflows
+**Reana Workflows (19)** — AIP-developed REANA operations, client configuration, templates, execution recipes, monitoring, and workflow best practices
 
-**Python (6)** — Python data engineering, caching, plotting, and reusable scientific-programming workflows
+**Research (13)** — AIP-developed academic research, literature, LaTeX manuscripts, DRP, and paper improvement workflows
 
-**Reana Workflows (19)** — REANA operations, client configuration, templates, execution recipes, monitoring, and workflow best practices
+**Science (6)** — AIP-developed dt4acc digital twin, accelerator-science runbooks, EPICS/Tango, and host smoke tests
 
-**Research (13)** — Academic research, literature, LaTeX manuscripts, DRP, and paper improvement workflows
-
-**Science (6)** — dt4acc digital twin, accelerator-science runbooks, EPICS/Tango, and host smoke tests
-
-**Social Media (1)** — Social media CLI clients and workflows
-
-**Software Development (5)** — Coding workflows, docs-first development, and application-specific implementation guides
+**Software Development (5)** — AIP-developed coding workflows, docs-first development, and application-specific implementation guides
 
 ## Skills inventory
 
@@ -126,18 +117,8 @@ Total: **126** custom skills across **17** categories.
 | `infrastructure/openwebui-hermes/` | Connect Hermes Agent to Open WebUI using the OpenAI-compatible API server and document image/file-delivery caveats. |
 | `infrastructure/openwebui-media-via-s3/` | Serve images, videos, and audio to Open WebUI by uploading media to the public S3 bucket (scr4agent), then embedding pure markdown URLs. |
 | `leisure/find-nearby/` | Find nearby places (restaurants, cafes, bars, pharmacies, etc.) using OpenStreetMap. Works with coordinates, addresses, cities, zip codes, or Telegram location pins. No API keys needed. |
-| `mcp/mcporter/` | Use the mcporter CLI to list, configure, auth, and call MCP servers/tools directly (HTTP or stdio), including ad-hoc servers, config edits, and CLI/type generation. |
 | `media/ffmpeg-ambient-audio/` | Create layered ambient pad music using FFmpeg's aevalsrc filter. Generates loopable 15-second clips with slow vibrato, shimmer, and exponential decay, then loops to target duration. Mixes into video at low volume for ... |
 | `media/fractal-preference-mandelbrot-elephant/` | When the user asks for a fractal showcase, they want a video that shows ONLY a Mandelbrot zoom transitioning to the Elephant's Valley image. The transition should use a very small scaling factor (~1e-7). No other frac... |
-| `mlops/cloud/modal/` | Serverless GPU cloud platform for running ML workloads. Use when you need on-demand GPU access without infrastructure management, deploying ML models as APIs, or running batch jobs with automatic scaling. |
-| `mlops/inference/gguf/` | GGUF format and llama.cpp quantization for efficient CPU/GPU inference. Use when deploying models on consumer hardware, Apple Silicon, or when needing flexible quantization from 2-8 bit without GPU requirements. |
-| `mlops/inference/guidance/` | Control LLM output with regex and grammars, guarantee valid JSON/XML/code generation, enforce structured formats, and build multi-step workflows with Guidance - Microsoft Research's constrained generation framework |
-| `mlops/models/clip/` | OpenAI's model connecting vision and language. Enables zero-shot image classification, image-text matching, and cross-modal retrieval. Trained on 400M image-text pairs. Use for image search, content moderation, or vis... |
-| `mlops/models/stable-diffusion/` | State-of-the-art text-to-image generation with Stable Diffusion models via HuggingFace Diffusers. Use when generating images from text prompts, performing image-to-image translation, inpainting, or building custom dif... |
-| `mlops/models/whisper/` | OpenAI's general-purpose speech recognition model. Supports 99 languages, transcription, translation to English, and language identification. Six model sizes from tiny (39M params) to large (1550M params). Use for spe... |
-| `mlops/training/grpo-rl-training/` | Expert guidance for GRPO/RL fine-tuning with TRL for reasoning and task-specific model training |
-| `mlops/training/peft/` | Parameter-efficient fine-tuning for LLMs using LoRA, QLoRA, and 25+ methods. Use when fine-tuning large models (7B-70B) with limited GPU memory, when you need to train <1% of parameters with minimal accuracy loss, or ... |
-| `mlops/training/pytorch-fsdp/` | Expert guidance for Fully Sharded Data Parallel training with PyTorch FSDP - parameter sharding, mixed precision, CPU offloading, FSDP2 |
 | `productivity/aip-member-contact-retrieval/` | Retrieve phone number (and email) for a staff member of the Leibniz Institute for Astrophysics Potsdam (AIP) from the public website. |
 | `productivity/image-description-workflow/` | Workflow for handling user‑submitted images, generating a description via vision_analyze, and responding. |
 | `productivity/nextcloud-caldav-calendar-management/` | Create, read, update, and delete calendar events via Nextcloud CalDAV API. Includes auth patterns, calendar paths, and quirks for Nextcloud v29+. |
@@ -186,7 +167,6 @@ Total: **126** custom skills across **17** categories.
 | `science/dtwin-host-smoke-test/` | Reproducible host-side smoke test for the dt4acc digital twin stack using local dt4acc, dt4acc-lib, and lat2db repos without MongoDB, TANGO, or Apptainer. |
 | `science/dtwin-setup/` | Build and run the dt4acc Digital Twin for particle accelerators using Apptainer |
 | `science/dtwin-tango-runbook/` | SOLEIL-oriented TANGO runbook for dt4acc, including Tango DB container startup, private data prerequisites, and the recommended debug order after the public host smoke test. |
-| `social-media/xitter/` | Interact with X/Twitter via the x-cli terminal client using official X API credentials. Use for posting, reading timelines, searching tweets, liking, retweeting, bookmarks, mentions, and user lookups. |
 | `software-development/dask-mcp-docs-first/` | Generate or review Dask Python code only after consulting indexed MCP documentation, using strict version lookup and focused query templates for current APIs and best practices. |
 | `software-development/pandas-datashader-mcp-docs-first/` | Write or review pandas and Datashader plotting code only after consulting indexed MCP documentation, using focused query templates for current IO, dtype, aggregation, and rendering APIs. |
 | `software-development/paperclip-enable-llm-api/` | Configure the top-level LLM provider block in Paperclip so the instance recognizes the OpenAI backend in current Paperclip versions. |
