@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use AstroAgentAssistant skills, please cite this repository."
+title: "AstroAgentAssistant"
+type: software
+authors:
+  - family-names: "Khalatyan"
+    given-names: "A."
+    affiliation: "Leibniz Institute for Astrophysics Potsdam (AIP)"
+  - family-names: "Tong"
+    given-names: "Tiantian"
+    affiliation: "Leibniz Institute for Astrophysics Potsdam (AIP)"
+repository-code: "https://github.com/arm2arm/AstroAgentAssistant"
+url: "https://github.com/arm2arm/AstroAgentAssistant"
+license: "MIT"
+date-released: "2026-06-27"
