@@ -10,11 +10,9 @@ workflow:
         environment: gitlab-p4n.aip.de:5005/p4nreana/reana-env:py311-astro-ml.2891a60c
         kubernetes_memory_limit: "32Gi"
         kubernetes_job_timeout: 7200
+        compute_backend: kubernetes
         commands:
-          - bash -lc 'cd "$REANA_WORKSPACE" && bash run.sh'
-        outputs:
-          files:
-            - output.txt
+          - bash -lc 'bash run.sh'
 outputs:
   files:
     - output.txt

@@ -78,11 +78,18 @@ def reana_command(args: list[str], mount: Path | None = None) -> list[str]:
 def run_reana(args: list[str], *, mount: Path | None = None, capture: bool = False) -> subprocess.CompletedProcess[str]:
     require_reana_env()
     cmd = reana_command(args, mount=mount)
+    # Native reana-client needs to run from the project directory so that
+    # reana.yaml and input files are uploaded from the intended workspace.
+    # Dockerized mode uses -v <project>:/workspace -w /workspace instead.
+    cwd = mount.resolve() if mount and shutil.which("reana-client") else None
     if capture:
-        return subprocess.run(cmd, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+        return subprocess.run(cmd, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=cwd)
     printable = " ".join(shlex.quote(x) for x in cmd)
-    print(f"$ {printable}")
-    return subprocess.run(cmd, text=True)
+    if cwd:
+        print(f"$ (cd {shlex.quote(str(cwd))} && {printable})")
+    else:
+        print(f"$ {printable}")
+    return subprocess.run(cmd, text=True, cwd=cwd)
 
 
 def load_json_list() -> list[dict[str, Any]]:
@@ -226,17 +233,17 @@ def detect_command(project: Path, script: str | None, command: str | None) -> tu
         inputs.append(script)
         if script.endswith(".py"):
             install = "if [ -f requirements.txt ]; then pip install --quiet -r requirements.txt; fi"
-            return [f"bash -lc 'cd \"$REANA_WORKSPACE\" && {install} && python3 {shlex.quote(script)}'"], inputs
+            return [f"bash -lc {shlex.quote(f'{install} && python3 {shlex.quote(script)}')}"], inputs
         if script.endswith(".sh"):
-            return [f"bash -lc 'cd \"$REANA_WORKSPACE\" && bash {shlex.quote(script)}'"], inputs
-        return [f"bash -lc 'cd \"$REANA_WORKSPACE\" && ./{shlex.quote(script)}'"], inputs
+            return [f"bash -lc {shlex.quote(f'bash {shlex.quote(script)}')}"], inputs
+        return [f"bash -lc {shlex.quote(f'./{shlex.quote(script)}')}"], inputs
     if (project / "analysis.py").exists():
         inputs.append("analysis.py")
-        return ["bash -lc 'cd \"$REANA_WORKSPACE\" && if [ -f requirements.txt ]; then pip install --quiet -r requirements.txt; fi && python3 analysis.py'"], inputs
+        return ["bash -lc 'if [ -f requirements.txt ]; then pip install --quiet -r requirements.txt; fi && python3 analysis.py'"], inputs
     if (project / "run.sh").exists():
         inputs.append("run.sh")
-        return ["bash -lc 'cd \"$REANA_WORKSPACE\" && bash run.sh'"], inputs
-    return ["bash -lc 'cd \"$REANA_WORKSPACE\" && echo Hello REANA | tee output.txt'"], inputs
+        return ["bash -lc 'bash run.sh'"], inputs
+    return ["bash -lc 'echo Hello REANA | tee output.txt'"], inputs
 
 
 def write_reana_yaml(project: Path, workflow_name: str, commands: list[str], inputs: list[str], outputs: list[str], environment: str, timeout: int) -> None:
@@ -258,11 +265,11 @@ def write_reana_yaml(project: Path, workflow_name: str, commands: list[str], inp
         f"        environment: {environment}",
         "        kubernetes_memory_limit: \"32Gi\"",
         f"        kubernetes_job_timeout: {timeout}",
+        "        compute_backend: kubernetes",
         "        commands:",
     ]
     lines += [f"          - {cmd}" for cmd in commands]
     if outputs:
-        lines += ["        outputs:", "          files:"] + [f"            - {o}" for o in outputs]
         lines += ["outputs:", "  files:"] + [f"    - {o}" for o in outputs]
     (project / "reana.yaml").write_text("\n".join(lines) + "\n")
 
@@ -372,7 +379,8 @@ def cmd_run(ns: argparse.Namespace) -> int:
         workflow = f"{workflow}-{datetime.utcnow().strftime('%Y%m%d-%H%M%S')}"
     print(f"Server: {os.environ.get('REANA_SERVER_URL', '<unset>')}")
     print(f"Workflow: {workflow}")
-    cp = run_reana(["run", "-w", workflow, "-f", "/workspace/reana.yaml"], mount=project)
+    yaml_arg = "/workspace/reana.yaml" if not shutil.which("reana-client") else "reana.yaml"
+    cp = run_reana(["run", "-w", workflow, "-f", yaml_arg], mount=project)
     print("Next useful commands:")
     print(f"  status:   {Path(__file__).name} status {workflow}")
     print(f"  logs:     {Path(__file__).name} logs {workflow} --tail 100")
