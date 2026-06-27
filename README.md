@@ -9,7 +9,7 @@ Total: **115** custom skills across **14** categories.
 | Directory | Description | Skills |
 |---|---|---|
 | `agents/` | AstroAgent concepts and configuration | 1 |
-| `astronomy/` | AIP-developed survey archives, ADQL/TAP queries, stellar catalogs, and astronomy-specific plots/animations | 27 |
+| `astronomy/` | AIP-developed survey archives, ADQL/TAP queries, stellar catalogs, and astronomy-specific plots/animations. See [`astronomy/README.md`](astronomy/README.md) for the grouped astronomy routing guide. | 27 |
 | `creative/` | AIP-developed educational animations, Manim, visual explainers, and media workflows | 14 |
 | `data-science/` | AIP-developed scientific visualization and dense-data plotting workflows | 1 |
 | `devops/` | AIP-developed operations, containers, deployment, service exposure, and runtime troubleshooting | 9 |
