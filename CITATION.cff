@@ -4,10 +4,10 @@ title: "AstroAgentAssistant"
 type: software
 authors:
   - family-names: "Khalatyan"
-    given-names: "Arman"
+    given-names: "Dr Arman"
     affiliation: "Leibniz Institute for Astrophysics Potsdam (AIP)"
   - family-names: "Tong"
-    given-names: "Tiantian"
+    given-names: "Dr Tiantian"
     affiliation: "Leibniz Institute for Astrophysics Potsdam (AIP)"
 repository-code: "https://github.com/arm2arm/AstroAgentAssistant"
 url: "https://github.com/arm2arm/AstroAgentAssistant"
