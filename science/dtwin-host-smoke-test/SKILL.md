@@ -6,6 +6,18 @@ version: 1.0.0
 
 # dtwin-host-smoke-test
 
+## When to Use
+Reproducible host-side smoke test for the dt4acc digital twin stack using local dt4acc, dt4acc-lib, and lat2db repos without MongoDB, TANGO, or Apptainer.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
+
 Run a **reproducible host-side smoke test** for the current GitHub `dt4acc` stack.
 
 This validates the core digital-twin logic without requiring:

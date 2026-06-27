@@ -12,6 +12,13 @@ metadata:
 
 # API Server Local Image Support
 
+## When to Use
+Fix Open WebUI image display by extending api_server.py to convert standard markdown ![alt](/local/path) images into HTTP URLs via /media/<path> route. Handles the gap between agent-generated image paths and the API server's media serving pipeline.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+
 ## Problem
 
 When Hermes generates images (e.g., via `image_generate`, `skill_view`, or plotting skills), the response contains standard markdown with local file paths:

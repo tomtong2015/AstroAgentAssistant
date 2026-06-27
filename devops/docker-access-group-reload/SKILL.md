@@ -3,6 +3,13 @@ name: docker-access-group-reload
 description: Resolve Docker permission errors by ensuring the user is in the docker group and reloading group membership.
 ---
 
+
+## When to Use
+Resolve Docker permission errors by ensuring the user is in the docker group and reloading group membership.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
 ## Steps
 1. **Verify Docker group membership**
    ```bash

@@ -6,6 +6,23 @@ version: 1.0.0
 
 # dtwin-tango-runbook
 
+## When to Use
+SOLEIL-oriented TANGO runbook for dt4acc, including Tango DB container startup, private data prerequisites, and the recommended debug order after the public host smoke test.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+## Pitfalls
+- Do not hardcode credentials, tokens, or personal secrets.
+- Verify external service URLs, paths, and permissions before making changes.
+- Keep generated outputs reproducible and record input assumptions.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
+
 Use this runbook when the goal is to start or debug the **TANGO version** of the `dt4acc` digital twin.
 
 ## Trigger Conditions

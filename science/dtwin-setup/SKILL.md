@@ -6,6 +6,13 @@ description: Build and run the dt4acc Digital Twin for particle accelerators usi
 
 # dtwin-setup
 
+## When to Use
+Build and run the dt4acc Digital Twin for particle accelerators using Apptainer
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+
 Build and run the **dt4acc Digital Twin** (BESSY II accelerator simulation) using Apptainer containers on ARM64 Ubuntu systems.
 
 ## Trigger Conditions
@@ -49,7 +56,7 @@ git submodule update --init --recursive
 
 If `recipies/pyat-as-twin-softioc.sdef` doesn't exist (e.g., the git repo's `.git` directory was lost, or repo was cloned but not initialized), create it from the self-contained template:
 
-```bash\ncd /tmp/dtwin-build\nmkdir -p recipies\ncp ~/.hermes/skills/dtwin-setup/references/sdef-self-contained.sdef recipies/pyat-as-twin-softioc.sdef\n```\n\n**Important:** The SDEF must include:\n- `pip install softioc>=4.1 p4p` (PyPI dependencies, not just local packages)\n- uuid.py Python 2 syntax fix (copies `/usr/lib/python3.11/uuid.py` to override broken package versions)\n- A startup wrapper script that bypasses the interactive Python console (`</dev/null`)
+```bash\ncd /tmp/dtwin-build\nmkdir -p recipies\ncp ~/.hermes/skills/science/dtwin-setup/references/sdef-self-contained.sdef recipies/pyat-as-twin-softioc.sdef\n```\n\n**Important:** The SDEF must include:\n- `pip install softioc>=4.1 p4p` (PyPI dependencies, not just local packages)\n- uuid.py Python 2 syntax fix (copies `/usr/lib/python3.11/uuid.py` to override broken package versions)\n- A startup wrapper script that bypasses the interactive Python console (`</dev/null`)
 - `%startscript` with `exec /start_ioc.sh` (not just `exec /start.sh` — the script must be created in `%post` first)
 
 ### 4. Build the Apptainer Image

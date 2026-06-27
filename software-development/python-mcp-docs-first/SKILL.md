@@ -12,6 +12,18 @@ metadata:
 
 # Python MCP Docs First
 
+## When to Use
+When writing or revising Python code, consult the docs MCP server first for indexed libraries and base API usage on the latest available indexed documentation.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
+
 Use this skill whenever a task involves **writing, editing, reviewing, or explaining Python code** and one or more libraries may be available in the docs MCP server.
 
 ## Primary Goal

@@ -9,6 +9,13 @@ version: 1.0.0
 
 # Unit Circle → Sine Wave Animation
 
+## When to Use
+Create animations showing the Unit Circle → Sine Wave connection. Uses ValueTracker + always_redraw for smooth rotating point that traces out the sine wave. Perfect for educational content (11th grade math, trigonometry).
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+
 ## Core Approach
 
 The key pattern: use `ValueTracker` + `always_redraw` for smooth, real-time animation of a rotating point on a unit circle, where the y-coordinate traces out a sine wave.

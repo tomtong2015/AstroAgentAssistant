@@ -84,6 +84,15 @@ FRAC_DIR = "/tmp/fractals_imgs"
 os.makedirs(FRAC_DIR, exist_ok=True)
 
 # -----------------------------------------------------------------
+
+## When to Use
+Generate a short Manim video showcasing famous fractals (Mandelbrot set, Sierpinski triangle, Barnsley fern, Barnsley elephant) and add a simple background music track. The process includes on‑the‑fly generation of fractal PNGs using matplotlib, assembling them in a Manim scene, rendering, creating a clean audio track, and merging with ffmpeg.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
 # Helper functions to generate fractal PNGs (full implementations omitted
 # for brevity – they are the same as in the original live implementation)
 # -----------------------------------------------------------------

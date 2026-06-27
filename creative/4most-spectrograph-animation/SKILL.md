@@ -5,6 +5,18 @@ category: creative
 ---
 # 4MOST Spectrograph Animation — Manim CE
 
+## When to Use
+Manim CE animation explaining the 4MOST spectrograph for 11th-grade physics class. Full optical path from starlight through telescope, collimator, slit, dispersion element, fibre positioner, spectrographs, to CCD detectors.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
+
 ## Context
 Educational animation for an 11th-grade physics class explaining how the 4MOST (4-Metre Multi-Object Spectrograph) works.
 

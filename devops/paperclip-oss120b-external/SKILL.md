@@ -5,6 +5,23 @@ description: |
   Step‑by‑step guide for turning a fresh Paperclip installation into a publicly reachable service that forwards LLM calls to a custom OSS‑120B model served via an OpenAI‑compatible endpoint. Handles deployment mode, bind settings, authentication exposure, board claim, and environment variables.
 category: devops
 ---
+
+## When to Use
+Step‑by‑step guide for turning a fresh Paperclip installation into a publicly reachable service that forwards LLM calls to a custom OSS‑120B model served via an OpenAI‑compatible endpoint. Handles deployment mode, bind settings, authentication exposure, board claim, and environment variables.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+## Pitfalls
+- Do not hardcode credentials, tokens, or personal secrets.
+- Verify external service URLs, paths, and permissions before making changes.
+- Keep generated outputs reproducible and record input assumptions.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
 steps:
   - "**1. Adjust server configuration**\\nEdit `~/.paperclip/instances/default/config.json` (or the config you used with `paperclipai onboard`). Replace or add the following keys under `server` and `auth`:\\n```json\\n{\n  \"deploymentMode\": \"authenticated\",\n  \"exposure\": \"public\",\n  \"bind\": \"custom\",\n  \"host\": \"0.0.0.0\",\n  \"customBindHost\": \"0.0.0.0\",\n  \"port\": 3100\n}\n```\\nThen under `auth` set:\\n```json\\n{\n  \"baseUrlMode\": \"explicit\",\n  \"publicBaseUrl\": \"http://<PUBLIC_IP>:3100\"\n}\n```\\n(Replace `<PUBLIC_IP>` with your public IP, e.g., `141.33.165.84`)."
   - "**2. Add LLM block**\\nInside the same config file add an `llm` object (anywhere at top level):\\n```json\\n{\n  \"llm\": {\n    \"provider\": \"openai\",\n    \"apiKey\": \"\",\n    \"model\": \"oss-120b\"\n  }\n}\n```\\nThe empty `apiKey` works because the external endpoint does not require authentication."

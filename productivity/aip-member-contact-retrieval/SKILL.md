@@ -5,6 +5,13 @@ category: productivity
 version: 1.0
 ---
 
+
+## When to Use
+Retrieve phone number (and email) for a staff member of the Leibniz Institute for Astrophysics Potsdam (AIP) from the public website.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
 ## Goal
 Obtain the official phone number (and optionally email) for a given AIP staff member.
 
@@ -43,8 +50,8 @@ Obtain the official phone number (and optionally email) for a given AIP staff me
 ```
 Input: "Arman Khalatyan"
 Output:
-Phone: +49 331 7499 528
-Email: akhalatyannothing@aip.de
+Phone: +49 331 7499 XXX
+Email: user@aip.de
 ```
 
 ---

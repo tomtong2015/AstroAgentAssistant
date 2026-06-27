@@ -5,6 +5,20 @@ description: Cache selected columns from the ShBoost 2024 S3 dataset, create a h
 author: hermes
 ---
 
+
+## When to Use
+Cache selected columns from the ShBoost 2024 S3 dataset, create a hexbin CMD with log-scaled density, add optimized non‑overlapping stellar‑population annotations, and generate both a high‑resolution PNG and an MP4 animation.
+
+## Pitfalls
+- Do not hardcode credentials, tokens, or personal secrets.
+- Verify external service URLs, paths, and permissions before making changes.
+- Keep generated outputs reproducible and record input assumptions.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
 ## Overview
 Automates the workflow for visualising the ShBoost 2024 colour‑magnitude diagram (CMD) from a massive S3 dataset. Handles efficient caching, sampling, hexbin density plotting, colour‑coded annotations, legend creation, and animation generation.
 

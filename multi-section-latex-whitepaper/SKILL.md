@@ -12,6 +12,18 @@ metadata:
 
 # Multi-Section LaTeX White Paper Generator
 
+## When to Use
+Generate comprehensive LaTeX white papers from multiple sources — Markdown sections, existing papers, or user ideas. Converts and assembles into a single compiled PDF.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
+
 ## Trigger Conditions
 Use when the user asks to:
 - Generate a comprehensive white paper or report with multiple sections

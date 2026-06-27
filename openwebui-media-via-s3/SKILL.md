@@ -6,6 +6,18 @@ trigger: media delivery, Open WebUI images, Open WebUI video, OpenAI endpoint me
 ---
 # Open WebUI Media Delivery via S3
 
+## When to Use
+Serve images, videos, and audio to Open WebUI by uploading media to the public S3 bucket (scr4agent), then embedding pure markdown URLs.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
+
 ## Problem
 When Hermes is used as an OpenAI-compatible endpoint for Open WebUI, media files delivered via `MEDIA:/path/to/file` appear as plain text — Open WebUI doesn't understand the `MEDIA:` protocol (Telegram does).
 

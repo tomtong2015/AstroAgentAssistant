@@ -8,6 +8,15 @@ tags: [latex, paper-iteration, figure-generation, multi-paper-merge]
 
 # LaTeX Paper Iterative Improvement
 
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
+
 Use this skill when iteratively improving an existing LaTeX research paper, merging multiple papers, or generating scientific figures.
 
 ## When to Use

@@ -4,6 +4,18 @@ description: Plot a colour-magnitude diagram from the public SHBoost 2024 S3 par
 author: Hermi (sorgenfresser)
 ---
 
+
+## When to Use
+Plot a colour-magnitude diagram from the public SHBoost 2024 S3 parquet dataset using the notebook-backed access pattern and a REANA-friendly serial workflow.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
 ## Purpose
 Use the public SHBoost 2024 parquet dataset exactly the way shown in the reference notebook:
 - S3 path: `s3://shboost2024/shboost_08july2024_pub.parq/*.parquet`

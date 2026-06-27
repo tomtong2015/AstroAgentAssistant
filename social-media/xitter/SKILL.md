@@ -16,6 +16,18 @@ metadata:
 
 # Xitter — X/Twitter via x-cli
 
+## When to Use
+Interact with X/Twitter via the x-cli terminal client using official X API credentials. Use for posting, reading timelines, searching tweets, liking, retweeting, bookmarks, mentions, and user lookups.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
+
 Use `x-cli` for official X/Twitter API interactions from the terminal.
 
 This skill is for:

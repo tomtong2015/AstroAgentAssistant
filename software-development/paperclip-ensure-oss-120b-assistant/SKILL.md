@@ -5,6 +5,13 @@ description: Verify and, if needed, create the oss-120b-assistant agent in Paper
 author: Hermes Agent
 ---
 
+
+## When to Use
+Verify and, if needed, create the oss-120b-assistant agent in Paperclip after server startup, ensuring it is visible in the agents dashboard.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
 ## Prerequisites
 - Paperclip server running (UI accessible).
 - Environment variables set for the OpenAI‑compatible backend:

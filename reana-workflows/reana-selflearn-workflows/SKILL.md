@@ -5,6 +5,13 @@ author: Hermi (sorgenfresser)
 version: 1.0
 ---
 
+
+## When to Use
+Self‑learn REANA by listing finished workflows on the development backend, downloading their `reana.yaml` files, and providing guidelines for writing correct REANA workflows.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
 ## Purpose
 This skill automates a quick “self‑learning” cycle for REANA on the development backend:
 1. **Discover** all workflows that have finished successfully.

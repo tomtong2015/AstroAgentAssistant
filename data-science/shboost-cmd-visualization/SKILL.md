@@ -7,6 +7,10 @@ author: Hermes
 date: 2026-04-04
 ---
 
+
+## When to Use
+Generate a high‑resolution density CMD (hexbin) from the ShBoost star dataset, cache locally as Parquet, add colour‑matched population annotations, a detailed legend, log‑scaled colour bar, and create a GIF animation cycling through population labels.
+
 ## Overview
 
 **Note:** This skill has been updated to include an alternative Datashader‑based pipeline for very large datasets (hundreds of millions of rows) and a `--test-sample` CLI flag to quickly generate a plot from ~200 k stars for testing. The Datashader route provides fast rendering with a dark background and log‑scaled density, while the original Matplotlib hexbin implementation remains available for smaller samples.

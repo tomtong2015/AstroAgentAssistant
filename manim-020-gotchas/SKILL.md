@@ -20,6 +20,10 @@ Prevents runtime errors during render.
 
 ```python
 # WRONG — raises TypeError
+
+## When to Use
+Gotchas and API changes specific to Manim Community Edition 0.20.1. Includes ImageMobject, animation names, and font handling.
+
 VGroup(title, ImageMobject("plot.png"), caption)
 
 # CORRECT — use Group instead

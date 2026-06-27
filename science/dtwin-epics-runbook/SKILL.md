@@ -6,6 +6,18 @@ version: 1.0.0
 
 # dtwin-epics-runbook
 
+## When to Use
+EPICS-first runbook for dt4acc using the current local-repo workflow, with host-side smoke test first and direct EPICS startup for the faster path.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
+
 Use this runbook when the goal is to get **dt4acc running via EPICS first**.
 
 This is currently the preferred path because the developers report that **EPICS startup is faster** than the TANGO route.

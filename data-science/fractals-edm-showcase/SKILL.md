@@ -6,6 +6,23 @@ author: Hermes Agent
 ---
 
 # Purpose
+
+## When to Use
+Create a high‑energy fractal showcase video with a synthetic EDM soundtrack, including custom Seahorse and Elephant‑jet visuals, a slow zoom, and final audio‑video merge.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+## Pitfalls
+- Do not hardcode credentials, tokens, or personal secrets.
+- Verify external service URLs, paths, and permissions before making changes.
+- Keep generated outputs reproducible and record input assumptions.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
 This skill automates the end‑to‑end pipeline for a 55‑second Manim animation that displays several fractals (Mandelbrot, Sierpinski, Barnsley fern, Seahorse Valley, Elephant Valley) and synchronises it with a fast, rock‑inspired EDM track generated entirely in Python.
 
 # Prerequisites

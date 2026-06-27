@@ -5,6 +5,23 @@ version: 1.0.0
 ---
 
 # Purpose
+
+## When to Use
+Guide to creating concise educational animations with Manim, handling common errors, rendering in low‑resolution, and delivering the final MP4 via Telegram (including ffmpeg concat handling).
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+## Pitfalls
+- Do not hardcode credentials, tokens, or personal secrets.
+- Verify external service URLs, paths, and permissions before making changes.
+- Keep generated outputs reproducible and record input assumptions.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
 This skill captures the workflow we used to produce a short 4MOST spectrograph animation for an 11th‑grade physics class and deliver it over Telegram.
 It is useful whenever you need a quick, low‑resolution Manim animation that can be sent as a single media file.
 

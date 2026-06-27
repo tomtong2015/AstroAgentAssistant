@@ -6,6 +6,23 @@ category: research
 
 # LaTeX Research Paper Generator
 
+## When to Use
+Generate complete, compilable LaTeX research papers in formal academic style with full section structure, BibTeX references, and figure support.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+## Pitfalls
+- Do not hardcode credentials, tokens, or personal secrets.
+- Verify external service URLs, paths, and permissions before making changes.
+- Keep generated outputs reproducible and record input assumptions.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
+
 ## Trigger Conditions
 Use when the user asks to:
 - Write a research paper in LaTeX

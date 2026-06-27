@@ -11,6 +11,15 @@ hermes:
 
 # DRP Paper: Digital Research Products Framework
 
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
+
 Create and maintain the DRP white paper project covering the framework for reproducible science on DRP-Hub with full REANA integration.
 
 ## When to Use

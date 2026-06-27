@@ -8,6 +8,23 @@ description: |
 ---
 
 # Overview
+
+## When to Use
+Step‑by‑step workflow to query the RAVE DR6 catalog for the 100 nearest stars (by parallax), process the data, generate 2‑D visualisations and a public‑talk‑ready 3‑D rotating animation using Matplotlib.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+## Pitfalls
+- Do not hardcode credentials, tokens, or personal secrets.
+- Verify external service URLs, paths, and permissions before making changes.
+- Keep generated outputs reproducible and record input assumptions.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
 This skill captures the complete, reproducible pipeline we used to:
 1. Retrieve the 100 closest stars from the RAVE DR6 `dr6_x_gaiaedr3` table via the TAP service.
 2. Parse the returned VOTable (CSV fallback) into a pandas DataFrame.

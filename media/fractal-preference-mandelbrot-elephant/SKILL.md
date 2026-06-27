@@ -4,6 +4,13 @@ title: Preference – Mandelbrot → Elephant Valley only
 description: |
   When the user asks for a fractal showcase, they want a video that shows ONLY a Mandelbrot zoom transitioning to the Elephant's Valley image. The transition should use a very small scaling factor (~1e-7). No other fractals, titles, or captions should be included. Future requests for fractal videos should honor this minimal‑content, single‑focus style.
 ---
+
+## When to Use
+When the user asks for a fractal showcase, they want a video that shows ONLY a Mandelbrot zoom transitioning to the Elephant's Valley image. The transition should use a very small scaling factor (~1e-7). No other fractals, titles, or captions should be included. Future requests for fractal videos should honor this minimal‑content, single‑focus style.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
 ## Steps
 1. Load a Mandelbrot fractal visualisation (Manim).
 2. Apply a zoom that ends at scale ≈ 0.0000001 (1e‑7).

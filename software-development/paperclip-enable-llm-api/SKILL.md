@@ -5,6 +5,10 @@ description: Configure the top-level LLM provider block in Paperclip so the inst
 author: Hermi (hermes-agent)
 ---
 
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
 ## When to use
 Use this skill whenever a Paperclip instance is running but `paperclipai doctor` reports **No LLM provider configured**, even though you previously added OpenAI settings. In current Paperclip versions, the usual cause is that `llm` was placed under `server` instead of at the top level of `config.json`.
 

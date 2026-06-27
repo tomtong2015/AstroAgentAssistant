@@ -4,6 +4,18 @@ description: Create a REANA workflow respecting the organization’s environment
 author: Hermi (sorgenfresser)
 ---
 
+
+## When to Use
+Create a REANA workflow respecting the organization’s environment repository and default memory limit.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
 ## Purpose
 This skill helps generate a `reana.yaml` file that
 * **always** references an environment from `https://gitlab-p4n.aip.de/punch_public/reana/environments` (choose the most appropriate one for the task).

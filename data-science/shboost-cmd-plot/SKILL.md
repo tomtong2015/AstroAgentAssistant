@@ -34,6 +34,24 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # ---------------------------  Config --------------------------- #
+
+## When to Use
+Generates a colour‑magnitude diagram (CMD) for ~100 k stars from the public shboost2024 S3 bucket.
+The script caches the sampled data locally as a Parquet file for fast repeat runs and outputs a high‑resolution PNG (300 dpi).
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+## Pitfalls
+- Do not hardcode credentials, tokens, or personal secrets.
+- Verify external service URLs, paths, and permissions before making changes.
+- Keep generated outputs reproducible and record input assumptions.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
 S3_ENDPOINT = "https://s3.data.aip.de:9000"
 S3_PARQUET_GLOB = "s3://shboost2024/shboost_08july2024_pub.parq/*.parquet"
 STORAGE_OPTS = {

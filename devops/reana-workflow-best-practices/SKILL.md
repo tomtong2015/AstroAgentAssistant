@@ -15,6 +15,18 @@ Provide a concise, copy‑paste ready template and a checklist for creating REAN
 ## Template
 ```yaml
 # ------------------------------------------------------------
+
+## When to Use
+How to write a correct REANA workflow YAML that complies with the organization’s policies.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
 # REANA workflow definition – replace placeholders where noted
 # ------------------------------------------------------------
 inputs:

@@ -34,6 +34,15 @@ from manim import *
 import numpy as np
 
 # Colour palette (dark‑theme friendly)
+
+## When to Use
+Create a concise Manim animation explaining galaxy formation for 11th‑grade students. Includes best‑practice steps, common pitfalls, and reusable code snippets.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
 BG = "#0D1117"
 BLUE = "#58C4DD"
 GREEN = "#83C167"

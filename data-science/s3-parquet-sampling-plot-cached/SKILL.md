@@ -7,6 +7,23 @@ description: Efficiently sample a subset of a massive Parquet dataset stored on 
 ---
 
 # Overview
+
+## When to Use
+Efficiently sample a subset of a massive Parquet dataset stored on an S3‑compatible bucket, cache the sampled rows locally as a Parquet file for fast reuse, and produce high‑resolution PNG plots suitable for analysis and publication.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+## Pitfalls
+- Do not hardcode credentials, tokens, or personal secrets.
+- Verify external service URLs, paths, and permissions before making changes.
+- Keep generated outputs reproducible and record input assumptions.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
 This skill demonstrates how to efficiently sample a subset of a massive Parquet dataset stored on an S3‑compatible bucket, cache the sampled rows locally as a Parquet file for fast reuse, and produce high‑resolution PNG and vector PDF plots suitable for publications. It was built while working with the **shboost2024** dataset (≈ 218 M rows) and can be adapted to any similarly structured S3 Parquet collection.
 
 # Steps

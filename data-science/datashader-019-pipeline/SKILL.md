@@ -10,6 +10,10 @@ author: Hermi
 date: 2026-04-16
 ---
 
+
+## When to Use
+Generate density plots (CMD, hexbin, 2D histograms) using datashader 0.19.0 with Dask for lazy data loading and matplotlib for final rendering. Handles the 0.19.0 API: no Canvas.hexbin(), no tf.to_rgba(), tf.shade() returns Image.to_pil().
+
 ## Overview
 
 Pipeline for creating high-density 2D scatter plots (e.g., stellar CMDs) from

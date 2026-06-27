@@ -18,6 +18,15 @@ The process is robust against common errors such as missing renderer flags or em
 ### 1. Prepare the script
 ```python
 # /home/hermes/animations/your_animation.py
+
+## When to Use
+Generate a Manim animation, extract a short preview, concatenate full‑resolution fragments, and deliver the MP4 directly via Telegram. Handles common rendering pitfalls (partial movie files, missing renderer options) and provides a workflow for producing both low‑res preview and high‑res final video.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
 from manim import *
 import numpy as np
 

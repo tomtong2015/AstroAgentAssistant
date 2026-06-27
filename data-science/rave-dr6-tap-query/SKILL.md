@@ -7,6 +7,23 @@ description: Query the RAVE DR6 catalog hosted at https://www.rave-survey.org/ta
 ---
 
 # Overview
+
+## When to Use
+Query the RAVE DR6 catalog hosted at https://www.rave-survey.org/tap/ using pyvo (TAPService.run_sync). Useful for accessing stellar parameters, Gaia cross-matches, distances, and Galactic coordinates (l, b). Includes galactic projection (xgal/ygal) and equirectangular (RA/Dec) plotting recipes.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+## Pitfalls
+- Do not hardcode credentials, tokens, or personal secrets.
+- Verify external service URLs, paths, and permissions before making changes.
+- Keep generated outputs reproducible and record input assumptions.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
 Query the RAVE (RAdial Velocity Experiment) 6th Data Release via its Table Access Protocol (TAP) endpoint using the `pyvo` library. This avoids browser-based queries and lets you pull data directly into Python/pandas for analysis or plotting.
 
 The RAVE TAP service is at `https://www.rave-survey.org/tap/` and hosts ~30 tables including the main DR6 tables, Gaia DR2/EDR3 cross-matches, seismic data, and more.

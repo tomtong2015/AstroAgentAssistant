@@ -26,6 +26,13 @@ The skill does **not** embed the access token; the user must export `REANA_SERVE
 WORKFLOW_NAME="my_analysis"           # name you want for the workflow and its folder
 WORKFLOW_DIR="${WORKFLOW_NAME}"       # folder that will be created (can be absolute or relative)
 # Optional: list of additional source files to copy into the folder (space‑separated)
+
+## When to Use
+Set up a REANA development workflow in its own directory, place a minimal reana.yaml, and run it using the Dockerized REANA client.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
 SOURCE_FILES="script.py data.csv"      # leave empty if none
 ```
 

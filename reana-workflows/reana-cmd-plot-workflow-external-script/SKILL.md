@@ -5,6 +5,25 @@ description: |
   The script is stored as a separate file and referenced in the workflow inputs.
   This avoids inline script blocks that cause YAML parsing errors.
 ---
+
+## When to Use
+Create a REANA workflow that runs a large S3 Parquet data plot using an external Python script.
+The script is stored as a separate file and referenced in the workflow inputs.
+This avoids inline script blocks that cause YAML parsing errors.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+## Pitfalls
+- Do not hardcode credentials, tokens, or personal secrets.
+- Verify external service URLs, paths, and permissions before making changes.
+- Keep generated outputs reproducible and record input assumptions.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
 steps:
   - |
     1. **Prepare the script**: Write the full Python script (e.g., `shboost_plot_cached.py`) to the workflow directory.

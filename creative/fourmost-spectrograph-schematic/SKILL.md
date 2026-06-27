@@ -26,6 +26,20 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # ---------------------------------------------------------------------
+
+## When to Use
+Generate a static schematic illustration of the 4MOST spectrograph system as a precursor to a full Manim animation.
+
+## Pitfalls
+- Do not hardcode credentials, tokens, or personal secrets.
+- Verify external service URLs, paths, and permissions before making changes.
+- Keep generated outputs reproducible and record input assumptions.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
 # 1. Figure setup (dark background, user colour palette)
 # ---------------------------------------------------------------------
 fig, ax = plt.subplots(figsize=(12, 7), facecolor="#0D1117")

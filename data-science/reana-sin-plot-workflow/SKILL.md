@@ -28,6 +28,24 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 # Generate x values
+
+## When to Use
+Minimal REANA workflow that plots a sine curve in green using pandas and matplotlib.
+Includes `reana.yaml`, `plot_sin.py` (and optional `requirements.txt`).
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+## Pitfalls
+- Do not hardcode credentials, tokens, or personal secrets.
+- Verify external service URLs, paths, and permissions before making changes.
+- Keep generated outputs reproducible and record input assumptions.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
 x = np.linspace(0, 2 * np.pi, 200)
 # Compute sine
 y = np.sin(x)

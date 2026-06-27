@@ -12,6 +12,18 @@ metadata:
 
 # MNRAS LaTeX compile portability fixes
 
+## When to Use
+Fix common MNRAS LaTeX portability issues on Ubuntu/Debian TeX Live installs, compile successfully, and package submission artifacts.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
+
 Use this when an MNRAS manuscript fails to compile on a typical Ubuntu/Debian TeX Live environment, especially after adapting a generic article into MNRAS.
 
 ## When this skill applies

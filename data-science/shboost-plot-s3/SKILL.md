@@ -6,6 +6,18 @@ version: 1.0
 ---
 
 # Goal
+
+## When to Use
+Plot a sampled subset of the ShBoost 2024 star dataset stored on a public S3 bucket.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+## Pitfalls
+- Do not hardcode credentials, tokens, or personal secrets.
+- Verify external service URLs, paths, and permissions before making changes.
+- Keep generated outputs reproducible and record input assumptions.
+
 Create a reusable script that reads the `shboost2024` Parquet files from the public S3 bucket, samples a configurable number of stars (e.g., ~100 000), and produces a scatter plot using seaborn/matplotlib.
 
 ## Prerequisites

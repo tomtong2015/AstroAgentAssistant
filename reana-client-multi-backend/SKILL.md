@@ -63,6 +63,13 @@ Provide a reproducible way to work with both a development and a production REAN
 Run a simple ping against each profile to ensure the tokens are correct:
 ```bash
 # Dev
+
+## When to Use
+Reusable instructions to set up a .reana/config.yaml with dev and prod profiles and run reana‑client via Docker using REANA_PROFILE.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
 docker run --rm -v "$HOME/.reana/config.yaml:/root/.reana/config.yaml:ro" -e REANA_PROFILE=dev reanahub/reana-client:0.95.0-alpha.3 ping
 # Prod
 docker run --rm -v "$HOME/.reana/config.yaml:/root/.reana/config.yaml:ro" -e REANA_PROFILE=prod reanahub/reana-client:0.95.0-alpha.3 ping

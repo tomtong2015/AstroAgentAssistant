@@ -9,12 +9,29 @@ tags: [calendar, nextcloud, caldav]
 
 # Nextcloud CalDAV Calendar Management
 
+## When to Use
+Create, read, update, and delete calendar events via Nextcloud CalDAV API. Includes auth patterns, calendar paths, and quirks for Nextcloud v29+.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+## Pitfalls
+- Do not hardcode credentials, tokens, or personal secrets.
+- Verify external service URLs, paths, and permissions before making changes.
+- Keep generated outputs reproducible and record input assumptions.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
+
 Manage calendars on a Nextcloud instance via the CalDAV WebDAV API.
 
 ## Credentials
 
 Required:
-- Username (e.g., `akhalatyan`)
+- Username, e.g. `{username}`
 - App Password (generated via Nextcloud → Settings → Security → Devices & sessions → Create new app password)
 - Base URL: `https://cloud.aip.de/remote.php/dav/calendars/{username}/`
 
@@ -48,9 +65,9 @@ HTTP Basic Auth:
 
 Example:
 ```bash
-curl -s -u "akhalatyan:Aac3Y-WTtq7-yCTq7-LQixM-2bzWz" \
+curl -s -u "{username}:${NEXTCLOUD_APP_PASSWORD}" \
   -X PROPFIND -H "Depth: 1" \
-  "https://cloud.aip.de/remote.php/dav/calendars/akhalatyan/"
+  "https://cloud.aip.de/remote.php/dav/calendars/{username}/"
 ```
 
 ## Creating an Event (PUT)
@@ -91,7 +108,7 @@ END:VCALENDAR'
 - **Using `--upload-file`**: In some environments this can trigger server errors; prefer sending the iCal content with `-d` (as shown in the example) or ensure the file is correctly uploaded.
 
 - **HTTP 204**: Success (no body)
-- **HTTP 401**: Wrong credentials — try just the short username (e.g., `akhalatyan` not full email)
+- **HTTP 401**: Wrong credentials — try the short username, not the full email address
 - **UID conflict**: If reusing a UID from another event, Nextcloud may deduplicate — generate a new UID or omit it and let Nextcloud generate one
 
 ## Querying Events (REPORT method — BROKEN on cloud.aip.de)
@@ -106,14 +123,14 @@ END:VCALENDAR'
 4. **Python example** (preferred over curl for XML parsing):
 ```python
 import requests, xml.etree.ElementTree as ET
-auth = ("akhalatyan", "app-password")
+auth = (username, app_password)
 resp = requests.request("PROPFIND", f"{base}/{calendar}/", auth=auth,
                         data=propfind_xml, headers={"Depth": "1"})
 root = ET.fromstring(resp.text)
 for resp_el in root.findall('.//{DAV:}response'):
     href = resp_el.find('{DAV:}href')
     if href is not None:
-        print(href.text)  # -> /remote.php/dav/calendars/akhalatyan/cal/file.ics
+        print(href.text)  # -> /remote.php/dav/calendars/{username}/cal/file.ics
 ```
 5. **GET individual event files** to read DTSTART/SUMMARY/DESCRIPTION.
 

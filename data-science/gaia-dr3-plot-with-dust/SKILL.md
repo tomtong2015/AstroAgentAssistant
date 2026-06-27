@@ -7,6 +7,23 @@ description: Retrieve the 100 nearest Gaia DR3 stars (by parallax) and produce a
 ---
 
 # Overview
+
+## When to Use
+Retrieve the 100 nearest Gaia DR3 stars (by parallax) and produce a two‑panel research‑paper‑style figure. The left panel shows RA vs Dec, the right panel shows a Galactic XY projection overlaid with an all‑sky dust‑extinction map (SFD) using the dustmaps package.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+## Pitfalls
+- Do not hardcode credentials, tokens, or personal secrets.
+- Verify external service URLs, paths, and permissions before making changes.
+- Keep generated outputs reproducible and record input assumptions.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
 This skill demonstrates how to combine a Gaia DR3 query (via the AIP TAP service) with an extinction map to visualise the nearest stars against Milky‑Way dust lanes. The output is a 12 × 6 in, 300 dpi PNG suitable for inclusion in a manuscript.
 
 # Prerequisites

@@ -41,6 +41,13 @@ Add to the imports/patterns section (after existing regexes):
 
 ```python
 # Regex for standard markdown images with local file paths: ![alt](/path/to/file.ext)
+
+## When to Use
+Diagnose and fix images not displaying in Open WebUI / API server frontends.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
 LOCAL_PATH_MD_RE = re.compile(
     r'!\\[([^\\]]*)\\]\\(\\s*(/[\\w./\\-]+\\.[\\w]{2,4})\\s*\\)'
 )

@@ -31,6 +31,15 @@ import seaborn as sns
 import matplotlib as mpl
 
 # ------------------------------------------------------------------
+
+## When to Use
+REANA workflow that caches a large S3 Parquet dataset and plots bprp0 vs mg0 as a hex‑bin PNG.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
 # 1️⃣  S3 configuration (public bucket → anonymous access)
 # ------------------------------------------------------------------
 S3_ENDPOINT = "https://s3.data.aip.de:9000"

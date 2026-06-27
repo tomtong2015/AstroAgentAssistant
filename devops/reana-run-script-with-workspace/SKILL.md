@@ -4,6 +4,15 @@ description: Run a Python (or other) script in a REANA workflow ensuring the scr
 author: Hermi (sorgenfresser)
 ---
 
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
 ## Purpose
 When a workflow includes custom scripts uploaded as input files, REANA executes steps in a working directory that may not be the same as the workspace root. Using `$REANA_WORKSPACE` guarantees the script path resolves correctly.
 

@@ -4,6 +4,15 @@ description: Generate an MP4 animation of sine (green) and cosine (red) curves u
 author: Hermi (sorgenfresser)
 ---
 
+
+## When to Use
+Generate an MP4 animation of sine (green) and cosine (red) curves using matplotlib for frame rendering and ffmpeg for encoding. The skill avoids privileged operations and destructive commands.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
 ## Goal
 Create a short (~2 seconds) MP4 animation showing the sine and cosine curves moving in phase. The output file is placed in a user‑writable location (e.g., `/home/hermes/sin_cos_anim.mp4`).
 

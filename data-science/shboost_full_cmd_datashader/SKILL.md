@@ -6,6 +6,23 @@ version: 1.0
 ---
 
 # Goal
+
+## When to Use
+Generate a full‑dataset colour‑magnitude diagram (CMD) for the ShBoost 2024 star catalog using Dask and Datashader, optimized for minimal memory usage.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+## Pitfalls
+- Do not hardcode credentials, tokens, or personal secrets.
+- Verify external service URLs, paths, and permissions before making changes.
+- Keep generated outputs reproducible and record input assumptions.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
 Create a high‑resolution PNG CMD of the full ShBoost 2024 dataset (≈218 M stars) without loading the entire dataset into RAM. The plot uses a hex‑bin density representation with logarithmic shading and the `inferno` colormap, and follows the astrophysical convention of inverted y‑axis.
 
 # Prerequisites

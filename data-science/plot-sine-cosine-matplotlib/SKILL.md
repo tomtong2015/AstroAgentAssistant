@@ -60,6 +60,10 @@ The image should be saved to a path you can deliver (e.g., `~/sin_cos_plot.png`)
 ## Example Commands
 ```bash
 # Quick check
+
+## When to Use
+Generate a PNG plot of sin(x) in red and cos(x) in green using matplotlib, handling missing dependencies in a managed Python environment.
+
 python3 -c "import matplotlib" || echo missing
 
 # System install (if you have sudo)

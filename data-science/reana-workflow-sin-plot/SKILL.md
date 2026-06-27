@@ -5,6 +5,10 @@ description: Automates creation, submission, monitoring, and retrieval of a REAN
 author: Hermes
 ---
 
+
+## When to Use
+Automates creation, submission, monitoring, and retrieval of a REANA workflow that plots a green sine curve using pandas and matplotlib.
+
 ## Overview
 This skill automates the full REANA workflow lifecycle for generating a green sine‑wave plot using pandas and matplotlib.
 

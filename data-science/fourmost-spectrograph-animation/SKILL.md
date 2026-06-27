@@ -44,6 +44,13 @@ F. Spectral grid → science: element lines, velocity shifts, Milky Way spiral
 ```bash
 python3 /home/hermes/4most_schematic.py
 # Output: /home/hermes/4most_schematic.png
+
+## When to Use
+Generates a 60-90s educational animation of the 4MOST spectrograph on the VISTA 4-m telescope using Manim Community Edition. Follows a schematic-first workflow: static matplotlib plot for review, then Manim animation. Includes tilting-spine fibres, three spectrographs (HRS/LRS), optical train, and science output.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
 ```
 
 ## Step 2 — Manim Animation

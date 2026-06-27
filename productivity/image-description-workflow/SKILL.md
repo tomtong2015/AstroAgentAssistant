@@ -3,6 +3,13 @@ name: image-description-workflow
 description: Workflow for handling user‑submitted images, generating a description via vision_analyze, and responding.
 ---
 
+
+## When to Use
+Workflow for handling user‑submitted images, generating a description via vision_analyze, and responding.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
 ## Trigger
 When a user sends an image (or provides an image path) and asks for a description.
 

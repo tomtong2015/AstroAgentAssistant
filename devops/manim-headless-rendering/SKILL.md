@@ -6,6 +6,23 @@ version: 1.0.0
 ---
 
 # Overview
+
+## When to Use
+Guidelines for rendering Manim animations in a headless Linux environment (no GUI). Includes troubleshooting common errors, choosing correct renderer, managing long renders, and concatenating partial video files produced by Manim.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+## Pitfalls
+- Do not hardcode credentials, tokens, or personal secrets.
+- Verify external service URLs, paths, and permissions before making changes.
+- Keep generated outputs reproducible and record input assumptions.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
 When running Manim on a server or CI environment without a display, the default OpenGL renderer may fail or hang. Use the `cairo` renderer, which works without an X server.
 
 ```bash

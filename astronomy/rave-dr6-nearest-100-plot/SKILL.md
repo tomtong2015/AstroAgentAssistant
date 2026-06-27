@@ -1,6 +1,6 @@
 ---
 name: rave-dr6-nearest-100-plot
-description: Query the 100 nearest RAVE DR6 stars and generate two clear PNG plots: Galactic projection and RA/Dec scatter, with reproducible local parquet output.
+description: "Query the 100 nearest RAVE DR6 stars and generate two clear PNG plots: Galactic projection and RA/Dec scatter, with reproducible local parquet output."
 version: 1.0.0
 author: AstroAgent / AIP
 license: MIT

@@ -10,6 +10,10 @@ date: 2026-04-16
 tags: [audio, ffmpeg, manim, bgm, ambient]
 ---
 
+
+## When to Use
+Create layered ambient pad music using FFmpeg's aevalsrc filter. Generates loopable 15-second clips with slow vibrato, shimmer, and exponential decay, then loops to target duration. Mixes into video at low volume for BGM.
+
 ## Overview
 
 Generates quiet ambient background music for tutorial/animation videos using

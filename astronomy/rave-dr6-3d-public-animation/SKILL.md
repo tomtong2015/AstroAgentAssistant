@@ -5,6 +5,23 @@ category: astronomy
 ---
 
 # Purpose
+
+## When to Use
+Generate a public‑talk‑ready 3‑D animation of the 100 nearest RAVE DR6 stars using matplotlib.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+## Pitfalls
+- Do not hardcode credentials, tokens, or personal secrets.
+- Verify external service URLs, paths, and permissions before making changes.
+- Keep generated outputs reproducible and record input assumptions.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
 Create a smooth, dark‑background MP4 animation that visualises the spatial distribution of the 100 nearest stars from the RAVE DR6 catalog, with the Sun at the centre. The animation should be suitable for presentations, social media, or outreach.
 
 # Prerequisites

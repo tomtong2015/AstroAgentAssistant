@@ -7,6 +7,23 @@ description: Retrieve the most recent 100 entries from the RAVE DR6 `dr6_obsda
 ---
 
 # Overview
+
+## When to Use
+Retrieve the most recent 100 entries from the RAVE DR6 `dr6_obsdata` table and generate a simple RA‑Dec scatter plot. Handles missing Python dependencies, installs them if necessary, and falls back to astropy for galactic coordinates if needed.
+
+## Overview
+This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+
+## Pitfalls
+- Do not hardcode credentials, tokens, or personal secrets.
+- Verify external service URLs, paths, and permissions before making changes.
+- Keep generated outputs reproducible and record input assumptions.
+
+## Verification
+- Confirm required inputs and credentials are available.
+- Run the smallest safe command or example before scaling up.
+- Check produced files, API responses, or plots before reporting success.
+
 This skill demonstrates how to query the RAVE DR6 TAP service for the latest 100 observations, then produce a scatter plot of RA vs Dec (and optionally Galactic X/Y).
 
 # Prerequisites
