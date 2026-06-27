@@ -55,19 +55,23 @@ This skill ships a helper:
 python reana-workflows/reana-operator/scripts/reana_operator.py --help
 ```
 
-It prefers a native `reana-client` if installed. Otherwise it uses Docker with:
+It prefers a native `reana-client` if installed. Otherwise it uses Docker with the Docker Hub image documented at <https://hub.docker.com/r/reanahub/reana-client>:
 
 ```bash
+REANA_CLIENT_MODE=${REANA_CLIENT_MODE:-auto}     # auto | native | docker
 REANA_CLIENT_IMAGE=${REANA_CLIENT_IMAGE:-reanahub/reana-client:0.95.0-alpha.3}
 ```
+
+Use `REANA_CLIENT_MODE=docker` to force the Dockerized client for testing or reproducibility.
 
 The helper never prints `REANA_ACCESS_TOKEN`.
 
 ## Quick Commands
 
-### Check backend/credentials
+### Check client/backend/credentials
 
 ```bash
+python reana-workflows/reana-operator/scripts/reana_operator.py client
 python reana-workflows/reana-operator/scripts/reana_operator.py backends
 python reana-workflows/reana-operator/scripts/reana_operator.py ping
 ```
@@ -152,11 +156,9 @@ workflow:
         environment: gitlab-p4n.aip.de:5005/p4nreana/reana-env:py311-astro-ml.2891a60c
         kubernetes_memory_limit: "32Gi"
         kubernetes_job_timeout: 7200
+        compute_backend: kubernetes
         commands:
-          - bash -lc 'cd "$REANA_WORKSPACE" && if [ -f requirements.txt ]; then pip install --quiet -r requirements.txt; fi && python3 analysis.py'
-        outputs:
-          files:
-            - output.txt
+          - bash -lc 'if [ -f requirements.txt ]; then pip install --quiet -r requirements.txt; fi && python3 analysis.py'
 outputs:
   files:
     - output.txt

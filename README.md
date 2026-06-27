@@ -2,7 +2,7 @@
 
 Custom Hermes Agent skills developed by the AIP team for astronomy, data science, reproducible workflows, AI/ML, devops, and productivity.
 
-Total: **119** custom skills across **17** categories.
+Total: **120** custom skills across **17** categories.
 
 ## Repository layout
 
@@ -20,7 +20,7 @@ Total: **119** custom skills across **17** categories.
 | `mlops/` | LLM fine-tuning, serving, inference, evaluation, and HuggingFace workflows | 9 |
 | `productivity/` | Calendars, contacts, documents, OCR, PDFs, and image-description workflows | 4 |
 | `python/` | Python data engineering, caching, plotting, and reusable scientific-programming workflows | 6 |
-| `reana-workflows/` | REANA operations, client configuration, templates, execution recipes, monitoring, and workflow best practices | 18 |
+| `reana-workflows/` | REANA operations, client configuration, templates, execution recipes, monitoring, and workflow best practices | 19 |
 | `research/` | Academic research, literature, LaTeX manuscripts, DRP, and paper improvement workflows | 13 |
 | `science/` | dt4acc digital twin, accelerator-science runbooks, EPICS/Tango, and host smoke tests | 6 |
 | `social-media/` | Social media CLI clients and workflows | 1 |
@@ -52,7 +52,7 @@ Total: **119** custom skills across **17** categories.
 
 **Python (6)** — Python data engineering, caching, plotting, and reusable scientific-programming workflows
 
-**Reana Workflows (18)** — REANA operations, client configuration, templates, execution recipes, monitoring, and workflow best practices
+**Reana Workflows (19)** — REANA operations, client configuration, templates, execution recipes, monitoring, and workflow best practices
 
 **Research (13)** — Academic research, literature, LaTeX manuscripts, DRP, and paper improvement workflows
 
@@ -73,15 +73,15 @@ Total: **119** custom skills across **17** categories.
 | `astronomy/gaia-dr3-tap-query/` | Retrieve the nearest 100 stars from Gaia DR3 using the TAP service hosted at AIP (https://gaia.aip.de/tap/). Includes Parquet storage, preview CSV, and RA/Dec & Galactic XY plots. |
 | `astronomy/gaiadr3-aip-de-adql/` | Query the Gaia DR3 PostgreSQL database at gaia.aip.de via its Daiquiri REST API. Includes CSRF handling, async job submission, queue names, and result fetching. Access 1.8 billion sources with ~153 columns. |
 | `astronomy/gaiadr3-aip-query-api/` | Query the Gaia DR3 PostgreSQL database at gaia.aip.de via its Daiquiri REST API. Includes CSRF handling, queue names, and result fetching. |
-| `astronomy/rave-dr6/` | Query the RAVE DR6 catalog at https://www.rave-survey.org/tap/ using pyvo (TAPService.run_sync). Access stellar parameters, Gaia cross-matches, distances, and Galactic coordinates (l, b). Includes galactic and equirec... |
 | `astronomy/rave-dr6-3d-animation/` | Step‑by‑step workflow to query the RAVE DR6 catalog for the 100 nearest stars (by parallax), process the data, generate 2‑D visualisations and a public‑talk‑ready 3‑D rotating animation using Matplotlib. |
 | `astronomy/rave-dr6-3d-public-animation/` | Generate a public‑talk‑ready 3‑D animation of the 100 nearest RAVE DR6 stars using matplotlib. |
 | `astronomy/rave-dr6-nearest-100-plot/` | Query the 100 nearest RAVE DR6 stars and generate two clear PNG plots: Galactic projection and RA/Dec scatter, with reproducible local parquet output. |
 | `astronomy/rave-dr6-public-talk-visualizations/` | Turn a nearest-100 RAVE DR6 query into dark-theme, public-talk-ready PNG visualizations with clear titles, readable scaling, and presentation-friendly styling. |
 | `astronomy/rave-dr6-recent-observations-plot/` | Retrieve the most recent 100 entries from the RAVE DR6 `dr6_obsdata` table and generate a simple RA‑Dec scatter plot. Handles missing Python dependencies, installs them if necessary, and falls back to astropy for gala... |
 | `astronomy/rave-dr6-tap-query/` | Query the RAVE DR6 catalog hosted at https://www.rave-survey.org/tap/ using pyvo (TAPService.run_sync). Useful for accessing stellar parameters, Gaia cross-matches, distances, and Galactic coordinates (l, b). Includes... |
+| `astronomy/rave-dr6/` | Query the RAVE DR6 catalog at https://www.rave-survey.org/tap/ using pyvo (TAPService.run_sync). Access stellar parameters, Gaia cross-matches, distances, and Galactic coordinates (l, b). Includes galactic and equirec... |
 | `astronomy/shboost-cmd-plot/` | Generates a colour‑magnitude diagram (CMD) for ~100 k stars from the public shboost2024 S3 bucket. The script caches the sampled data locally as a Parquet file for fast repeat runs and outputs a high‑resolution PNG (3... |
-| `astronomy/shboost-cmd-visualization/` | Generate a high‑resolution density CMD (hexbin) from the ShBoost star dataset, cache locally as Parquet, add colour‑matched population annotations, a detailed legend, log‑scaled colour bar, and create a GIF animation... |
+| `astronomy/shboost-cmd-visualization/` | Generate a high‑resolution density CMD (hexbin) from the ShBoost star dataset, cache locally as Parquet, add colour‑matched population annotations, a detailed legend, log‑scaled colour bar, and create a GIF animation ... |
 | `astronomy/shboost-plot-s3/` | Plot a sampled subset of the ShBoost 2024 star dataset stored on a public S3 bucket. |
 | `astronomy/shboost-public-s3-cmd-plot/` | Plot a colour-magnitude diagram from the public SHBoost 2024 S3 parquet dataset using the notebook-backed access pattern and a REANA-friendly serial workflow. |
 | `astronomy/shboost24-cmd/` | Generate colour-magnitude diagrams from SHboost24 data using local Parquet caching and agreed plotting conventions. |
@@ -104,16 +104,16 @@ Total: **119** custom skills across **17** categories.
 | `creative/sin-unit-circle-animation/` | Create animations showing the Unit Circle → Sine Wave connection. Uses ValueTracker + always_redraw for smooth rotating point that traces out the sine wave. Perfect for educational content (11th grade math, trigonomet... |
 | `data-science/datashader-019-pipeline/` | Generate density plots (CMD, hexbin, 2D histograms) using datashader 0.19.0 with Dask for lazy data loading and matplotlib for final rendering. Handles the 0.19.0 API: no Canvas.hexbin(), no tf.to_rgba(), tf.shade() r... |
 | `devops/api-server-local-image-support/` | Fix Open WebUI image display by extending api_server.py to convert standard markdown ![alt](/local/path) images into HTTP URLs via /media/<path> route. Handles the gap between agent-generated image paths and the API s... |
-| `devops/docker-access/` | Verify Docker availability and run containers on this host. |
 | `devops/docker-access-group-reload/` | Resolve Docker permission errors by ensuring the user is in the docker group and reloading group membership. |
+| `devops/docker-access/` | Verify Docker availability and run containers on this host. |
 | `devops/manim-headless-rendering/` | Guidelines for rendering Manim animations in a headless Linux environment (no GUI). Includes troubleshooting common errors, choosing correct renderer, managing long renders, and concatenating partial video files produ... |
 | `devops/manim-telegram-animation/` | Guide to creating concise educational animations with Manim, handling common errors, rendering in low‑resolution, and delivering the final MP4 via Telegram (including ffmpeg concat handling). |
-| `devops/manim-telegram-delivery/` | Generate a Manim animation, extract a short preview, concatenate full‑resolution fragments, and deliver the MP4 directly via Telegram. Handles common rendering pitfalls (partial movie files, missing renderer options)... |
+| `devops/manim-telegram-delivery/` | Generate a Manim animation, extract a short preview, concatenate full‑resolution fragments, and deliver the MP4 directly via Telegram. Handles common rendering pitfalls (partial movie files, missing renderer options) ... |
 | `devops/manim-video-audio/` | Add audio to Manim-rendered videos — background music, TTS narration, or SRT subtitles. Handles common pitfalls with MP3 decoding, volume mixing, and timing. |
 | `devops/paperclip-oss120b-external/` | Step‑by‑step guide for turning a fresh Paperclip installation into a publicly reachable service that forwards LLM calls to a custom OSS‑120B model served via an OpenAI‑compatible endpoint. Handles deployment mode, bin... |
 | `devops/telegram-auth-troubleshooting/` | Diagnose and fix cases where the Hermes Telegram bot silently ignores messages from group members (auth allowlist issues). |
 | `infrastructure/api-server-media-display/` | Diagnose and fix images not displaying in Open WebUI / API server frontends. |
-| `infrastructure/docs-mcp-at-aip/` | Access the AIP documentation MCP server at https://docs-mcp-server.kube.aip.de. Search, scrape, and fetch documentation for 15+ indexed libraries including reana, pandas, snakemake, dask, unsloth, and more. HTTP POST... |
+| `infrastructure/docs-mcp-at-aip/` | Access the AIP documentation MCP server at https://docs-mcp-server.kube.aip.de. Search, scrape, and fetch documentation for 15+ indexed libraries including reana, pandas, snakemake, dask, unsloth, and more. HTTP POST ... |
 | `infrastructure/hermes-api-server/` | Enable and expose the Hermes OpenAI-compatible API server safely for frontends and integrations. |
 | `infrastructure/hermes-native-mcp/` | Configure and use Hermes Agent's built-in MCP client for stdio and HTTP MCP servers, including testing, troubleshooting, and TLS trust fixes for internal HTTPS endpoints. |
 | `infrastructure/mcporter-cli/` | Use the mcporter CLI for ad-hoc MCP server discovery, testing, schema inspection, and tool calls without changing Hermes configuration. |
@@ -121,7 +121,7 @@ Total: **119** custom skills across **17** categories.
 | `infrastructure/openwebui-media-via-s3/` | Serve images, videos, and audio to Open WebUI by uploading media to the public S3 bucket (scr4agent), then embedding pure markdown URLs. |
 | `leisure/find-nearby/` | Find nearby places (restaurants, cafes, bars, pharmacies, etc.) using OpenStreetMap. Works with coordinates, addresses, cities, zip codes, or Telegram location pins. No API keys needed. |
 | `mcp/mcporter/` | Use the mcporter CLI to list, configure, auth, and call MCP servers/tools directly (HTTP or stdio), including ad-hoc servers, config edits, and CLI/type generation. |
-| `media/ffmpeg-ambient-audio/` | Create layered ambient pad music using FFmpeg's aevalsrc filter. Generates loopable 15-second clips with slow vibrato, shimmer, and exponential decay, then loops to target duration. Mixes into video at low volume for... |
+| `media/ffmpeg-ambient-audio/` | Create layered ambient pad music using FFmpeg's aevalsrc filter. Generates loopable 15-second clips with slow vibrato, shimmer, and exponential decay, then loops to target duration. Mixes into video at low volume for ... |
 | `media/fractal-preference-mandelbrot-elephant/` | When the user asks for a fractal showcase, they want a video that shows ONLY a Mandelbrot zoom transitioning to the Elephant's Valley image. The transition should use a very small scaling factor (~1e-7). No other frac... |
 | `mlops/cloud/modal/` | Serverless GPU cloud platform for running ML workloads. Use when you need on-demand GPU access without infrastructure management, deploying ML models as APIs, or running batch jobs with automatic scaling. |
 | `mlops/inference/gguf/` | GGUF format and llama.cpp quantization for efficient CPU/GPU inference. Use when deploying models on consumer hardware, Apple Silicon, or when needing flexible quantization from 2-8 bit without GPU requirements. |
@@ -130,30 +130,31 @@ Total: **119** custom skills across **17** categories.
 | `mlops/models/stable-diffusion/` | State-of-the-art text-to-image generation with Stable Diffusion models via HuggingFace Diffusers. Use when generating images from text prompts, performing image-to-image translation, inpainting, or building custom dif... |
 | `mlops/models/whisper/` | OpenAI's general-purpose speech recognition model. Supports 99 languages, transcription, translation to English, and language identification. Six model sizes from tiny (39M params) to large (1550M params). Use for spe... |
 | `mlops/training/grpo-rl-training/` | Expert guidance for GRPO/RL fine-tuning with TRL for reasoning and task-specific model training |
-| `mlops/training/peft/` | Parameter-efficient fine-tuning for LLMs using LoRA, QLoRA, and 25+ methods. Use when fine-tuning large models (7B-70B) with limited GPU memory, when you need to train <1% of parameters with minimal accuracy loss, or... |
+| `mlops/training/peft/` | Parameter-efficient fine-tuning for LLMs using LoRA, QLoRA, and 25+ methods. Use when fine-tuning large models (7B-70B) with limited GPU memory, when you need to train <1% of parameters with minimal accuracy loss, or ... |
 | `mlops/training/pytorch-fsdp/` | Expert guidance for Fully Sharded Data Parallel training with PyTorch FSDP - parameter sharding, mixed precision, CPU offloading, FSDP2 |
 | `productivity/aip-member-contact-retrieval/` | Retrieve phone number (and email) for a staff member of the Leibniz Institute for Astrophysics Potsdam (AIP) from the public website. |
 | `productivity/image-description-workflow/` | Workflow for handling user‑submitted images, generating a description via vision_analyze, and responding. |
-| `productivity/nextcloud-caldav/` | Access and manage calendars on cloud.aip.de Nextcloud via CalDAV. List, create, edit, and delete events in personal and shared calendars. Credentials are passed via environment variables — never hardcode them. |
 | `productivity/nextcloud-caldav-calendar-management/` | Create, read, update, and delete calendar events via Nextcloud CalDAV API. Includes auth patterns, calendar paths, and quirks for Nextcloud v29+. |
+| `productivity/nextcloud-caldav/` | Access and manage calendars on cloud.aip.de Nextcloud via CalDAV. List, create, edit, and delete events in personal and shared calendars. Credentials are passed via environment variables — never hardcode them. |
 | `python/cmd-plotting/` | Generate astronomy colour-magnitude diagrams in Python with reproducible plotting choices. |
 | `python/dask-hvplot-datashader-scientific-plots/` | Build scalable scientific plots from large tabular datasets using Dask for processing, hvPlot for plotting, and Datashader for dense large-data rendering. |
 | `python/hdf5-on-s3-cached/` | Access HDF5 files stored on S3 by creating a reliable local cache first, extracting reusable subsets, and converting repeated tabular work products to local Parquet. |
+| `python/s3-parquet-sampling-plot-cached/` | Efficiently sample a subset of a massive Parquet dataset stored on an S3‑compatible bucket, cache the sampled rows locally as a Parquet file for fast reuse, and produce high‑resolution PNG plots suitable for analysis ... |
 | `python/s3-parquet-sampling/` | Sample or reduce massive Parquet datasets on S3 using local Parquet caching, Dask-first processing for large inputs, and hvPlot/Datashader for scalable scientific visualization. |
-| `python/s3-parquet-sampling-plot-cached/` | Efficiently sample a subset of a massive Parquet dataset stored on an S3‑compatible bucket, cache the sampled rows locally as a Parquet file for fast reuse, and produce high‑resolution PNG plots suitable for analysis... |
 | `python/seaborn-paper-plots/` | Create clean seaborn/matplotlib plots suitable for papers, notes, and reproducible reports. |
 | `reana-workflows/reana-aip/` | Create REANA workflows using AIP conventions, approved environments, and reproducible workflow structure. |
 | `reana-workflows/reana-client-config/` | Configure REANA client authentication with multi-profile `.reana/config.yaml` or `~/.reana/config.yaml`, store tokens safely, and select dev/prod back-ends reproducibly. |
 | `reana-workflows/reana-client-docker/` | Use the Dockerized REANA client to ping a REANA server, list workflows, and format output with jq. |
+| `reana-workflows/reana-client-failover/` | Use when a REANA workflow operation needs a robust client launcher: prefer native reana-client when installed, automatically fall back to Dockerized reanahub/reana-client when native client is missing, verify Docker a... |
 | `reana-workflows/reana-client-multi-backend/` | Reusable instructions to set up a .reana/config.yaml with dev and prod profiles and run reana‑client via Docker using REANA_PROFILE. |
-| `reana-workflows/reana-cmd-plot-workflow/` | REANA workflow that caches a large S3 Parquet dataset and plots bprp0 vs mg0 as a hex‑bin PNG. |
 | `reana-workflows/reana-cmd-plot-workflow-external-script/` | Create a REANA workflow that runs a large S3 Parquet data plot using an external Python script. The script is stored as a separate file and referenced in the workflow inputs. This avoids inline script blocks that caus... |
+| `reana-workflows/reana-cmd-plot-workflow/` | REANA workflow that caches a large S3 Parquet dataset and plots bprp0 vs mg0 as a hex‑bin PNG. |
 | `reana-workflows/reana-dev-workflow-setup/` | Set up a REANA development workflow in its own directory, place a minimal reana.yaml, and run it using the Dockerized REANA client. |
-| `reana-workflows/reana-operator/` | This is the front-door skill for day-to-day REANA operations. Use it to translate user requests into safe, concrete REANA actions: check workflow status, list recent jobs, inspect failed logs, show the active backend,... |
+| `reana-workflows/reana-operator/` | Use when operating REANA from natural language: check job status, list available backends, show recent jobs by status, scaffold reana.yaml projects, run code as REANA workflows, inspect logs, validate YAML, and downlo... |
 | `reana-workflows/reana-run-script-with-workspace/` | Run a Python (or other) script in a REANA workflow ensuring the script is found via $REANA_WORKSPACE. |
 | `reana-workflows/reana-selflearn-workflows/` | Self‑learn REANA by listing finished workflows on the development backend, downloading their `reana.yaml` files, and providing guidelines for writing correct REANA workflows. |
-| `reana-workflows/reana-serial-python/` | Reusable template for REANA serial workflows that run a Python analysis script on remote data, cache processed results locally as Parquet, and produce PNG outputs. Designed for SHBoost-like analyses where only the scr... |
 | `reana-workflows/reana-serial-python-analysis-template/` | Reusable template for REANA serial workflows that run a Python analysis script on remote data, cache processed results locally as Parquet, and produce PNG outputs. Designed for SHBoost-like analyses where only the scr... |
+| `reana-workflows/reana-serial-python/` | Reusable template for REANA serial workflows that run a Python analysis script on remote data, cache processed results locally as Parquet, and produce PNG outputs. Designed for SHBoost-like analyses where only the scr... |
 | `reana-workflows/reana-shboost24/` | Run SHboost24 plotting and sampling workflows on REANA with cached parquet inputs and explicit script packaging. |
 | `reana-workflows/reana-sin-plot-workflow/` | Minimal REANA workflow that plots a sine curve in green using pandas and matplotlib. Includes `reana.yaml`, `plot_sin.py` (and optional `requirements.txt`). |
 | `reana-workflows/reana-version-info/` | Quick reference for REANA client and server versions for dev and production backends used by the user. |
@@ -170,8 +171,8 @@ Total: **119** custom skills across **17** categories.
 | `research/latex-paper-iteration/` | Iteratively improve LaTeX research papers — structural fixes, prose polishing, figure integration, compilation cycles. Also covers merging multiple papers into a unified manuscript. |
 | `research/latex-research-paper/` | Generate complete, compilable LaTeX research papers in formal academic style with full section structure, BibTeX references, and figure support. |
 | `research/mnras-latex-compile-portability-fixes/` | Fix common MNRAS LaTeX portability issues on Ubuntu/Debian TeX Live installs, compile successfully, and package submission artifacts. |
-| `research/mnras-latex-portable/` | Build and package an MNRAS LaTeX manuscript portably on Ubuntu, avoiding missing-font-package failures and fixing common two-column table issues. |
 | `research/mnras-latex-portable-build-and-package/` | Build and package an MNRAS LaTeX manuscript portably on Ubuntu, avoiding missing-font-package failures and fixing common two-column table issues. |
+| `research/mnras-latex-portable/` | Build and package an MNRAS LaTeX manuscript portably on Ubuntu, avoiding missing-font-package failures and fixing common two-column table issues. |
 | `research/multi-section-latex-whitepaper/` | Generate comprehensive LaTeX white papers from multiple sources — Markdown sections, existing papers, or user ideas. Converts and assembles into a single compiled PDF. |
 | `science/dt4acc-container-troubleshooting/` | Debugging dt4acc digital twin containers — the twin requires accelerator lattice data in MongoDB to initialize, or use HIFIS pre-built images with BESSY II data pre-loaded. |
 | `science/dtwin-burnin-tests/` | Run comprehensive burn-in tests on the dt4acc Digital Twin IOC to verify EPICS PV stability, throughput, and read/write resilience |
@@ -185,109 +186,3 @@ Total: **119** custom skills across **17** categories.
 | `software-development/paperclip-enable-llm-api/` | Configure the top-level LLM provider block in Paperclip so the instance recognizes the OpenAI backend in current Paperclip versions. |
 | `software-development/paperclip-ensure-oss-120b-assistant/` | Verify and, if needed, create the oss-120b-assistant agent in Paperclip after server startup, ensuring it is visible in the agents dashboard. |
 | `software-development/python-mcp-docs-first/` | When writing or revising Python code, consult the docs MCP server first for indexed libraries and base API usage on the latest available indexed documentation. |
-
-## Using this repository with Hermes
-
-Add the repository as a tap:
-
-```bash
-hermes skills tap add arm2arm/AstroAgentAssistant
-```
-
-Then search and install skills from it.
-
-### Browse and search
-
-```bash
-hermes skills browse
-hermes skills search shboost
-hermes skills search reana
-hermes skills search gaia
-hermes skills search manim
-```
-
-### Install example skills
-
-```bash
-# Astronomy
-hermes skills install arm2arm/AstroAgentAssistant/astronomy/rave-dr6-public-talk-visualizations
-hermes skills install arm2arm/AstroAgentAssistant/astronomy/gaia-aip-de-adql
-
-# Creative
-hermes skills install arm2arm/AstroAgentAssistant/creative/manim-educational-animation
-hermes skills install arm2arm/AstroAgentAssistant/creative/fractal-showcase-animation
-
-# Data science / Python
-hermes skills install arm2arm/AstroAgentAssistant/data-science/datashader-019-pipeline
-hermes skills install arm2arm/AstroAgentAssistant/python/dask-hvplot-datashader-scientific-plots
-
-# Infrastructure / DevOps
-hermes skills install arm2arm/AstroAgentAssistant/infrastructure/docs-mcp-at-aip
-hermes skills install arm2arm/AstroAgentAssistant/devops/paperclip-oss120b-external
-
-# REANA
-hermes skills install arm2arm/AstroAgentAssistant/reana-workflows/reana-operator
-hermes skills install arm2arm/AstroAgentAssistant/reana-workflows/reana-client-config
-hermes skills install arm2arm/AstroAgentAssistant/reana-workflows/reana-serial-python
-
-# Research
-hermes skills install arm2arm/AstroAgentAssistant/research/drp-paper
-hermes skills install arm2arm/AstroAgentAssistant/research/latex-research-paper
-
-# Science
-hermes skills install arm2arm/AstroAgentAssistant/science/dtwin-epics-runbook
-
-# Productivity
-hermes skills install arm2arm/AstroAgentAssistant/productivity/nextcloud-caldav-calendar-management
-
-# Software development
-hermes skills install arm2arm/AstroAgentAssistant/software-development/python-mcp-docs-first
-```
-
-### Load a skill in a session
-
-```bash
-hermes -s shboost-cmd-plot
-hermes -s reana-operator -s docs-mcp-at-aip
-```
-
-Or simply ask Hermes in chat to use a named skill — it will auto-load the relevant one.
-
-## Security scanning
-
-This repository includes a GitHub Actions workflow at:
-
-- `.github/workflows/secret-scan.yml`
-
-It runs `gitleaks` on pushes to `main`, pull requests, and manual workflow dispatch. This helps catch accidentally committed API keys, tokens, passwords, and private keys.
-
-## Authoring rules
-
-Every skill should contain:
-- `SKILL.md`
-- clear trigger conditions under `## When to Use`
-- numbered `## Procedure` or an actionable workflow section
-- `## Pitfalls`
-- `## Verification`
-
-Optional support files:
-- `references/`
-- `templates/`
-- `scripts/`
-- `assets/`
-
-## AIP-specific operational defaults
-
-- SHBoost public S3 endpoint: `https://s3.data.aip.de:9000`
-- SHBoost parquet glob: `s3://shboost2024/shboost_08july2024_pub.parq/*.parquet`
-- REANA environment source repo: `https://gitlab-p4n.aip.de/punch_public/reana/environments`
-- Common observed REANA environments:
-  - `gitlab-p4n.aip.de:5005/p4nreana/reana-env:py311-astro.9845`
-  - `gitlab-p4n.aip.de:5005/p4nreana/reana-env:py311-astro-ml.2891a60c`
-- REANA convention: default memory `32GB`
-- Plotting convention for SHBoost CMDs:
-  - local Parquet cache
-  - PNG only
-  - original axes
-  - y-axis inverted only
-  - `hexbin` density with `512x512` grid

@@ -21,6 +21,7 @@ from typing import Any, Iterable
 
 DEFAULT_IMAGE = "reanahub/reana-client:0.95.0-alpha.3"
 DEFAULT_ENVIRONMENT = "gitlab-p4n.aip.de:5005/p4nreana/reana-env:py311-astro-ml.2891a60c"
+VALID_CLIENT_MODES = {"auto", "native", "docker"}
 STATUS_ALIASES = {
     "success": {"finished", "succeeded", "success"},
     "successful": {"finished", "succeeded", "success"},
@@ -51,14 +52,65 @@ def client_image() -> str:
     return os.environ.get("REANA_CLIENT_IMAGE", DEFAULT_IMAGE)
 
 
+def client_mode() -> str:
+    mode = os.environ.get("REANA_CLIENT_MODE", "auto").strip().lower() or "auto"
+    if mode not in VALID_CLIENT_MODES:
+        fail(f"Invalid REANA_CLIENT_MODE={mode!r}; expected one of: {', '.join(sorted(VALID_CLIENT_MODES))}")
+    return mode
+
+
+def native_client() -> str | None:
+    return shutil.which("reana-client")
+
+
+def docker_client() -> str | None:
+    return shutil.which("docker")
+
+
+def check_docker_daemon(docker: str) -> tuple[bool, str]:
+    cp = subprocess.run([docker, "version", "--format", "{{.Server.Version}}"], text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    if cp.returncode == 0:
+        return True, cp.stdout.strip() or "available"
+    return False, (cp.stderr or cp.stdout).strip()
+
+
+def selected_client() -> str:
+    mode = client_mode()
+    native = native_client()
+    docker = docker_client()
+    if mode == "native":
+        if not native:
+            fail("REANA_CLIENT_MODE=native but reana-client was not found on PATH")
+        return "native"
+    if mode == "docker":
+        if docker is None:
+            fail("REANA_CLIENT_MODE=docker but docker was not found on PATH")
+        ok, msg = check_docker_daemon(docker)
+        if not ok:
+            fail("Docker is installed but the daemon is not reachable: " + msg)
+        return "docker"
+    if native:
+        return "native"
+    if docker is not None:
+        ok, msg = check_docker_daemon(docker)
+        if not ok:
+            fail("reana-client is missing and Docker daemon is not reachable: " + msg)
+        return "docker"
+    fail("Neither native reana-client nor Docker is available. Install reana-client or Docker.")
+    raise AssertionError("unreachable")
+
+
 def reana_command(args: list[str], mount: Path | None = None) -> list[str]:
     """Return a native or Dockerized reana-client command."""
-    native = shutil.which("reana-client")
-    if native:
-        return [native, *args]
-    docker = shutil.which("docker")
+    backend = selected_client()
+    if backend == "native":
+        native = native_client()
+        if native is not None:
+            return [native, *args]
+        fail("reana-client disappeared from PATH")
+    docker = docker_client()
     if not docker:
-        fail("Neither reana-client nor docker is available. Install one or set PATH correctly.")
+        fail("docker disappeared from PATH")
     cmd = [
         docker,
         "run",
@@ -81,7 +133,7 @@ def run_reana(args: list[str], *, mount: Path | None = None, capture: bool = Fal
     # Native reana-client needs to run from the project directory so that
     # reana.yaml and input files are uploaded from the intended workspace.
     # Dockerized mode uses -v <project>:/workspace -w /workspace instead.
-    cwd = mount.resolve() if mount and shutil.which("reana-client") else None
+    cwd = mount.resolve() if mount and selected_client() == "native" else None
     if capture:
         return subprocess.run(cmd, text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, cwd=cwd)
     printable = " ".join(shlex.quote(x) for x in cmd)
@@ -146,9 +198,15 @@ def cmd_backends(_: argparse.Namespace) -> int:
     print("Active REANA environment:")
     print(f"  REANA_SERVER_URL: {os.environ.get('REANA_SERVER_URL', '<unset>')}")
     print(f"  Token configured: {'yes' if os.environ.get('REANA_ACCESS_TOKEN') else 'no'}")
+    print(f"  REANA_CLIENT_MODE: {client_mode()}")
+    print(f"  selected client: {selected_client()}")
     print(f"  REANA_CLIENT_IMAGE: {client_image()}")
-    print(f"  native reana-client: {shutil.which('reana-client') or '<not found>'}")
-    print(f"  docker: {shutil.which('docker') or '<not found>'}")
+    print(f"  native reana-client: {native_client() or '<not found>'}")
+    docker = docker_client()
+    print(f"  docker: {docker or '<not found>'}")
+    if docker:
+        ok, msg = check_docker_daemon(docker)
+        print(f"  docker daemon: {'available' if ok else 'unavailable'}{(': ' + msg) if msg else ''}")
     print("\nKnown profiles from config files:")
     found = False
     try:
@@ -173,6 +231,22 @@ def cmd_backends(_: argparse.Namespace) -> int:
     if os.environ.get("REANA_SERVER_URL") and os.environ.get("REANA_ACCESS_TOKEN"):
         print("\nConnectivity check:")
         return run_reana(["ping"]).returncode
+    return 0
+
+
+def cmd_client(_: argparse.Namespace) -> int:
+    print("REANA client selection:")
+    print(f"  requested mode: {client_mode()}")
+    print(f"  selected client: {selected_client()}")
+    print(f"  native reana-client: {native_client() or '<not found>'}")
+    docker = docker_client()
+    print(f"  docker: {docker or '<not found>'}")
+    if docker:
+        ok, msg = check_docker_daemon(docker)
+        print(f"  docker daemon: {'available' if ok else 'unavailable'}{(': ' + msg) if msg else ''}")
+    print(f"  Docker image: {client_image()}")
+    print(f"  REANA_SERVER_URL: {os.environ.get('REANA_SERVER_URL', '<unset>')}")
+    print(f"  Token configured: {'yes' if os.environ.get('REANA_ACCESS_TOKEN') else 'no'}")
     return 0
 
 
@@ -379,7 +453,7 @@ def cmd_run(ns: argparse.Namespace) -> int:
         workflow = f"{workflow}-{datetime.utcnow().strftime('%Y%m%d-%H%M%S')}"
     print(f"Server: {os.environ.get('REANA_SERVER_URL', '<unset>')}")
     print(f"Workflow: {workflow}")
-    yaml_arg = "/workspace/reana.yaml" if not shutil.which("reana-client") else "reana.yaml"
+    yaml_arg = "/workspace/reana.yaml" if selected_client() == "docker" else "reana.yaml"
     cp = run_reana(["run", "-w", workflow, "-f", yaml_arg], mount=project)
     print("Next useful commands:")
     print(f"  status:   {Path(__file__).name} status {workflow}")
@@ -392,6 +466,7 @@ def build_parser() -> argparse.ArgumentParser:
     p = argparse.ArgumentParser(description="Operate REANA jobs using REANA_SERVER_URL and REANA_ACCESS_TOKEN from the environment.")
     sub = p.add_subparsers(dest="cmd", required=True)
     sub.add_parser("ping", help="Check REANA connectivity").set_defaults(func=cmd_ping)
+    sub.add_parser("client", help="Show native-vs-Docker client selection and failover diagnostics").set_defaults(func=cmd_client)
     sub.add_parser("backends", help="Show active server, client mode, and known local profiles").set_defaults(func=cmd_backends)
     r = sub.add_parser("recent", help="List recent workflows, optionally filtered by status")
     r.add_argument("--status", help="Status alias: failed, running, pending, success/finished, stopped")
