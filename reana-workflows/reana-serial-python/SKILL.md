@@ -8,7 +8,7 @@ metadata:
   hermes:
     tags: [reana, workflow, serial, python, parquet, analysis, reproducibility]
     category: workflows
-    related_skills: [reana-client-config, reana-aip, reana-shboost24, s3-parquet-sampling, dask-hvplot-datashader-scientific-plots, cmd-plotting]
+    related_skills: [reana-operator, reana-client-config, reana-aip, reana-shboost24, s3-parquet-sampling, dask-hvplot-datashader-scientific-plots, cmd-plotting]
 ---
 
 # REANA Serial Python Analysis Template

@@ -2,7 +2,7 @@
 
 Custom Hermes Agent skills developed by the AIP team for astronomy, data science, reproducible workflows, AI/ML, devops, and productivity.
 
-Total: **118** custom skills across **17** categories.
+Total: **119** custom skills across **17** categories.
 
 ## Repository layout
 
@@ -10,20 +10,20 @@ Total: **118** custom skills across **17** categories.
 |---|---|---|
 | `agents/` | Agent concepts and configuration | 1 |
 | `astronomy/` | Survey archives, ADQL/TAP queries, stellar catalogs, and astronomy-specific plots/animations | 21 |
-| `creative/` | description: Creative content generation — ASCII art, hand-drawn style diagrams, and visual design tools. | 14 |
-| `data-science/` | description: Skills for data science workflows — interactive exploration, Jupyter notebooks, data analysis, and visualization. | 1 |
+| `creative/` | Educational animations, Manim, visual explainers, and generative media workflows | 14 |
+| `data-science/` | Generic scientific visualization and dense-data plotting workflows | 1 |
 | `devops/` | Operations, containers, deployment, service exposure, and runtime troubleshooting | 9 |
 | `infrastructure/` | Hermes/OpenWebUI/API-server/MCP infrastructure and integration workflows | 7 |
 | `leisure/` | Nearby places and leisure search workflows | 1 |
-| `mcp/` | description: Skills for working with MCP (Model Context Protocol) servers, tools, and integrations. Includes the built-in native MCP client (configure servers in config.yaml for automatic tool discovery) and the mcporter CLI bridge for ad-hoc server interaction. | 1 |
-| `media/` | description: Skills for working with media content — YouTube transcripts, GIF search, music generation, and audio visualization. | 2 |
-| `mlops/` | description: Knowledge and Tools for Machine Learning Operations - tools and frameworks for training, fine-tuning, deploying, and optimizing ML/AI models | 9 |
+| `mcp/` | MCP client/server workflows | 1 |
+| `media/` | Audio/video/GIF generation and media post-processing workflows | 2 |
+| `mlops/` | LLM fine-tuning, serving, inference, evaluation, and HuggingFace workflows | 9 |
 | `productivity/` | Calendars, contacts, documents, OCR, PDFs, and image-description workflows | 4 |
 | `python/` | Python data engineering, caching, plotting, and reusable scientific-programming workflows | 6 |
-| `reana-workflows/` | REANA client configuration, templates, execution recipes, and workflow best practices | 17 |
+| `reana-workflows/` | REANA operations, client configuration, templates, execution recipes, monitoring, and workflow best practices | 18 |
 | `research/` | Academic research, literature, LaTeX manuscripts, DRP, and paper improvement workflows | 13 |
 | `science/` | dt4acc digital twin, accelerator-science runbooks, EPICS/Tango, and host smoke tests | 6 |
-| `social-media/` | description: Skills for interacting with social platforms and social-media workflows — posting, reading, monitoring, and account operations. | 1 |
+| `social-media/` | Social media CLI clients and workflows | 1 |
 | `software-development/` | Coding workflows, docs-first development, and application-specific implementation guides | 5 |
 
 ## Categories overview
@@ -32,9 +32,9 @@ Total: **118** custom skills across **17** categories.
 
 **Astronomy (21)** — Survey archives, ADQL/TAP queries, stellar catalogs, and astronomy-specific plots/animations
 
-**Creative (14)** — description: Creative content generation — ASCII art, hand-drawn style diagrams, and visual design tools.
+**Creative (14)** — Educational animations, Manim, visual explainers, and generative media workflows
 
-**Data Science (1)** — description: Skills for data science workflows — interactive exploration, Jupyter notebooks, data analysis, and visualization.
+**Data Science (1)** — Generic scientific visualization and dense-data plotting workflows
 
 **Devops (9)** — Operations, containers, deployment, service exposure, and runtime troubleshooting
 
@@ -42,23 +42,23 @@ Total: **118** custom skills across **17** categories.
 
 **Leisure (1)** — Nearby places and leisure search workflows
 
-**Mcp (1)** — description: Skills for working with MCP (Model Context Protocol) servers, tools, and integrations. Includes the built-in native MCP client (configure servers in config.yaml for automatic tool discovery) and the mcporter CLI bridge for ad-hoc server interaction.
+**Mcp (1)** — MCP client/server workflows
 
-**Media (2)** — description: Skills for working with media content — YouTube transcripts, GIF search, music generation, and audio visualization.
+**Media (2)** — Audio/video/GIF generation and media post-processing workflows
 
-**Mlops (9)** — description: Knowledge and Tools for Machine Learning Operations - tools and frameworks for training, fine-tuning, deploying, and optimizing ML/AI models
+**Mlops (9)** — LLM fine-tuning, serving, inference, evaluation, and HuggingFace workflows
 
 **Productivity (4)** — Calendars, contacts, documents, OCR, PDFs, and image-description workflows
 
 **Python (6)** — Python data engineering, caching, plotting, and reusable scientific-programming workflows
 
-**Reana Workflows (17)** — REANA client configuration, templates, execution recipes, and workflow best practices
+**Reana Workflows (18)** — REANA operations, client configuration, templates, execution recipes, monitoring, and workflow best practices
 
 **Research (13)** — Academic research, literature, LaTeX manuscripts, DRP, and paper improvement workflows
 
 **Science (6)** — dt4acc digital twin, accelerator-science runbooks, EPICS/Tango, and host smoke tests
 
-**Social Media (1)** — description: Skills for interacting with social platforms and social-media workflows — posting, reading, monitoring, and account operations.
+**Social Media (1)** — Social media CLI clients and workflows
 
 **Software Development (5)** — Coding workflows, docs-first development, and application-specific implementation guides
 
@@ -149,6 +149,7 @@ Total: **118** custom skills across **17** categories.
 | `reana-workflows/reana-cmd-plot-workflow/` | REANA workflow that caches a large S3 Parquet dataset and plots bprp0 vs mg0 as a hex‑bin PNG. |
 | `reana-workflows/reana-cmd-plot-workflow-external-script/` | Create a REANA workflow that runs a large S3 Parquet data plot using an external Python script. The script is stored as a separate file and referenced in the workflow inputs. This avoids inline script blocks that caus... |
 | `reana-workflows/reana-dev-workflow-setup/` | Set up a REANA development workflow in its own directory, place a minimal reana.yaml, and run it using the Dockerized REANA client. |
+| `reana-workflows/reana-operator/` | This is the front-door skill for day-to-day REANA operations. Use it to translate user requests into safe, concrete REANA actions: check workflow status, list recent jobs, inspect failed logs, show the active backend,... |
 | `reana-workflows/reana-run-script-with-workspace/` | Run a Python (or other) script in a REANA workflow ensuring the script is found via $REANA_WORKSPACE. |
 | `reana-workflows/reana-selflearn-workflows/` | Self‑learn REANA by listing finished workflows on the development backend, downloading their `reana.yaml` files, and providing guidelines for writing correct REANA workflows. |
 | `reana-workflows/reana-serial-python/` | Reusable template for REANA serial workflows that run a Python analysis script on remote data, cache processed results locally as Parquet, and produce PNG outputs. Designed for SHBoost-like analyses where only the scr... |
@@ -225,6 +226,7 @@ hermes skills install arm2arm/AstroAgentAssistant/infrastructure/docs-mcp-at-aip
 hermes skills install arm2arm/AstroAgentAssistant/devops/paperclip-oss120b-external
 
 # REANA
+hermes skills install arm2arm/AstroAgentAssistant/reana-workflows/reana-operator
 hermes skills install arm2arm/AstroAgentAssistant/reana-workflows/reana-client-config
 hermes skills install arm2arm/AstroAgentAssistant/reana-workflows/reana-serial-python
 
@@ -246,7 +248,7 @@ hermes skills install arm2arm/AstroAgentAssistant/software-development/python-mc
 
 ```bash
 hermes -s shboost-cmd-plot
-hermes -s reana-serial-python-analysis-template -s docs-mcp-at-aip
+hermes -s reana-operator -s docs-mcp-at-aip
 ```
 
 Or simply ask Hermes in chat to use a named skill — it will auto-load the relevant one.

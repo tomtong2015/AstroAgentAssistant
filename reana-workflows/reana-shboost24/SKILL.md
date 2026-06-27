@@ -8,7 +8,7 @@ metadata:
   hermes:
     tags: [reana, shboost24, astronomy, workflow, parquet]
     category: workflows
-    related_skills: [reana-client-config, reana-aip, shboost24-cmd]
+    related_skills: [reana-operator, reana-client-config, reana-aip, shboost24-cmd]
 ---
 
 # REANA SHboost24

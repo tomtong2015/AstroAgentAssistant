@@ -8,7 +8,7 @@ metadata:
   hermes:
     tags: [reana, authentication, config, access-token, workflow]
     category: workflows
-    related_skills: [reana-aip, reana-serial-python, reana-shboost24]
+    related_skills: [reana-operator, reana-aip, reana-serial-python, reana-shboost24]
 ---
 
 # REANA Client Config

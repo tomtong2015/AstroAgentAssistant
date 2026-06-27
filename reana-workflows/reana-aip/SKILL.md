@@ -8,7 +8,7 @@ metadata:
   hermes:
     tags: [reana, workflow, reproducibility, astronomy]
     category: workflows
-    related_skills: [reana-client-config, reana-shboost24, reana-serial-python]
+    related_skills: [reana-operator, reana-client-config, reana-shboost24, reana-serial-python]
 ---
 
 # REANA AIP Workflow
