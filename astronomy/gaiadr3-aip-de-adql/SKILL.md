@@ -109,6 +109,14 @@ Always use `"postgresql"` — not `adql`, even though the web UI defaults to ADQ
 - **Columns**: 153 (solution_id, designation, source_id, ra, dec, parallax, parallax_error, pm, pmra, pmdec, phot_g_mean_mag, phot_rp_mean_mag, phot_bp_mean_mag, bp_rp, radial_velocity, l, b, ecl_lon, ecl_lat, and many more)
 - **Distance estimation**: distance_gspphot, or `1000/parallax` for simple estimates
 
+## Canonical Routing
+
+This is a specialized or legacy example skill. For new work, start with `astro-data-access-umbrella` and route through:
+
+- `gaia-aip-data-access`
+
+Keep this skill for dataset-specific examples, but prefer the canonical skills for new implementations, live probes, REANA execution, and plotting/cache conventions.
+
 ## Pitfalls
 - Do NOT use TAP endpoints — they return HTML, not JSON.
 - Do NOT omit the queue parameter for large scans — the default 30s timeout will truncate results.

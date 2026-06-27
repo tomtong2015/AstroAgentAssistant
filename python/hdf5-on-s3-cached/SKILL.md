@@ -57,6 +57,14 @@ Prefer plotting from:
 - Dask DataFrame derived from local cache
 - `hvplot` / Datashader for dense large results
 
+## Canonical Routing
+
+This is a specialized or legacy example skill. For new work, start with `astro-data-access-umbrella` and route through:
+
+- `s3-parquet-astro-access`
+
+Keep this skill for dataset-specific examples, but prefer the canonical skills for new implementations, live probes, REANA execution, and plotting/cache conventions.
+
 ## Pitfalls
 - Do not assume remote HDF5 behaves like cloud-native columnar parquet.
 - Do not repeatedly reopen a large HDF5 object from S3 if a local cache can be made once.

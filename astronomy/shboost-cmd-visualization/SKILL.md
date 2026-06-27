@@ -80,6 +80,15 @@ inputs:
   - Saved as a GIF via `PillowWriter` (no ffmpeg required).
   - `save_count=len(populations)` guarantees all frames are written.
 
+## Canonical Routing
+
+This is a specialized or legacy example skill. For new work, start with `astro-data-access-umbrella` and route through:
+
+- `s3-parquet-astro-access`
+- `astro-catalog-plotting-cache`
+
+Keep this skill for dataset-specific examples, but prefer the canonical skills for new implementations, live probes, REANA execution, and plotting/cache conventions.
+
 ## Pitfalls & Troubleshooting
 - **`png_path` Scope**: Ensure the `png_path` variable is defined in the outer scope (default `"shboost_cmd.png"`). The animation function receives it as a default argument.
 - **Arrow Colour**: Arrowprops must be set on the Annotation at creation; later frames only need to update the text and colour.

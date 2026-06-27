@@ -35,6 +35,16 @@ import matplotlib as mpl
 ## When to Use
 REANA workflow that caches a large S3 Parquet dataset and plots bprp0 vs mg0 as a hex‑bin PNG.
 
+## Canonical Routing
+
+This is a specialized or legacy example skill. For new work, start with `astro-data-access-umbrella` and route through:
+
+- `reana-operator`
+- `s3-parquet-astro-access`
+- `astro-catalog-plotting-cache`
+
+Keep this skill for dataset-specific examples, but prefer the canonical skills for new implementations, live probes, REANA execution, and plotting/cache conventions.
+
 ## Verification
 - Confirm required inputs and credentials are available.
 - Run the smallest safe command or example before scaling up.

@@ -67,6 +67,15 @@ Use:
 - two PNGs for presentation use
 - optional one-sentence captions for slide insertion
 
+## Canonical Routing
+
+This is a specialized or legacy example skill. For new work, start with `astro-data-access-umbrella` and route through:
+
+- `rave-dr6-data-access`
+- `astro-catalog-plotting-cache`
+
+Keep this skill for dataset-specific examples, but prefer the canonical skills for new implementations, live probes, REANA execution, and plotting/cache conventions.
+
 ## Pitfalls
 - Do not mix this presentation-oriented skill with generic TAP debugging; start from `rave-dr6` if the query itself is uncertain.
 - Do not overload the figure with too many annotations.

@@ -14,6 +14,16 @@ Retrieve the nearest 100 stars from Gaia DR3 using the TAP service hosted at AIP
 ## Overview
 This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
 
+## Canonical Routing
+
+This is a specialized or legacy example skill. For new work, start with `astro-data-access-umbrella` and route through:
+
+- `gaia-aip-data-access`
+- `tap-pyvo-adql-access`
+- `astro-catalog-plotting-cache`
+
+Keep this skill for dataset-specific examples, but prefer the canonical skills for new implementations, live probes, REANA execution, and plotting/cache conventions.
+
 ## Pitfalls
 - Do not hardcode credentials, tokens, or personal secrets.
 - Verify external service URLs, paths, and permissions before making changes.

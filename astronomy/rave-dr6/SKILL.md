@@ -126,6 +126,15 @@ fig.savefig('rave_dr6_ra_dec.png', dpi=180)
 | `ravedr6.dr6_seismic` | Seismic data |
 | `ravedr6.dr6_madera` | Asteroseismic parameters |
 
+## Canonical Routing
+
+This is a specialized or legacy example skill. For new work, start with `astro-data-access-umbrella` and route through:
+
+- `rave-dr6-data-access`
+- `tap-pyvo-adql-access`
+
+Keep this skill for dataset-specific examples, but prefer the canonical skills for new implementations, live probes, REANA execution, and plotting/cache conventions.
+
 ## Pitfalls
 - **`run_sync()` is the only correct method** — `query()` does not exist on TAPService, `submit_job()` uses async and fails with 400.
 - **Filter `parallax > 0`** — negative parallax entries correspond to stars with poorly constrained distances.

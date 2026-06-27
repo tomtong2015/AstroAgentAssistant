@@ -102,6 +102,14 @@ points efficiently with hexbin-like density rendering and log-scaled colour maps
 - **Column-selective Dask read:** Always specify `columns=[]` in `dd.read_parquet()` to avoid loading full rows.
 - **Caching:** Write sampled data to local Parquet; check `len(df) >= TARGET_ROWS` before re-fetching.
 
+## Canonical Routing
+
+This is a specialized or legacy example skill. For new work, start with `astro-data-access-umbrella` and route through:
+
+- `astro-catalog-plotting-cache`
+
+Keep this skill for dataset-specific examples, but prefer the canonical skills for new implementations, live probes, REANA execution, and plotting/cache conventions.
+
 ## Pitfalls
 
 - **String colormap names fail:** `tf.shade(agg, cmap='viridis', ...)` raises `ValueError: Unknown color`. Pass a `matplotlib.colors.Colormap` object.

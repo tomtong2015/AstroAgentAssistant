@@ -58,6 +58,15 @@ For huge datasets, keep Dask as the default processing engine and aim for an eff
 - use `rasterize=True` / `datashade=True` when density hides structure or raw plotting becomes slow
 - export static outputs only after the plotting representation is settled
 
+## Canonical Routing
+
+This is a specialized or legacy example skill. For new work, start with `astro-data-access-umbrella` and route through:
+
+- `astro-catalog-plotting-cache`
+- `s3-parquet-astro-access`
+
+Keep this skill for dataset-specific examples, but prefer the canonical skills for new implementations, live probes, REANA execution, and plotting/cache conventions.
+
 ## Pitfalls
 - Do not start plotting directly from remote S3/TAP sources without a local cache.
 - Do not force raw scatter plots for dense tens-of-millions-row datasets.

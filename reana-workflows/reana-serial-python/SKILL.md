@@ -101,6 +101,15 @@ reana-client download -w my-analysis
 | TAP service | `pyvo` | `tap.run_sync("SELECT ...")` |
 | HTTP URL | `pandas` | `pd.read_csv('https://...')` |
 
+## Canonical Routing
+
+This is a specialized or legacy example skill. For new work, start with `astro-data-access-umbrella` and route through:
+
+- `reana-operator`
+- `s3-parquet-astro-access`
+
+Keep this skill for dataset-specific examples, but prefer the canonical skills for new implementations, live probes, REANA execution, and plotting/cache conventions.
+
 ## Pitfalls
 - Do NOT invent custom environments — use only AIP-approved ones.
 - Do NOT omit scripts from workflow inputs — they must be referenced in `inputs:`.

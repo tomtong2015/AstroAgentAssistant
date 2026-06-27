@@ -22,6 +22,15 @@ Use this skill when users need natural-language-to-ADQL help, TAP query generati
 3. Capture the exact query text for provenance.
 4. Explain assumptions, filters, joins, and limits.
 
+## Canonical Routing
+
+This is a specialized or legacy example skill. For new work, start with `astro-data-access-umbrella` and route through:
+
+- `gaia-aip-data-access`
+- `tap-pyvo-adql-access`
+
+Keep this skill for dataset-specific examples, but prefer the canonical skills for new implementations, live probes, REANA execution, and plotting/cache conventions.
+
 ## Pitfalls
 - Avoid ambiguous joins.
 - Always state row limits and filtering conditions.

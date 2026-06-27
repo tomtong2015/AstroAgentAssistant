@@ -9,6 +9,15 @@ author: hermes
 ## When to Use
 Cache selected columns from the ShBoost 2024 S3 dataset, create a hexbin CMD with log-scaled density, add optimized non‑overlapping stellar‑population annotations, and generate both a high‑resolution PNG and an MP4 animation.
 
+## Canonical Routing
+
+This is a specialized or legacy example skill. For new work, start with `astro-data-access-umbrella` and route through:
+
+- `s3-parquet-astro-access`
+- `astro-catalog-plotting-cache`
+
+Keep this skill for dataset-specific examples, but prefer the canonical skills for new implementations, live probes, REANA execution, and plotting/cache conventions.
+
 ## Pitfalls
 - Do not hardcode credentials, tokens, or personal secrets.
 - Verify external service URLs, paths, and permissions before making changes.

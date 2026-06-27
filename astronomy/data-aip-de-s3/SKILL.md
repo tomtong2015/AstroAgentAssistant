@@ -46,6 +46,15 @@ Use this skill when accessing astronomy datasets on data.aip.de or S3-compatible
 - Prefer creating a local cached copy first.
 - If you extract a tabular subset for repeated analysis, save that subset locally as Parquet.
 
+## Canonical Routing
+
+This is a specialized or legacy example skill. For new work, start with `astro-data-access-umbrella` and route through:
+
+- `s3-parquet-astro-access`
+- `astro-data-access-umbrella`
+
+Keep this skill for dataset-specific examples, but prefer the canonical skills for new implementations, live probes, REANA execution, and plotting/cache conventions.
+
 ## Pitfalls
 - Avoid repeated full remote scans when a local cache is sufficient.
 - Do not assume public/anonymous access without checking.

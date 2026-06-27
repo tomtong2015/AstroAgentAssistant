@@ -23,6 +23,16 @@ Use this skill for SHboost24 plotting or data-reduction workflows that need to r
 4. Use local parquet caching where appropriate.
 5. Run through `reana-client run -w <name>`.
 
+## Canonical Routing
+
+This is a specialized or legacy example skill. For new work, start with `astro-data-access-umbrella` and route through:
+
+- `reana-operator`
+- `s3-parquet-astro-access`
+- `astro-catalog-plotting-cache`
+
+Keep this skill for dataset-specific examples, but prefer the canonical skills for new implementations, live probes, REANA execution, and plotting/cache conventions.
+
 ## Pitfalls
 - Forgetting to include the analysis script as an input is a common failure.
 - Avoid ad hoc workflow names when resubmitting fixes to an existing workspace.

@@ -2,14 +2,14 @@
 
 Custom Hermes Agent skills developed by the AIP team for astronomy, data science, reproducible workflows, AI/ML, devops, and productivity.
 
-Total: **120** custom skills across **17** categories.
+Total: **126** custom skills across **17** categories.
 
 ## Repository layout
 
 | Directory | Description | Skills |
 |---|---|---|
 | `agents/` | Agent concepts and configuration | 1 |
-| `astronomy/` | Survey archives, ADQL/TAP queries, stellar catalogs, and astronomy-specific plots/animations | 21 |
+| `astronomy/` | Survey archives, ADQL/TAP queries, stellar catalogs, and astronomy-specific plots/animations | 27 |
 | `creative/` | Educational animations, Manim, visual explainers, and generative media workflows | 14 |
 | `data-science/` | Generic scientific visualization and dense-data plotting workflows | 1 |
 | `devops/` | Operations, containers, deployment, service exposure, and runtime troubleshooting | 9 |
@@ -30,7 +30,7 @@ Total: **120** custom skills across **17** categories.
 
 **Agents (1)** — Agent concepts and configuration
 
-**Astronomy (21)** — Survey archives, ADQL/TAP queries, stellar catalogs, and astronomy-specific plots/animations
+**Astronomy (27)** — Survey archives, ADQL/TAP queries, stellar catalogs, and astronomy-specific plots/animations
 
 **Creative (14)** — Educational animations, Manim, visual explainers, and generative media workflows
 
@@ -67,7 +67,10 @@ Total: **120** custom skills across **17** categories.
 | Skill | Description |
 |---|---|
 | `agents/astroagent-concept/` | Use the AstroAgent concept framing for architecture, positioning, and design discussions. |
+| `astronomy/astro-catalog-plotting-cache/` | Use when turning astronomy catalog data into reproducible cached products and publication-ready plots, especially CMDs, RA/Dec maps, Galactic projections, hexbin density plots, Datashader outputs, and provenance-backe... |
+| `astronomy/astro-data-access-umbrella/` | Use when an astronomy task needs data access and the agent must choose between TAP/ADQL/pyvo catalogs, Gaia@AIP REST/Daiquiri, S3/Parquet object storage, local StarHorse-style datasets, plotting/cache workflows, or RE... |
 | `astronomy/data-aip-de-s3/` | Work with data.aip.de and S3-backed datasets using reproducible local caching, Dask-first reads for huge data, and plotting workflows that scale to large astronomy catalogs. |
+| `astronomy/gaia-aip-data-access/` | Use when accessing Gaia data through AIP services, choosing between Gaia@AIP TAP/ADQL/pyvo and Daiquiri REST/PostgreSQL APIs, handling CSRF/queue details, checking endpoint health, caching results, and falling back wh... |
 | `astronomy/gaia-aip-de-adql/` | Query gaia.aip.de using ADQL/TAP with reproducible query capture and astronomy-aware caveats. |
 | `astronomy/gaia-dr3-plot-with-dust/` | Retrieve the 100 nearest Gaia DR3 stars (by parallax) and produce a two‑panel research‑paper‑style figure. The left panel shows RA vs Dec, the right panel shows a Galactic XY projection overlaid with an all‑sky dust‑e... |
 | `astronomy/gaia-dr3-tap-query/` | Retrieve the nearest 100 stars from Gaia DR3 using the TAP service hosted at AIP (https://gaia.aip.de/tap/). Includes Parquet storage, preview CSV, and RA/Dec & Galactic XY plots. |
@@ -75,11 +78,13 @@ Total: **120** custom skills across **17** categories.
 | `astronomy/gaiadr3-aip-query-api/` | Query the Gaia DR3 PostgreSQL database at gaia.aip.de via its Daiquiri REST API. Includes CSRF handling, queue names, and result fetching. |
 | `astronomy/rave-dr6-3d-animation/` | Step‑by‑step workflow to query the RAVE DR6 catalog for the 100 nearest stars (by parallax), process the data, generate 2‑D visualisations and a public‑talk‑ready 3‑D rotating animation using Matplotlib. |
 | `astronomy/rave-dr6-3d-public-animation/` | Generate a public‑talk‑ready 3‑D animation of the 100 nearest RAVE DR6 stars using matplotlib. |
+| `astronomy/rave-dr6-data-access/` | Use when querying, caching, or plotting RAVE DR6 data via its TAP/ADQL service, including Gaia cross-match tables, recent observations, stellar parameters, southern-sky coverage caveats, VOTable parsing, and publicati... |
 | `astronomy/rave-dr6-nearest-100-plot/` | Query the 100 nearest RAVE DR6 stars and generate two clear PNG plots: Galactic projection and RA/Dec scatter, with reproducible local parquet output. |
 | `astronomy/rave-dr6-public-talk-visualizations/` | Turn a nearest-100 RAVE DR6 query into dark-theme, public-talk-ready PNG visualizations with clear titles, readable scaling, and presentation-friendly styling. |
 | `astronomy/rave-dr6-recent-observations-plot/` | Retrieve the most recent 100 entries from the RAVE DR6 `dr6_obsdata` table and generate a simple RA‑Dec scatter plot. Handles missing Python dependencies, installs them if necessary, and falls back to astropy for gala... |
 | `astronomy/rave-dr6-tap-query/` | Query the RAVE DR6 catalog hosted at https://www.rave-survey.org/tap/ using pyvo (TAPService.run_sync). Useful for accessing stellar parameters, Gaia cross-matches, distances, and Galactic coordinates (l, b). Includes... |
 | `astronomy/rave-dr6/` | Query the RAVE DR6 catalog at https://www.rave-survey.org/tap/ using pyvo (TAPService.run_sync). Access stellar parameters, Gaia cross-matches, distances, and Galactic coordinates (l, b). Includes galactic and equirec... |
+| `astronomy/s3-parquet-astro-access/` | Use when astronomy data lives in public or S3-compatible object storage as Parquet/HDF5/FITS-like products and the task needs endpoint probing, anonymous/credentialed access, Dask-first reads, local caching, column pr... |
 | `astronomy/shboost-cmd-plot/` | Generates a colour‑magnitude diagram (CMD) for ~100 k stars from the public shboost2024 S3 bucket. The script caches the sampled data locally as a Parquet file for fast repeat runs and outputs a high‑resolution PNG (3... |
 | `astronomy/shboost-cmd-visualization/` | Generate a high‑resolution density CMD (hexbin) from the ShBoost star dataset, cache locally as Parquet, add colour‑matched population annotations, a detailed legend, log‑scaled colour bar, and create a GIF animation ... |
 | `astronomy/shboost-plot-s3/` | Plot a sampled subset of the ShBoost 2024 star dataset stored on a public S3 bucket. |
@@ -88,6 +93,7 @@ Total: **120** custom skills across **17** categories.
 | `astronomy/shboost_cmd_plot_and_animation/` | Cache selected columns from the ShBoost 2024 S3 dataset, create a hexbin CMD with log-scaled density, add optimized non‑overlapping stellar‑population annotations, and generate both a high‑resolution PNG and an MP4 an... |
 | `astronomy/shboost_full_cmd_datashader/` | Generate a full‑dataset colour‑magnitude diagram (CMD) for the ShBoost 2024 star catalog using Dask and Datashader, optimized for minimal memory usage. |
 | `astronomy/starhorse-access/` | Access and document StarHorse-related local datasets and usage conventions. |
+| `astronomy/tap-pyvo-adql-access/` | Use when querying astronomy TAP services with ADQL through pyvo or curl, including service probes, metadata discovery, TOP-based queries, VOTable/FITS conversion, pandas/Parquet caching, and robust network fallbacks. |
 | `creative/4most-spectrograph-animation/` | Manim CE animation explaining the 4MOST spectrograph for 11th-grade physics class. Full optical path from starlight through telescope, collimator, slit, dispersion element, fibre positioner, spectrographs, to CCD dete... |
 | `creative/animate-sine-cosine-matplotlib/` | Generate an MP4 animation of sine (green) and cosine (red) curves using matplotlib for frame rendering and ffmpeg for encoding. The skill avoids privileged operations and destructive commands. |
 | `creative/fourmost-educational-animation/` | Create a short Manim animation that explains the 4MOST spectrograph for 11th‑grade physics classes. Includes installation, script writing, rendering, common pitfalls, and fallback to external video. |

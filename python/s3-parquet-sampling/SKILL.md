@@ -73,6 +73,14 @@ Use `rasterize=True` or `datashade=True` for dense large datasets where plotting
 - Prefer filters that reduce row groups early when available.
 - Use a local Parquet cache for all repeated downstream work.
 
+## Canonical Routing
+
+This is a specialized or legacy example skill. For new work, start with `astro-data-access-umbrella` and route through:
+
+- `s3-parquet-astro-access`
+
+Keep this skill for dataset-specific examples, but prefer the canonical skills for new implementations, live probes, REANA execution, and plotting/cache conventions.
+
 ## Pitfalls
 - Do NOT load the full remote dataset eagerly with pandas when the dataset is large.
 - Do NOT keep recomputing from S3 if the reduced sample can be cached locally.
