@@ -118,7 +118,35 @@ All **mutating** endpoints accept an optional `Idempotency-Key` header (client-g
 | `maturity_gates` | object | `{l1Ok, l2Ok, l3Ok, l4Ok}` |
 | `maturity_missing` | object | `{L1: [], L2: [], L3: [], L4: []}` |
 
-**Create fields** (POST /products — all required): `title`, `description`, `category`, `tags`, `visibility`, `source_type`, `git_url`, `git_branch`, `git_commit`, `entry_command`, `workflow_file`, `license`, `citation_cff_url`, `release_tag`, `env_image`, `env_image_digest`, `authors_orcid`, `reproducibility_depth`, `validation_scope`, `provenance_url`, `expected_outputs`, `has_s3`, `has_hpc`, `has_reana`
+**Create fields** (POST /products):
+
+**Required:**
+- `title` — Product title
+- `category` — One of: `analysis`, `tool`, `data`, `workflow`, `service`, `publication`
+- `visibility` — One of: `private`, `shared`, `public`
+- `source_type` — One of: `manual`, `repo`, `clone`, `template`, `ai_generated`, `imported`
+- `git_url` — Repository URL
+- `git_branch` — Branch name (e.g. `main`)
+- `git_commit` — Commit SHA (or `HEAD` for latest)
+- `env_image` — Container image (e.g. `docker.io/user/reana-env:latest`)
+- `reproducibility_depth` — One of: `D0`, `D1`, `D2`, `D3`, `D4`
+
+**Optional:**
+- `description` — Longer description (≥80 chars recommended for L1 maturity)
+- `tags` — Comma-separated tags array
+- `entry_command` — Command to run workflow
+- `workflow_file` — Workflow file name (e.g. `reana.yaml`)
+- `license` — SPDX license identifier
+- `citation_cff_url` — URL to CITATION.cff
+- `release_tag` — Version tag (e.g. `v1.0.0`)
+- `env_image_digest` — SHA256 digest of the image
+- `authors_orcid` — Array of ORCID IDs
+- `validation_scope` — Object with test/reproducibility flags
+- `provenance_url` — DOI or provenance link
+- `expected_outputs` — Array of expected output files
+- `has_s3` — Has S3 storage (boolean)
+- `has_hpc` — Has HPC execution (boolean)
+- `has_reana` — Has REANA workflow (boolean)
 
 **Patch fields** (PATCH /products/{id} — all optional, supply only what you want to change): same as create plus `maturity_override`, `product_status`, `doi`, `archive_url`, `harvest_endpoint`
 
@@ -226,38 +254,72 @@ minimal = drphub_request("GET", "/products?limit=10&fields=id,title,maturity_lev
 with_links = drphub_request("GET", "/products?include=links&limit=5")
 ```
 
-### Create Product
+### Create Product (via Web Form API)
+
+Create a product by matching the **DRP Hub web form** structure:
 
 ```python
-# Full create (all fields required)
 product = drphub_request("POST", "/products", body={
+    # === Basic Info ===
     "title": "My Analysis Workflow",
-    "description": "End-to-end analysis of X-ray data",
-    "category": "analysis",
-    "tags": ["x-ray", "spectroscopy", "reana"],
+    "tags": ["reana", "analysis", "astrophysics"],
+    "category": "analysis",  # analysis, tool, data, workflow, service, publication
     "visibility": "private",  # private, internal, shared, public
-    "source_type": "manual",  # manual, repo, clone, template, ai_generated, imported
+    "source_type": "repo",  # manual, repo, clone, template, ai_generated, imported
+    
+    # === Git Info ===
     "git_url": "https://github.com/user/repo",
     "git_branch": "main",
-    "git_commit": "abc1234",
-    "entry_command": "reana-run -w my-workflow",
+    "git_commit": "HEAD",  # or specific SHA
     "workflow_file": "reana.yaml",
+    "entry_command": "reana-run -w my-workflow",
+    
+    # === Environment ===
+    "env_image": "docker.io/user/reana-env:latest",
+    "env_image_digest": "",  # optional SHA256 digest
+    
+    # === Metadata ===
     "license": "MIT",
     "citation_cff_url": "https://github.com/user/repo/blob/main/CITATION.cff",
     "release_tag": "v1.0.0",
-    "env_image": "docker.io/user/reana-env:latest",
-    "env_image_digest": "sha256:abcdef...",
-    "authors_orcid": ["0000-0000-0000-0001"],
-    "reproducibility_depth": "D3",  # D0-D4
-    "validation_scope": {"tests": True, "reproducibility": True},
-    "provenance_url": "https://doi.org/10.xxxx/xxxxx",
-    "expected_outputs": [{"name": "figure.pdf", "type": "image"}],
-    "has_s3": True,
+    "authors_orcid": ["0000-0000-0000-0001"],  # array of ORCID strings
+    
+    # === Validation ===
+    "reproducibility_depth": "D3",  # D0, D1, D2, D3, D4
+    "validation_scope": {
+        "tests": True,
+        "reproducibility": True,
+        "performance": False,
+        "documentation": False,
+        "security": False
+    },
+    
+    # === Storage ===
+    "has_s3": False,
     "has_hpc": False,
     "has_reana": True,
+    
+    # === Expected Outputs ===
+    "expected_outputs": [
+        {"name": "figures/result.pdf", "type": "figure", "format": "pdf"}
+    ],
+    
+    # === Optional (for later maturity levels) ===
+    "provenance_url": "",  # DOI or provenance link (needed for L3)
 })
 product_id = product["id"]
+print(f"Created: {product['title']} (ID: {product_id})")
 ```
+
+**Notes:**
+- `description` is set separately via PATCH after creation (not in create form)
+- `provenance_url`, `doi`, `archive_url` are set after validation passes (for L3/L4)
+- To update description/title after creation:
+  ```python
+  drphub_request("PATCH", f"/products/{product_id}", body={
+      "description": "A longer description of at least 80 characters for L1 maturity.",
+  })
+  ```
 
 ### Get Single Product
 
@@ -414,11 +476,11 @@ tools = drphub_request("GET", "/tools.json")
 
 ## Social Features (via Supabase sidecar)
 
-The REST API is mirrored with the legacy `drp_cards` table. Bookmarks, likes, and sharing are managed via the Supabase sidecar (same pattern as before, but note the Supabase anon key is embedded in the web UI JS):
+The REST API is mirrored with the legacy `drp_cards` table. Bookmarks, likes, and sharing are managed via the Supabase sidecar:
 
 ```python
-# Bookmark
-SUPABASE_URL = "https://rrgnjinkabvqavwwzyfs.supabase.co"
+# Setup (env vars: DRPHUB_SUPABASE_URL, SUPABASE_ANON_KEY)
+SUPABASE_URL = os.environ.get("DRPHUB_SUPABASE_URL", "https://rrgnjinkabvqavwwzyfs.supabase.co")
 
 def supabase_request(table, path="", body=None, token=TOKEN):
     url = f"{SUPABASE_URL}/rest/v1/{table}{path}"
@@ -514,12 +576,14 @@ The Hermes tool system (write_file, execute_code, terminal) truncates strings lo
 
 ```python
 # WRONG — gets truncated in tool output:
-TOKEN = "drp_pat_lPfhqWeHsIhtv5mxjxMwngzQuZQYLlQTwT2U97cIJqI"
+TOKEN = "drp_pat_XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 
 # CORRECT — write to file once, read at runtime:
 with open('/path/to/drphub_token.txt') as f:
     TOKEN = f.read().strip()
 ```
+
+**General rule:** Any secret/token 40+ characters that gets truncated in tool calls should be written to a file and read at runtime — not passed directly in tool arguments. This applies to GitHub PATs, API keys, and any long string secrets.
 
 
 ## Quick Reference: Common Field Values
