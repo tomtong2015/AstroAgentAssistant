@@ -1,5 +1,5 @@
 ---
-name: arxiv-research
+name: arxiv
 description: Search and retrieve academic papers from arXiv using the free REST API. Query by keyword, author, category, or paper ID. Fetch abstracts, full PDFs, generate BibTeX, and explore citations via Semantic Scholar.
 version: 1.0.0
 author: AstroAgent / AIP
@@ -50,14 +50,45 @@ for i, entry in enumerate(root.findall('a:entry', ns)):
 curl -s "https://export.arxiv.org/api/query?id_list=2402.03300,2401.12345"
 ```
 
-### 4. Read paper content
-```
-# Abstract page (fast)
-web_extract(urls=["https://arxiv.org/abs/2402.03300"])
+### 4. Read paper content — use ar5iv HTML, NOT the PDF
 
-# Full paper PDF -> markdown
-web_extract(urls=["https://arxiv.org/pdf/2402.03300"])
+**Never `web_extract` the full PDF.** arXiv PDFs are routinely 10–20 MB; `web_extract`
+on content that large runs *chunked* LLM summarization on the local (AIP vLLM) model and
+can hang for many minutes with no wall-clock cap. ar5iv serves the **same paper as compact
+HTML (~0.5–1 MB)** that you fetch with `curl` and parse locally in seconds — keyless, no
+LLM in the loop, deterministic.
+
+```bash
+ID=2111.01860
+# ar5iv HTML rendering (two hosts; second is the fallback)
+curl -sL "https://ar5iv.labs.arxiv.org/html/$ID" -o paper.html \
+  || curl -sL "https://ar5iv.org/html/$ID" -o paper.html
+wc -c paper.html        # expect hundreds of KB; a few hundred bytes => no ar5iv HTML, use abstract fallback
+
+# Parse locally with python (NO web_extract, NO LLM): plain text + figure captions
+python3 - <<'PY'
+import re, html, pathlib
+src = pathlib.Path("paper.html").read_text(errors="ignore")
+src = re.sub(r"(?is)<(script|style).*?</\1>", " ", src)     # drop scripts/styles
+text = html.unescape(re.sub(r"\s+", " ", re.sub(r"(?s)<[^>]+>", " ", src)))
+print(text[:6000])                                          # abstract + intro + method
+for m in re.finditer(r"(Figure\s+\d+\s*[.:][^.]{0,400}\.)", text):
+    print("CAPTION:", m.group(1).strip())                   # locate the figure you must reproduce
+PY
 ```
+
+Abstract only (fastest, keyless) — use the API, not `web_extract`:
+```bash
+curl -s "https://export.arxiv.org/api/query?id_list=2111.01860" | python3 -c "
+import sys, xml.etree.ElementTree as ET
+ns={'a':'http://www.w3.org/2005/Atom'}
+e=ET.parse(sys.stdin).getroot().find('a:entry', ns)
+print(e.find('a:summary', ns).text.strip())"
+```
+
+> Fallback: if `paper.html` comes back tiny (rare — papers with no TeX source, or just-posted
+> ones not yet on ar5iv), use the abstract API above, and only as a last resort `web_extract`
+> the small **abs** page (`https://arxiv.org/abs/<id>`). **Do not `web_extract` the PDF.**
 
 ### 5. Generate BibTeX
 ```bash
@@ -128,8 +159,8 @@ curl -s -X POST "https://api.semanticscholar.org/recommendations/v1/papers/" \
 ## Complete Research Workflow
 1. Discover: search arXiv API
 2. Assess impact: Semantic Scholar citation counts
-3. Read abstract: web_extract arXiv abs page
-4. Read full paper: web_extract PDF
+3. Read abstract: arXiv API `summary` field (or web_extract the small abs page)
+4. Read full paper: curl ar5iv HTML + parse locally (NOT the PDF)
 5. Find related work: Semantic Scholar references/citations
 6. Generate BibTeX: API metadata parsing
 
@@ -144,6 +175,9 @@ curl -s -X POST "https://api.semanticscholar.org/recommendations/v1/papers/" \
 - arXiv returns Atom XML — use the parsing snippet for clean output.
 - Old arXiv IDs use format `hep-th/0601001`, new ones use `2402.03300`.
 - Do NOT use `/query/tap/` endpoints — they return HTML, not JSON.
+- **Do NOT `web_extract` a full PDF** (10–20 MB) — it triggers chunked LLM summarization on
+  the local model and can hang for many minutes. Fetch ar5iv HTML with `curl` and parse locally.
+- ar5iv URL form is `https://ar5iv.labs.arxiv.org/html/<id>` (HTML), not `/pdf/<id>`.
 - Semantic Scholar is read-only — do not attempt to POST paper metadata without the recommendations endpoint.
 - Always check for withdrawn papers — summary field may contain withdrawal notices.
 
@@ -151,4 +185,4 @@ curl -s -X POST "https://api.semanticscholar.org/recommendations/v1/papers/" \
 - Search returns ≥ 1 paper with title, authors, and arXiv ID.
 - BibTeX entry parses to a valid `@article{}` block.
 - Semantic Scholar returns non-zero citation counts for well-known papers.
-- web_extract produces non-empty markdown for both abs and PDF pages.
+- ar5iv HTML fetch returns hundreds of KB and parses to non-empty text + ≥1 figure caption.

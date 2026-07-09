@@ -4,6 +4,10 @@ description: Access the AIP documentation MCP server at https://docs-mcp-server.
 version: 1.0.0
 author: AstroAgent / AIP
 license: MIT
+prerequisites:
+  python:
+    - cryptography
+    - certifi
 metadata:
   hermes:
     tags: [infrastructure, mcp, documentation, search, aip, internal, reana, pandas, snakemake]

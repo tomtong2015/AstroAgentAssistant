@@ -1,14 +1,21 @@
 ---
 name: reana-serial-python
-description: Reusable template for REANA serial workflows that run a Python analysis script on remote data, cache processed results locally as Parquet, and produce PNG outputs. Designed for SHBoost-like analyses where only the script, selected columns, and output names change.
+description: When explicitly asked, use it to build a REANA serial workflow (Python analysis on remote data, Parquet cache, PNG outputs).
 version: 1.0.0
 author: AstroAgent / AIP
 license: MIT
+prerequisites:
+  python:
+    - pandas
+    - matplotlib
+    - pyarrow
+    - pyvo
+    - reana-client
 metadata:
   hermes:
     tags: [reana, workflow, serial, python, parquet, analysis, reproducibility]
     category: workflows
-    related_skills: [reana-operator, reana-client-config, reana-aip, reana-shboost24, s3-parquet-sampling, dask-hvplot-datashader-scientific-plots, cmd-plotting]
+    related_skills: [reana-client-config, reana-aip, reana-shboost24, s3-parquet-sampling, dask-hvplot-datashader-scientific-plots, cmd-plotting]
 ---
 
 # REANA Serial Python Analysis Template
@@ -100,15 +107,6 @@ reana-client download -w my-analysis
 | S3 bucket | `pyarrow` | `pq.ParquetDataset('s3://bucket/path/')` |
 | TAP service | `pyvo` | `tap.run_sync("SELECT ...")` |
 | HTTP URL | `pandas` | `pd.read_csv('https://...')` |
-
-## Canonical Routing
-
-This is a specialized or legacy example skill. For new work, start with `astro-data-access-umbrella` and route through:
-
-- `reana-operator`
-- `s3-parquet-astro-access`
-
-Keep this skill for dataset-specific examples, but prefer the canonical skills for new implementations, live probes, REANA execution, and plotting/cache conventions.
 
 ## Pitfalls
 - Do NOT invent custom environments — use only AIP-approved ones.
