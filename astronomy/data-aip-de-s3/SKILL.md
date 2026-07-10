@@ -4,6 +4,14 @@ description: Work with data.aip.de and S3-backed datasets using reproducible loc
 version: 1.1.0
 author: AstroAgent / AIP
 license: MIT
+prerequisites:
+  python:
+    - dask[dataframe]
+    - hvplot
+    - datashader
+    - pyarrow
+    - pandas
+    - s3fs
 metadata:
   hermes:
     tags: [astronomy, s3, parquet, hdf5, dataset, data-engineering, dask]
@@ -45,15 +53,6 @@ Use this skill when accessing astronomy datasets on data.aip.de or S3-compatible
 - Do not assume efficient random remote access.
 - Prefer creating a local cached copy first.
 - If you extract a tabular subset for repeated analysis, save that subset locally as Parquet.
-
-## Canonical Routing
-
-This is a specialized or legacy example skill. For new work, start with `astro-data-access-umbrella` and route through:
-
-- `s3-parquet-astro-access`
-- `astro-data-access-umbrella`
-
-Keep this skill for dataset-specific examples, but prefer the canonical skills for new implementations, live probes, REANA execution, and plotting/cache conventions.
 
 ## Pitfalls
 - Avoid repeated full remote scans when a local cache is sufficient.

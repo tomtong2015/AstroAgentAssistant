@@ -25,6 +25,7 @@ Use this skill for colour-magnitude diagrams or related astronomy plots in Pytho
 ## Pitfalls
 - Avoid scatter plots for very large datasets when density plots are more appropriate.
 - Avoid undocumented axis transformations.
+- **For a known cluster, anchor member selection to literature values.** Set the parallax / proper-motion cuts from the cluster's published distance and mean proper motion — not from whatever maximizes the member count. A count-maximizing selection pulls in field stars, smears the main sequence, and makes the turn-off (and any age read-off) wrong.
 
 ## Verification
 - Plot labels and file outputs match the stated convention.

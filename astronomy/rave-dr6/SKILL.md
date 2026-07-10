@@ -1,14 +1,22 @@
 ---
 name: rave-dr6
 description: Query the RAVE DR6 catalog at https://www.rave-survey.org/tap/ using pyvo (TAPService.run_sync). Access stellar parameters, Gaia cross-matches, distances, and Galactic coordinates (l, b). Includes galactic and equirectangular projection plotting recipes.
-version: 1.0.0
+version: 1.1.0
 author: AstroAgent / AIP
 license: MIT
+prerequisites:
+  python:
+    - pyvo
+    - pandas
+    - pyarrow
+    - matplotlib
+    - seaborn
+    - scipy
 metadata:
   hermes:
     tags: [astronomy, rave-dr6, tap, stellar-parameters, galactic-coordinates, pyvo]
     category: astronomy
-    related_skills: [rave-dr6-nearest-100-plot, rave-dr6-public-talk-visualizations, gaiadr3-aip-de-adql, shboost24-cmd, starhorse-access]
+    related_skills: [rave-dr6-nearest-100-plot, rave-dr6-public-talk-visualizations, gaia-dr3-tap-query, shboost24-cmd, starhorse-access]
 ---
 
 # RAVE DR6 TAP Query
@@ -26,32 +34,32 @@ Start with `rave-dr6` for general querying and branch to the more specialized sk
 
 ## Procedure
 
-### 1. Install dependencies
-```bash
-pip3 install --quiet --break-system-packages pyvo pandas pyarrow matplotlib seaborn
-```
+> Dependencies (`pyvo`, `pandas`, `pyarrow`, `matplotlib`, `seaborn`) are
+> declared in `prerequisites.python` and pre-installed in this skill's
+> dedicated venv. Run all Python commands below with `{{SKILL_PYTHON}}` —
+> do NOT `pip install` anything.
 
-### 2. Connect to the TAP service
+### 1. Connect to the TAP service
 ```python
 import pyvo, pandas as pd, warnings
 warnings.filterwarnings('ignore')
 tap = pyvo.dal.TAPService("https://www.rave-survey.org/tap/")
 ```
 
-### 3. List available tables
+### 2. List available tables
 ```python
 for t in tap.tables:
     print(t.name)
 ```
 
-### 4. Inspect columns of a table
+### 3. Inspect columns of a table
 ```python
 t = tap.tables['ravedr6.dr6_x_gaiaedr3']
 for c in t.columns:
     print(c.name)
 ```
 
-### 5. Run a synchronous query
+### 4. Run a synchronous query
 Use `run_sync()` — **not** `query()` or `submit_job()` (those use async and return 400 errors).
 
 ```python
@@ -67,12 +75,12 @@ result = tap.run_sync(query)
 df = result.to_table().to_pandas()
 ```
 
-### 6. Save locally as Parquet
+### 5. Save locally as Parquet
 ```python
 df.to_parquet('rave_dr6_subset.parquet', index=False)
 ```
 
-### 7. Galactic projection (xgal vs ygal)
+### 6. Galactic projection (xgal vs ygal)
 Project onto the Galactic plane with the Sun at origin:
 
 ```python
@@ -102,7 +110,7 @@ fig.tight_layout()
 fig.savefig('rave_dr6_xgal_ygal.png', dpi=180)
 ```
 
-### 8. Plot RA vs Dec (equirectangular)
+### 7. Plot RA vs Dec (equirectangular)
 ```python
 fig, ax = plt.subplots(figsize=(14, 5))
 scatter = ax.scatter(df['ra'], df['dec'], c=df['parallax'], cmap='plasma',
@@ -126,21 +134,14 @@ fig.savefig('rave_dr6_ra_dec.png', dpi=180)
 | `ravedr6.dr6_seismic` | Seismic data |
 | `ravedr6.dr6_madera` | Asteroseismic parameters |
 
-## Canonical Routing
-
-This is a specialized or legacy example skill. For new work, start with `astro-data-access-umbrella` and route through:
-
-- `rave-dr6-data-access`
-- `tap-pyvo-adql-access`
-
-Keep this skill for dataset-specific examples, but prefer the canonical skills for new implementations, live probes, REANA execution, and plotting/cache conventions.
-
 ## Pitfalls
 - **`run_sync()` is the only correct method** — `query()` does not exist on TAPService, `submit_job()` uses async and fails with 400.
 - **Filter `parallax > 0`** — negative parallax entries correspond to stars with poorly constrained distances.
 - **Use `TOP N` or `WHERE` clauses** to limit results — the TAP service times out on very large queries.
 - **Distance estimation**: parallax in mas → distance in pc ≈ 1000/parallax.
 - **For nearest stars**: `parallax > 0 ORDER BY parallax DESC`.
+- **Keep the query in the foreground.** Run it in a single foreground script — never as a background process (terminal `background=true` / `notify_on_complete`). RAVE TAP is sync-only (`run_sync`) anyway; just bound the result with `TOP N` / a `WHERE` clause.
+- **Anchor selections to literature values.** When isolating a known object's members (e.g. an open cluster or stellar stream), set your parallax / proper-motion / distance cuts from its published values — not from whatever maximizes the star count.
 
 ## Verification
 - Query returns 100 rows for the TOP 100 example.

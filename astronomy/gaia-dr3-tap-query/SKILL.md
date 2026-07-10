@@ -1,140 +1,117 @@
 ---
 name: gaia-dr3-tap-query
-title: Query Gaia DR3 Catalog via TAP/pyvo (AIP endpoint)
-author: Hermi (sorgenfresser)
-version: 1.0
-description: Retrieve the nearest 100 stars from Gaia DR3 using the TAP service hosted at AIP (https://gaia.aip.de/tap/). Includes Parquet storage, preview CSV, and RA/Dec & Galactic XY plots.
+description: Query Gaia DR3 at gaia.aip.de via TAP/pyvo — the DEFAULT way to get Gaia data. ADQL queries, uniform random subsampling, Parquet caching, and ready-made sky / Galactic-XY plots. Access 1.8 billion sources.
+version: 2.1.0
+author: Hermi (sorgenfresser) / AIP
+license: MIT
+prerequisites:
+  python:
+    - pyvo
+    - pandas
+    - pyarrow
+    - matplotlib
+    - seaborn
+    - scipy
+metadata:
+  hermes:
+    tags: [astronomy, gaia-dr3, tap, pyvo, adql, gaia-aip]
+    category: astronomy
+    related_skills: [rave-dr6, gaia-dr3-daiquiri-rest, gaia-dr3-plot-with-dust, cmd-plotting, starhorse-access]
 ---
 
-# Overview
+# Gaia DR3 @AIP — TAP / pyvo (default)
 
 ## When to Use
-Retrieve the nearest 100 stars from Gaia DR3 using the TAP service hosted at AIP (https://gaia.aip.de/tap/). Includes Parquet storage, preview CSV, and RA/Dec & Galactic XY plots.
+The default for ALL Gaia DR3 queries and plotting: one `run_sync()` call against the
+standard TAP service `https://gaia.aip.de/tap/`. Use this unless you specifically
+need a full-table `COUNT(*)` or a very large async scan — for those use
+`gaia-dr3-daiquiri-rest`.
 
-## Overview
-This skill contains a reusable operational workflow. Follow the existing task-specific steps and examples in the sections below.
+> Dependencies (`pyvo`, `pandas`, `pyarrow`, `matplotlib`, `seaborn`) are
+> pre-installed in this skill's dedicated venv. Run every Python command below
+> with `{{SKILL_PYTHON}}`. Never `pip install` anything.
 
-## Canonical Routing
+## Procedure
 
-This is a specialized or legacy example skill. For new work, start with `astro-data-access-umbrella` and route through:
-
-- `gaia-aip-data-access`
-- `tap-pyvo-adql-access`
-- `astro-catalog-plotting-cache`
-
-Keep this skill for dataset-specific examples, but prefer the canonical skills for new implementations, live probes, REANA execution, and plotting/cache conventions.
-
-## Pitfalls
-- Do not hardcode credentials, tokens, or personal secrets.
-- Verify external service URLs, paths, and permissions before making changes.
-- Keep generated outputs reproducible and record input assumptions.
-
-## Verification
-- Confirm required inputs and credentials are available.
-- Run the smallest safe command or example before scaling up.
-- Check produced files, API responses, or plots before reporting success.
-
-This skill shows how to programmatically query the Gaia DR3 catalog via a TAP service using the `pyvo` library. It obtains the 100 stars with the largest parallax (closest distances) and produces useful visualisations.
-
-# Prerequisites
-```bash
-pip install --quiet pyvo pandas matplotlib seaborn
-```
-
-# TAP Service
-Use the AIP-hosted Gaia TAP endpoint:
-```
-https://gaia.aip.de/tap/
-```
-(It provides a stable ADQL interface; other ESA endpoints often reject `TOP`/`LIMIT` syntax or require different auth.)
-
-# Steps
-## 1. Connect to the service
+### 1. Connect
 ```python
 import pyvo, warnings
-warnings.filterwarnings('ignore')
-service = pyvo.dal.TAPService('https://gaia.aip.de/tap/')
+warnings.filterwarnings("ignore")
+service = pyvo.dal.TAPService("https://gaia.aip.de/tap/")
 ```
 
-## 2. Define the query
-We want the 100 stars with the highest parallax (positive values only):
+### 2a. Uniform random subsample — the RIGHT way to get N representative stars, FAST
+`random_index` is a precomputed shuffle column; filtering on it returns a uniform
+sample without sorting the 1.8-billion-row table. ~200k stars come back in ~1 s.
 ```python
-query = """
-SELECT TOP {N} source_id, ra, dec, l, b, parallax, phot_g_mean_mag, bp_rp  # replace {N} with desired number (e.g., 10)
-FROM gaiadr3.gaia_source
-WHERE parallax > 0
-ORDER BY parallax DESC
-"""
-```
-`TOP 100` works with the AIP service; `LIMIT` is not supported here.
-
-## 3. Execute synchronously
-```python
-result = service.run_sync(query)
-```
-If you see a `DALQueryError` or `Cannot parse query` older endpoints, switch to the AIP URL.
-
-## 4. Convert to pandas and cache
-```python
-import pandas as pd
-df = result.to_table().to_pandas()
-parquet_path = '/home/hermes/gaia_dr3_closest100.parquet'
-df.to_parquet(parquet_path, index=False)
-# preview CSV (first 20 rows)
-df.head(20).to_csv('/home/hermes/gaia_dr3_closest100_preview.csv', index=False)
+q = """SELECT ra, dec, phot_g_mean_mag, parallax, bp_rp
+       FROM gaiadr3.gaia_source
+       WHERE random_index < 200000"""
+df = service.run_sync(q, maxrec=300000).to_table().to_pandas()
 ```
 
-## 5. Plot RA vs Dec (equirectangular)
+### 2b. Nearest stars / targeted selection
 ```python
-import matplotlib
-matplotlib.use('Agg')
+q = """SELECT TOP 100 source_id, ra, dec, l, b, parallax, phot_g_mean_mag, bp_rp
+       FROM gaiadr3.gaia_source
+       WHERE parallax > 10
+       ORDER BY parallax DESC"""        # a parallax floor bounds the sort -> fast
+df = service.run_sync(q).to_table().to_pandas()
+```
+
+### 3. Cache to a workspace topic folder
+```python
+import os
+out = "gaia-dr3-allsky"                 # descriptive topic folder under the workspace
+os.makedirs(out, exist_ok=True)
+df.to_parquet(f"{out}/gaia_sample.parquet", index=False)
+```
+
+### 4. Discover tables / columns (optional)
+```python
+print([t.name for t in service.tables if "gaiadr3" in t.name][:10])
+```
+
+## Plot recipes (always save under the workspace folder)
+
+### RA/Dec sky scatter
+```python
+import matplotlib; matplotlib.use("Agg")
 import matplotlib.pyplot as plt
-import seaborn as sns
-sns.set_style('whitegrid')
-plt.figure(figsize=(12,5))
-sc = plt.scatter(df['ra'], df['dec'], c=df['parallax'], cmap='plasma', s=60, edgecolors='white', linewidths=0.4)
-plt.xlabel('RA [deg]')
-plt.ylabel('Dec [deg]')
-plt.title('Gaia DR3: 100 Closest Stars (by parallax)')
-plt.colorbar(sc, label='Parallax [mas]')
-plt.savefig('/home/hermes/gaia_dr3_ra_dec.png', dpi=180, bbox_inches='tight')
-plt.close()
+plt.figure(figsize=(12, 5))
+sc = plt.scatter(df["ra"], df["dec"], c=df.get("parallax"), cmap="plasma", s=4)
+plt.xlabel("RA [deg]"); plt.ylabel("Dec [deg]"); plt.colorbar(sc, label="parallax [mas]")
+plt.title("Gaia DR3 sample"); plt.savefig(f"{out}/gaia_ra_dec.png", dpi=150, bbox_inches="tight")
 ```
 
-## 6. Galactic XY projection (Sun at origin)
+### All-sky density (Galactic, Mollweide) — for large samples
 ```python
 import numpy as np
-l_rad = np.radians(df['l'].values)
-b_rad = np.radians(df['b'].values)
-xgal = np.cos(b_rad) * np.cos(l_rad)
-ygal = np.cos(b_rad) * np.sin(l_rad)
-plt.figure(figsize=(8,7))
-sc2 = plt.scatter(xgal, ygal, c=df['parallax'], cmap='plasma', s=70, edgecolors='white', linewidths=0.5)
-plt.scatter(0,0,c='gold',s=300,marker='o',edgecolors='orange')
-plt.annotate('Sun', xy=(0,0), xytext=(0.07,0.07), fontsize=12, color='darkorange', fontweight='bold', arrowprops=dict(arrowstyle='->', color='darkorange'))
-plt.xlabel('xgal = cos(b) cos(l)')
-plt.ylabel('ygal = cos(b) sin(l)')
-plt.axis('equal')
-plt.xlim(-1.1,1.1); plt.ylim(-1.1,1.1)
-plt.colorbar(sc2, label='Parallax [mas]')
-plt.title('Galactic XY Projection')
-plt.savefig('/home/hermes/gaia_dr3_xy.png', dpi=180, bbox_inches='tight')
-plt.close()
+from astropy.coordinates import SkyCoord
+import astropy.units as u
+from matplotlib.colors import LogNorm
+g = SkyCoord(ra=df.ra.values*u.deg, dec=df.dec.values*u.deg).galactic
+l = -g.l.wrap_at(180*u.deg).radian; b = g.b.radian          # l increases left (convention)
+H, xe, ye = np.histogram2d(l, b, bins=[np.linspace(-np.pi, np.pi, 361),
+                                       np.linspace(-np.pi/2, np.pi/2, 181)])
+fig = plt.figure(figsize=(13, 7)); ax = fig.add_subplot(111, projection="mollweide")
+pcm = ax.pcolormesh(*np.meshgrid(xe, ye), H.T, cmap="magma",
+                    norm=LogNorm(vmin=1, vmax=H.max()), shading="auto")
+ax.grid(True, alpha=0.2); fig.colorbar(pcm, ax=ax, orientation="horizontal", shrink=0.6, label="stars/bin")
+fig.savefig(f"{out}/allsky_density.png", dpi=130, bbox_inches="tight")
 ```
 
-# Pitfalls & Tips
-- **Endpoint matters**: The ESA TAP endpoint (`gea.esac.esa.int`) rejected `TOP`/`LIMIT` and gave connection errors. The AIP endpoint works reliably.
-- **Query syntax**: Use `TOP N` rather than `LIMIT N` for this service.
-- **Positive parallax filter**: Excludes ill‑determined distances.
-- **Large queries**: Keep `TOP` modest (e.g., 100) to avoid timeout.
-- **Installation**: `pyvo` may need `--break-system-packages` in this environment.
-- **File paths**: The skill writes files to `/home/hermes/` – adjust if a different directory is preferred.
+## Pitfalls
+- Use `TOP N` or `WHERE random_index < N` — **not `LIMIT`** (unsupported by this service).
+- **Never `ORDER BY random()`** over the full table — it forces a full scan + sort (minutes → stuck).
+- For nearest-stars queries add a parallax floor (`WHERE parallax > 10`) so the sort is bounded.
+- Samples above the sync row cap: pass `maxrec=`; for >1M rows use `service.submit_job(q)` (async).
+- Save all outputs under the workspace (a topic folder) — never `/home/hermes/` or `/tmp`.
+- **Keep queries in the foreground.** Run the query in a single foreground script — never launch it as a background process (terminal `background=true` / `notify_on_complete`). A detached query job keeps running after you stop and spawns stray completion nudges. A `run_sync` of a few hundred k rows returns in ~1 s; for a genuinely large scan use `service.submit_job(q)` and poll it *within* the foreground script. If you think you need millions of rows, subsample instead (`WHERE random_index < N`).
+- **Anchor selections to literature values.** When isolating a known object's members (e.g. an open cluster), set your parallax / proper-motion / distance cuts from its published values — not from whatever maximizes the star count.
+- **This service also speaks PostgreSQL (not only ADQL).** gaia.aip.de is a Daiquiri service: `service.submit_job(qstr, language='postgresql')` runs native PostgreSQL — the recipe many published notebooks for AIP-hosted tables use (e.g. StarHorse's `get_one_query`; see the `starhorse-access` skill). If a notebook/paper gives you a PostgreSQL query for an AIP table, run it VERBATIM with `language='postgresql'` — do NOT rewrite it into ADQL. Both languages work; rewriting is where errors creep in.
 
-# Verification
-After running, you should have:
-- `/home/hermes/gaia_dr3_closest100.parquet`
-- `/home/hermes/gaia_dr3_closest100_preview.csv`
-- `/home/hermes/gaia_dr3_ra_dec.png`
-- `/home/hermes/gaia_dr3_xy.png`
-All plots show the Sun at the centre of the Galactic XY view and colour‑code stars by parallax.
----
+## Verification
+- `service.run_sync("SELECT TOP 5 ra, dec FROM gaiadr3.gaia_source")` returns 5 rows.
+- A `random_index < N` query returns ~N real rows in ~1 s.
+- Output Parquet / PNG land in the workspace topic folder.

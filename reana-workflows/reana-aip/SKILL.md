@@ -1,6 +1,6 @@
 ---
 name: reana-aip
-description: Create REANA workflows using AIP conventions, approved environments, and reproducible workflow structure.
+description: When explicitly asked, use it to create or run a REANA workflow.
 version: 1.0.0
 author: AstroAgent / AIP
 license: MIT
@@ -8,7 +8,7 @@ metadata:
   hermes:
     tags: [reana, workflow, reproducibility, astronomy]
     category: workflows
-    related_skills: [reana-operator, reana-client-config, reana-shboost24, reana-serial-python]
+    related_skills: [reana-client-config, reana-shboost24, reana-serial-python]
 ---
 
 # REANA AIP Workflow
