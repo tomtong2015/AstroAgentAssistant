@@ -4,6 +4,8 @@ Custom Hermes Agent skills developed by the AIP AstroAgent team. This repository
 
 Total: **112** custom skills across **14** categories, plus **14** superseded skills retained in [`outdated-skills/`](outdated-skills/README.md).
 
+> The inventory below is generated — run `python3 scripts/gen_readme.py` after changing skills instead of editing this file by hand.
+
 ## Repository layout
 
 | Directory | Description | Skills |
