@@ -12,12 +12,12 @@ Total: **114** custom skills across **15** categories, plus **14** superseded sk
 |---|---|---|
 | `agents/` | AstroAgent concepts and configuration | 1 |
 | `astronomy/` | AIP-developed survey archives, TAP/ADQL and REST queries, stellar catalogs, and astronomy-specific plots/animations. See [`astronomy/README.md`](astronomy/README.md) for the grouped astronomy routing guide. | 17 |
+| `autonomous-ai-agents/` | AIP-developed skills | 1 |
 | `creative/` | AIP-developed educational animations, Manim, visual explainers, and media workflows | 14 |
-|| `data-science/` | AIP-developed scientific visualization and dense-data plotting workflows | 1 |
-|| `devops/` | AIP-developed operations, containers, deployment, service exposure, and runtime troubleshooting | 10 |
-|| `autonomous-ai-agents/` | AIP-developed multi-agent orchestration, Kanban workflows, and Codex lane management | 1 |
-|| `infrastructure/` | AIP-developed Hermes/OpenWebUI/API-server/MCP infrastructure, workspace backup, and integration workflows | 8 |
-|| `leisure/` | AIP-developed nearby places and leisure search workflows | 1 |
+| `data-science/` | AIP-developed scientific visualization and dense-data plotting workflows | 1 |
+| `devops/` | AIP-developed operations, containers, deployment, service exposure, and runtime troubleshooting | 10 |
+| `infrastructure/` | AIP-developed Hermes/OpenWebUI/API-server/MCP infrastructure, workspace backup, and integration workflows | 8 |
+| `leisure/` | AIP-developed nearby places and leisure search workflows | 1 |
 | `media/` | AIP-developed audio/video generation and media post-processing workflows | 2 |
 | `productivity/` | AIP-developed calendars, contacts, image-description, and document workflows | 4 |
 | `python/` | AIP-developed Python data engineering, caching, plotting, symbolic math, and reusable scientific-programming workflows | 7 |
@@ -33,13 +33,13 @@ Total: **114** custom skills across **15** categories, plus **14** superseded sk
 
 **Astronomy (17)** — AIP-developed survey archives, TAP/ADQL and REST queries, stellar catalogs, and astronomy-specific plots/animations
 
+**Autonomous Ai Agents (1)** — AIP-developed skills
+
 **Creative (14)** — AIP-developed educational animations, Manim, visual explainers, and media workflows
 
 **Data Science (1)** — AIP-developed scientific visualization and dense-data plotting workflows
 
 **Devops (10)** — AIP-developed operations, containers, deployment, service exposure, and runtime troubleshooting
-
-**Autonomous AI Agents (1)** — AIP-developed multi-agent orchestration, Kanban workflows, and Codex lane management
 
 **Infrastructure (8)** — AIP-developed Hermes/OpenWebUI/API-server/MCP infrastructure, workspace backup, and integration workflows
 
@@ -63,9 +63,8 @@ Total: **114** custom skills across **15** categories, plus **14** superseded sk
 
 | Skill | Description |
 |---|---|
-|| `agents/astroagent-concept/` | Use the AstroAgent concept framing for architecture, positioning, and design discussions. |
-|| `autonomous-ai-agents/kanban-codex-lane/` | Hermes skill wrapper for running Lumi / opencode configs via Kanban: a focused Codex lane for prediction-market-bot that isolates speculative coding from the orchestrator, with safety gates and PMB constraints. |
-|| `astronomy/astro-catalog-plotting-cache/` | Use when turning astronomy catalog data into reproducible cached products and publication-ready plots, especially CMDs, RA/Dec maps, Galactic projections, hexbin density plots, Datashader outputs, and proven... |
+| `agents/astroagent-concept/` | Use the AstroAgent concept framing for architecture, positioning, and design discussions. |
+| `astronomy/astro-catalog-plotting-cache/` | Use when turning astronomy catalog data into reproducible cached products and publication-ready plots, especially CMDs, RA/Dec maps, Galactic projections, hexbin density plots, Datashader outputs, and proven... |
 | `astronomy/astro-data-access-umbrella/` | Use when an astronomy task needs data access and the agent must choose between TAP/ADQL/pyvo catalogs, Gaia@AIP REST/Daiquiri, S3/Parquet object storage, local StarHorse-style datasets, plotting/cache workfl... |
 | `astronomy/data-aip-de-s3/` | Work with data.aip.de and S3-backed datasets using reproducible local caching, Dask-first reads for huge data, and plotting workflows that scale to large astronomy catalogs. |
 | `astronomy/drphub-cards/` | Manage DRP Hub Digital Research Products via the production REST API at drp-term.kube.aip.de/api/v1/. Supports full CRUD, clone, maturity, publish, audit, lineage, human-review, bookmarks, likes, sharing, an... |
@@ -82,6 +81,7 @@ Total: **114** custom skills across **15** categories, plus **14** superseded sk
 | `astronomy/rave-dr6/` | Query the RAVE DR6 catalog at https://www.rave-survey.org/tap/ using pyvo (TAPService.run_sync). Access stellar parameters, Gaia cross-matches, distances, and Galactic coordinates (l, b). Includes galactic a... |
 | `astronomy/starhorse-access/` | Access StarHorse data products including SHboost-2024 and the SH21 EDR3 catalog via gaia.aip.de TAP. |
 | `astronomy/tap-pyvo-adql-access/` | Use when querying astronomy TAP services with ADQL through pyvo or curl, including service probes, metadata discovery, TOP-based queries, VOTable/FITS conversion, pandas/Parquet caching, and robust network f... |
+| `autonomous-ai-agents/kanban-codex-lane/` | Use when a Hermes Kanban worker wants to run Codex CLI as an isolated implementation lane while Hermes keeps ownership of task lifecycle, reconciliation, testing, and handoff. |
 | `creative/4most-spectrograph-animation/` | Manim CE animation explaining the 4MOST spectrograph for 11th-grade physics class. Full optical path from starlight through telescope, collimator, slit, dispersion element, fibre positioner, spectrographs, t... |
 | `creative/animate-sine-cosine-matplotlib/` | Generate an MP4 animation of sine (green) and cosine (red) curves using matplotlib for frame rendering and ffmpeg for encoding. The skill avoids privileged operations and destructive commands. |
 | `creative/fourmost-educational-animation/` | Create a short Manim animation that explains the 4MOST spectrograph for 11th‑grade physics classes. Includes installation, script writing, rendering, common pitfalls, and fallback to external video. |
@@ -99,9 +99,9 @@ Total: **114** custom skills across **15** categories, plus **14** superseded sk
 | `data-science/datashader-019-pipeline/` | Generate density plots (CMD, hexbin, 2D histograms) using datashader 0.19.0 with Dask for lazy data loading and matplotlib for final rendering. Handles the 0.19.0 API: no Canvas.hexbin(), no tf.to_rgba(), tf... |
 | `devops/api-server-local-image-support/` | Fix Open WebUI image display by extending api_server.py to convert standard markdown ![alt](/local/path) images into HTTP URLs via /media/<path> route. Handles the gap between agent-generated image paths and... |
 | `devops/docker-access-group-reload/` | Resolve Docker permission errors by ensuring the user is in the docker group and reloading group membership. |
-|| `devops/docker-access/` | Verify Docker availability and run containers on this host. |
-|| `devops/kanban-worker/` | Complete guide to the Hermes Kanban system: the orchestrator decomposition playbook, specialist roster conventions, anti-temptation rules, and the deeper worker pitfalls, examples, and edge cases. The core lifecycle is auto-injected into every worker's system prompt; load this skill for full detail. |
-|| `devops/manim-headless-rendering/` | Guidelines for rendering Manim animations in a headless Linux environment (no GUI). Includes troubleshooting common errors, choosing correct renderer, managing long renders, and concatenating partial video f... |
+| `devops/docker-access/` | Verify Docker availability and run containers on this host. |
+| `devops/kanban-worker/` | Complete guide to the Hermes Kanban system: the orchestrator decomposition playbook, specialist roster conventions, anti-temptation rules, and the deeper worker pitfalls, examples, and edge cases. The core l... |
+| `devops/manim-headless-rendering/` | Guidelines for rendering Manim animations in a headless Linux environment (no GUI). Includes troubleshooting common errors, choosing correct renderer, managing long renders, and concatenating partial video f... |
 | `devops/manim-telegram-animation/` | Guide to creating concise educational animations with Manim, handling common errors, rendering in low‑resolution, and delivering the final MP4 via Telegram (including ffmpeg concat handling). |
 | `devops/manim-telegram-delivery/` | Generate a Manim animation, extract a short preview, concatenate full‑resolution fragments, and deliver the MP4 directly via Telegram. Handles common rendering pitfalls (partial movie files, missing renderer... |
 | `devops/manim-video-audio/` | Add audio to Manim-rendered videos — background music, TTS narration, or SRT subtitles. Handles common pitfalls with MP3 decoding, volume mixing, and timing. |
@@ -129,7 +129,7 @@ Total: **114** custom skills across **15** categories, plus **14** superseded sk
 | `python/s3-parquet-sampling-plot-cached/` | Efficiently sample a subset of a massive Parquet dataset stored on an S3‑compatible bucket, cache the sampled rows locally as a Parquet file for fast reuse, and produce high‑resolution PNG plots suitable for... |
 | `python/s3-parquet-sampling/` | Sample or reduce massive Parquet datasets on S3 using local Parquet caching, Dask-first processing for large inputs, and hvPlot/Datashader for scalable scientific visualization. |
 | `python/seaborn-paper-plots/` | Create clean seaborn/matplotlib plots suitable for papers, notes, and reproducible reports. |
-| `reana-workflows/reana-aip/` | When explicitly asked, use it to create or run a REANA workflow. |
+| `reana-workflows/reana-aip/` | Author, validate, and run REANA workflows under AIP conventions — canonical reana.yaml template, the approved environment images, mandatory reana-client validate, submit/monitor recipe, GitLab + DRP-card han... |
 | `reana-workflows/reana-client-config/` | Configure REANA client authentication with multi-profile `.reana/config.yaml` or `~/.reana/config.yaml`, store tokens safely, and select dev/prod back-ends reproducibly. |
 | `reana-workflows/reana-client-docker/` | Use the Dockerized REANA client to ping a REANA server, list workflows, and format output with jq. |
 | `reana-workflows/reana-client-failover/` | Use when a REANA workflow operation needs a robust client launcher: prefer native reana-client when installed, automatically fall back to Dockerized reanahub/reana-client when native client is missing, verif... |

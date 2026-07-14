@@ -1,7 +1,7 @@
 ---
 name: drphub-cards
 description: "Manage DRP Hub Digital Research Products via the production REST API at drp-term.kube.aip.de/api/v1/. Supports full CRUD, clone, maturity, publish, audit, lineage, human-review, bookmarks, likes, sharing, and SSE event streaming."
-version: 2.0.0
+version: 2.1.0
 author: Ori (Hermes Agent)
 license: MIT
 platforms: [linux]
@@ -11,7 +11,7 @@ metadata:
     homepage: https://drphub-p4n.aip.de
     api_base: https://drp-term.kube.aip.de/api/v1
     docs: https://drp-term.kube.aip.de/api/v1/docs#/
-    related_skills: [reana-aip, reana-serial-python]
+    related_skills: [reana-aip, reana-serial-python, docs-mcp-at-aip]
 ---
 
 # DRP Hub Card/Product Management
@@ -254,6 +254,32 @@ minimal = drphub_request("GET", "/products?limit=10&fields=id,title,maturity_lev
 with_links = drphub_request("GET", "/products?include=links&limit=5")
 ```
 
+### ⚠️ RUNNABLE-card pre-flight (do this BEFORE creating a card with has_reana)
+
+A card's **"Run on REANA"** button executes `workflow_file` from
+`git_url@git_branch/git_commit` on the clicking user's REANA — the REPO
+content runs, not your workspace. A card created from an unvalidated repo is
+broken for every future user. Checklist:
+
+1. **Author the workflow with the `reana-aip` skill** (canonical reana.yaml
+   template + the approved AIP environment images). Never hand-invent the
+   yaml structure or environment refs; for spec questions use the
+   `docs-mcp-at-aip` server if available.
+2. **`reana-client validate -f reana.yaml` MUST pass** (all three checks) on
+   the exact file that is pushed to the repo.
+3. **Repo reality check:** `reana.yaml` sits at the REPO ROOT (or exactly at
+   the `workflow_file` path); every script in `inputs.files` is committed;
+   the project on gitlab-p4n.aip.de has `internal` or `public` visibility so
+   DRP-Hub can clone it; `git_branch` exists and `git_commit` (or `HEAD`)
+   resolves.
+4. **Card fields must MATCH the repo:** `workflow_file` = the yaml's path;
+   `env_image` = the environment ref used inside reana.yaml (from the
+   approved list — not a made-up docker.io path); `entry_command` = the real
+   run command (e.g. `reana-client run -w <name>`); set `has_reana: true`.
+5. After POST, GET the product back and confirm the git/env fields round-trip
+   correctly — then tell the user the card URL
+   (`https://drphub-p4n.aip.de/` → the card) and that Run on REANA is ready.
+
 ### Create Product (via Web Form API)
 
 Create a product by matching the **DRP Hub web form** structure:
@@ -267,15 +293,17 @@ product = drphub_request("POST", "/products", body={
     "visibility": "private",  # private, internal, shared, public
     "source_type": "repo",  # manual, repo, clone, template, ai_generated, imported
     
-    # === Git Info ===
-    "git_url": "https://github.com/user/repo",
+    # === Git Info (see the runnable-card pre-flight above!) ===
+    "git_url": "https://gitlab-p4n.aip.de/<namespace>/<project>",  # internal/public visibility
     "git_branch": "main",
     "git_commit": "HEAD",  # or specific SHA
-    "workflow_file": "reana.yaml",
-    "entry_command": "reana-run -w my-workflow",
+    "workflow_file": "reana.yaml",          # path inside the repo (root!)
+    "entry_command": "reana-client run -w my-workflow",
     
-    # === Environment ===
-    "env_image": "docker.io/user/reana-env:latest",
+    # === Environment: MUST equal the environment ref inside reana.yaml ===
+    # (approved AIP list in the reana-aip skill, e.g.
+    #  gitlab-p4n.aip.de:5005/p4nreana/reana-env:py311-astro.9845)
+    "env_image": "gitlab-p4n.aip.de:5005/p4nreana/reana-env:py311-astro.9845",
     "env_image_digest": "",  # optional SHA256 digest
     
     # === Metadata ===
@@ -355,6 +383,15 @@ dry = drphub_request("PATCH", f"/products/{product_id}", body={
 
 ```python
 drphub_request("DELETE", f"/products/{product_id}")
+```
+
+**IMPORTANT — soft-delete GET behavior:** After a soft delete, `GET /products/{id}` returns **HTTP 200** (not 404). The record persists with `deleted_at` and `deleted_by` fields populated. To confirm deletion, check for `deleted_at` in the response. Soft-deleted products are automatically filtered from listing endpoints (e.g., `GET /products?mine=true`).
+
+```python
+resp, body = drphub_request("DELETE", f"/products/{product_id}")
+# Verify soft-delete:
+resp, body = drphub_request("GET", f"/products/{product_id}")
+assert body.get("deleted_at") is not None, "Product not soft-deleted!"
 ```
 
 ### Clone Product
