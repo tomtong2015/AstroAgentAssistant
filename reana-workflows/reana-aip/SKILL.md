@@ -1,7 +1,7 @@
 ---
 name: reana-aip
 description: Author, validate, and run REANA workflows under AIP conventions — canonical reana.yaml template, the approved environment images, mandatory reana-client validate, submit/monitor recipe, GitLab + DRP-card hand-off.
-version: 2.0.0
+version: 2.0.1
 author: AstroAgent / AIP
 license: MIT
 metadata:
@@ -81,9 +81,9 @@ cd <workflow-dir>                       # contains reana.yaml + inputs
 reana-client create -w myproj           # or: reana-client run -w myproj (create+upload+start)
 reana-client upload -w myproj
 reana-client start -w myproj
-reana-client status -w myproj           # poll until finished/failed
+reana-client status -w myproj           # poll until finished/failed; output includes PROGRESS column (e.g. "1/1")
 reana-client logs -w myproj | tail -50  # on failure: read the step logs
-reana-client download output.png -w myproj
+reana-client download output.png -w myproj -o .  # download to current dir; no -d flag
 ```
 NB on AIP pods, `reana-client` write operations trigger a human approval card
 in the chat UI — tell the user to approve it; this is expected, not an error.
@@ -93,7 +93,9 @@ The pod's baked token (`AIP_MAINT_GITLAB_TOKEN`) is a **project bot of
 `p4nreana/reana-env`** — it cannot create projects, cannot be added to other
 projects, and can only push to reana-env. Publishing a USER repo therefore
 needs the user's help twice (both are one-click; verified flow):
-1. **User creates the project**: `https://gitlab-p4n.aip.de/projects/new`,
+1. **User creates the project** in the GitLab web UI: from
+   `https://gitlab-p4n.aip.de` click **+ -> New project** (blank project),
+   which yields `https://gitlab-p4n.aip.de/<username>/<project-name>`;
    visibility **public or internal** (DRP-Hub must be able to clone it).
 2. **User creates a project access token on it** and pastes it to you:
    project → Settings → Access Tokens → name e.g. `ori-push`, role
@@ -103,7 +105,9 @@ needs the user's help twice (both are one-click; verified flow):
    NOT the generated outputs — .gitignore them):
 ```bash
 git init -b main && git add -A && git commit -m "REANA workflow"
-git push https://<token-name>:<token>@gitlab-p4n.aip.de/<namespace>/<project>.git main
+# For named personal access tokens: git push https://<token-name>:<token>@...
+# For long project access tokens (no name): use the oauth2: prefix
+git push https://oauth2:<token>@gitlab-p4n.aip.de/<namespace>/<project>.git main
 ```
    Offer to store the token for reuse:
    `reana-client secrets-add --env GITLAB_PUSH_TOKEN=<token>` (lands in the
@@ -119,3 +123,12 @@ git push https://<token-name>:<token>@gitlab-p4n.aip.de/<namespace>/<project>.gi
 - Skipping `reana-client validate` → broken card runs for every future user.
 - Don't ask users to install/configure reana-client in drphub sessions — it
   already works.
+- **Matplotlib color names**: `"darkergoldenrod"` is not valid. Use proper
+  matplotlib named colors (e.g. `"goldenrod"`, `"darkgoldenrod"`) or hex values
+  (e.g. `"#b8860b"`). Check with `matplotlib.colors.CSS4_COLORS` or the
+  [official list](https://matplotlib.org/stable/gallery/color/named_colors.html).
+- **Matplotlib + f-strings + LaTeX math**: `f"…$\\phi…$"` in matplotlib titles
+  triggers `SyntaxWarning: invalid escape sequence '\p'` (Python 3.12+ strict).
+  Use `r"…$\\phi = {v}…"`.format(v=phi) instead.
+  See `references/matplotlib-latex-pitfall.md`.
+
