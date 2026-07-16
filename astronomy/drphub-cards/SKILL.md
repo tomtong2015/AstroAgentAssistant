@@ -1,7 +1,7 @@
 ---
 name: drphub-cards
 description: "Manage DRP Hub Digital Research Products via the production REST API at drp-term.kube.aip.de/api/v1/. Supports full CRUD, clone, maturity, publish, audit, lineage, human-review, bookmarks, likes, sharing, and SSE event streaming."
-version: 2.1.0
+version: 2.1.1
 author: Ori (Hermes Agent)
 license: MIT
 platforms: [linux]
@@ -21,6 +21,12 @@ Manage DRP Hub Digital Research Products (DRPs) via the **production REST API**.
 **API base URL:** `https://drp-term.kube.aip.de/api/v1`
 **OpenAPI spec:** `https://drp-term.kube.aip.de/api/v1/openapi.json`
 **Full API reference (parsed):** `references/api-spec.md`
+
+**Web-UI share link (the URL you give to HUMANS):**
+`https://drphub-p4n.aip.de/share/<product-id>`
+This is the Hub's only public card-view route (`/share/:cardId`). Do NOT
+construct `https://drphub-p4n.aip.de/product/<id>` — no such web route exists
+(it 404s); the `/products/{id}` path is REST-API-only, not a web page.
 
 ## Authentication
 
@@ -277,8 +283,9 @@ broken for every future user. Checklist:
    approved list — not a made-up docker.io path); `entry_command` = the real
    run command (e.g. `reana-client run -w <name>`); set `has_reana: true`.
 5. After POST, GET the product back and confirm the git/env fields round-trip
-   correctly — then tell the user the card URL
-   (`https://drphub-p4n.aip.de/` → the card) and that Run on REANA is ready.
+   correctly — then tell the user the card's SHARE link
+   `https://drphub-p4n.aip.de/share/<product-id>` (NOT `/product/<id>` — that
+   route does not exist) and that Run on REANA is ready.
 
 ### Create Product (via Web Form API)
 
