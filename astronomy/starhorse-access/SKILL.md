@@ -1,7 +1,7 @@
 ---
 name: starhorse-access
 description: Access StarHorse data products including SHboost-2024 and the SH21 EDR3 catalog via gaia.aip.de TAP.
-version: 2.0.0
+version: 2.0.1
 author: Hermes / AIP
 license: MIT
 metadata:
@@ -31,7 +31,7 @@ Use this skill for ANY StarHorse-related data work. Two products:
 # Public HTTP — no auth needed
 wget -O shboost.parquet "https://s3.data.aip.de:9000/shboost2024/shboost_08july2024_pub.parq/part.0.parquet"
 ```
-~190 MB, 1.7M rows × 37 columns. Columns: `source_id`, `dist`, `bprp0`, `mg0`, `xg/yg/zg`, `dist50`, `mass50`, `teff50`, `met50`, `logg50`, `xgb_*` posteriors.
+~190 MB, 1,701,553 rows × 37 columns. Columns: `source_id`, `xgb_{av,logteff,logg,met,mass}` point estimates + `xgbdist_*_mean/std` posteriors, `dist`/`dist_lower`/`dist_upper`/`dist_flag`, `bprp0`, `mg0`, `xg/yg/zg/rg` + `v*g` velocities, string flags. **No `*50` percentile columns here (those are SH21 names); `xgb_logteff` is log10(Teff).** Full schema: `references/schema.md`.
 
 ### SH21 EDR3 (gaia.aip.de TAP, PostgreSQL)
 ```python
@@ -71,7 +71,7 @@ df = result.to_qtable().to_pandas()
 | 3 | dist16 | 16th %ile distance (kpc) | 4 | dist50 | median distance (kpc) |
 | 5 | dist84 | 84th %ile distance (kpc) | 6 | dist95 | 95th %ile distance (kpc) |
 | 7-11 | av05–av95 | A_V percentiles | 12-15 | teff16–teff84 | Teff percentiles (K) |
-| 16-18 | logg16–logg84 | log g percentiles | 19-20 | met50, met84 | [M/H] percentiles |
+| 16-18 | logg16–logg84 | log g percentiles | 19-20 | met16–met84 | [M/H] percentiles |
 | 21-23 | mass16–mass84 | Mass percentiles (M☉) | 24 | ag50 | median A_G |
 | 25-26 | abp50, arp50 | median A_BP, A_RP | 27 | bprp0 | G_BP − G_RP colour |
 | 28 | mg0 | Absolute G magnitude | 29-32 | xgal, ygal, zgal, rgal | Galactocentric coords (kpc) |
@@ -126,3 +126,6 @@ ax.set_ylabel(r'$M_G$')
 - Data source and access path explicitly recorded.
 - Key columns and caveats documented.
 - SH21 schema verified 2026-06-30 against live gaia.aip.de TAP query.
+- Full schemas re-validated 2026-07-20 against TAP_SCHEMA + the SHboost Parquet
+  footer → `references/schema.md` (SHboost column list corrected: `xgb_*` naming,
+  no `*50` columns).
